@@ -1,0 +1,680 @@
+fileFormatVersion: 2
+guid: aefa25fcf58958441b65a0e1ef2327ca
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3717020169791683368
+    second: Fox_Normal_Swipe2_dir8_0
+  - first:
+      213: -8587914502232155171
+    second: Fox_Normal_Swipe2_dir8_1
+  - first:
+      213: -7065896106113615018
+    second: Fox_Normal_Swipe2_dir8_2
+  - first:
+      213: -325502498678931374
+    second: Fox_Normal_Swipe2_dir8_3
+  - first:
+      213: -812424220479703698
+    second: Fox_Normal_Swipe2_dir8_4
+  - first:
+      213: -178088682175626443
+    second: Fox_Normal_Swipe2_dir8_5
+  - first:
+      213: -6257394364821629777
+    second: Fox_Normal_Swipe2_dir8_6
+  - first:
+      213: -1947552754103804206
+    second: Fox_Normal_Swipe2_dir8_7
+  - first:
+      213: 1527619087304882423
+    second: Fox_Normal_Swipe2_dir8_8
+  - first:
+      213: -8137129162378283186
+    second: Fox_Normal_Swipe2_dir8_9
+  - first:
+      213: 4203742256739499605
+    second: Fox_Normal_Swipe2_dir8_10
+  - first:
+      213: 4883781525733741011
+    second: Fox_Normal_Swipe2_dir8_11
+  - first:
+      213: 7118005804226760041
+    second: Fox_Normal_Swipe2_dir8_12
+  - first:
+      213: -2386315550686665788
+    second: Fox_Normal_Swipe2_dir8_13
+  - first:
+      213: -5658594110954222090
+    second: Fox_Normal_Swipe2_dir8_14
+  - first:
+      213: 2463748807867968955
+    second: Fox_Normal_Swipe2_dir8_15
+  - first:
+      213: 990130555786780243
+    second: Fox_Normal_Swipe2_dir8_16
+  - first:
+      213: -8729124167023026187
+    second: Fox_Normal_Swipe2_dir8_17
+  - first:
+      213: 3958674260265230524
+    second: Fox_Normal_Swipe2_dir8_18
+  - first:
+      213: -6553874537476953226
+    second: Fox_Normal_Swipe2_dir8_19
+  - first:
+      213: -3166006964494598320
+    second: Fox_Normal_Swipe2_dir8_20
+  - first:
+      213: -2408039166535970911
+    second: Fox_Normal_Swipe2_dir8_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_0
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 880
+        width: 81
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d4ca9469dd7a6cc0800000000000000
+      internalID: -3717020169791683368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_1
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 880
+        width: 82
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddbd60dc24991d880800000000000000
+      internalID: -8587914502232155171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_2
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 880
+        width: 77
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65b384f9de4e0fd90800000000000000
+      internalID: -7065896106113615018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_3
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 884
+        width: 101
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2508db8b3359b7bf0800000000000000
+      internalID: -325502498678931374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_4
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 885
+        width: 106
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e653263d970b9b4f0800000000000000
+      internalID: -812424220479703698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_5
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 886
+        width: 106
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5338760894d478df0800000000000000
+      internalID: -178088682175626443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 630
+        width: 107
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa496417af44929a0800000000000000
+      internalID: -6257394364821629777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_7
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 631
+        width: 86
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2de1f46b617e8f4e0800000000000000
+      internalID: -1947552754103804206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_8
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 618
+        width: 80
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f8f9ea5771333510800000000000000
+      internalID: 1527619087304882423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_9
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 611
+        width: 86
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4778f0a32c131f80800000000000000
+      internalID: -8137129162378283186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_10
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 611
+        width: 76
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55eb1446f41b65a30800000000000000
+      internalID: 4203742256739499605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_11
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 611
+        width: 80
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d199f91c6da6c340800000000000000
+      internalID: 4883781525733741011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_12
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 355
+        width: 80
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96dca1ee09c38c260800000000000000
+      internalID: 7118005804226760041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_13
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 356
+        width: 73
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c3a45f56aa12eed0800000000000000
+      internalID: -2386315550686665788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_14
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 363
+        width: 74
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fdc478f2a2a871b0800000000000000
+      internalID: -5658594110954222090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_15
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 377
+        width: 72
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbd23ccbc7ef03220800000000000000
+      internalID: 2463748807867968955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_16
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 375
+        width: 81
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35e5eea9e76adbd00800000000000000
+      internalID: 990130555786780243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_17
+      rect:
+        serializedVersion: 2
+        x: 1363
+        y: 372
+        width: 81
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff9058a1dbebd680800000000000000
+      internalID: -8729124167023026187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_18
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 113
+        width: 81
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb06798044900f630800000000000000
+      internalID: 3958674260265230524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_19
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 112
+        width: 81
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67b653305d5fb05a0800000000000000
+      internalID: -6553874537476953226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_20
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 112
+        width: 81
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05ff2e4a0751014d0800000000000000
+      internalID: -3166006964494598320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Swipe2_dir8_21
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 112
+        width: 82
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af4569e22de49ed0800000000000000
+      internalID: -2408039166535970911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

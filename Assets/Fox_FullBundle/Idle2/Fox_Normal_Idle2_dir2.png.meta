@@ -1,0 +1,1055 @@
+fileFormatVersion: 2
+guid: 48e140dfad276764fbb2491508d41d07
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8085513182150653779
+    second: Fox_Normal_Idle2_dir2_0
+  - first:
+      213: 7815312113138842972
+    second: Fox_Normal_Idle2_dir2_1
+  - first:
+      213: 4768813529074777893
+    second: Fox_Normal_Idle2_dir2_2
+  - first:
+      213: -3658180219806245944
+    second: Fox_Normal_Idle2_dir2_3
+  - first:
+      213: 9098758323112612645
+    second: Fox_Normal_Idle2_dir2_4
+  - first:
+      213: -5403558581482191147
+    second: Fox_Normal_Idle2_dir2_5
+  - first:
+      213: -2203862302432095962
+    second: Fox_Normal_Idle2_dir2_6
+  - first:
+      213: -3425098141467736061
+    second: Fox_Normal_Idle2_dir2_7
+  - first:
+      213: 6593326449710375891
+    second: Fox_Normal_Idle2_dir2_8
+  - first:
+      213: -719129968086706630
+    second: Fox_Normal_Idle2_dir2_9
+  - first:
+      213: 8879682592269549738
+    second: Fox_Normal_Idle2_dir2_10
+  - first:
+      213: -1717960449578517270
+    second: Fox_Normal_Idle2_dir2_11
+  - first:
+      213: 185183150886259931
+    second: Fox_Normal_Idle2_dir2_12
+  - first:
+      213: 7684743466830832157
+    second: Fox_Normal_Idle2_dir2_13
+  - first:
+      213: -8233667245992482701
+    second: Fox_Normal_Idle2_dir2_14
+  - first:
+      213: 2278500086934696260
+    second: Fox_Normal_Idle2_dir2_15
+  - first:
+      213: 3339509660472703026
+    second: Fox_Normal_Idle2_dir2_16
+  - first:
+      213: -2606561146999656823
+    second: Fox_Normal_Idle2_dir2_17
+  - first:
+      213: -950860666134043398
+    second: Fox_Normal_Idle2_dir2_18
+  - first:
+      213: 5545632468430112740
+    second: Fox_Normal_Idle2_dir2_19
+  - first:
+      213: -6609068309704486774
+    second: Fox_Normal_Idle2_dir2_20
+  - first:
+      213: 9156355920667680337
+    second: Fox_Normal_Idle2_dir2_21
+  - first:
+      213: -7588258516780919047
+    second: Fox_Normal_Idle2_dir2_22
+  - first:
+      213: 1629885693645388791
+    second: Fox_Normal_Idle2_dir2_23
+  - first:
+      213: -8760662033840056842
+    second: Fox_Normal_Idle2_dir2_24
+  - first:
+      213: -4587349439092385148
+    second: Fox_Normal_Idle2_dir2_25
+  - first:
+      213: 2320059877684449755
+    second: Fox_Normal_Idle2_dir2_26
+  - first:
+      213: -6973753504409989919
+    second: Fox_Normal_Idle2_dir2_27
+  - first:
+      213: -7661937949859121917
+    second: Fox_Normal_Idle2_dir2_28
+  - first:
+      213: 1346658696919597146
+    second: Fox_Normal_Idle2_dir2_29
+  - first:
+      213: -8283907375067138356
+    second: Fox_Normal_Idle2_dir2_30
+  - first:
+      213: 5788625876678614831
+    second: Fox_Normal_Idle2_dir2_31
+  - first:
+      213: -942574356476741762
+    second: Fox_Normal_Idle2_dir2_32
+  - first:
+      213: 5362471312821412226
+    second: Fox_Normal_Idle2_dir2_33
+  - first:
+      213: -4928101313616626804
+    second: Fox_Normal_Idle2_dir2_34
+  - first:
+      213: 8141511987664641030
+    second: Fox_Normal_Idle2_dir2_35
+  - first:
+      213: 495714805191590764
+    second: Fox_Normal_Idle2_dir2_36
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_0
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 1651
+        width: 58
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 357f3d87663853070800000000000000
+      internalID: 8085513182150653779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_1
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 1651
+        width: 59
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5db278a5f0957c60800000000000000
+      internalID: 7815312113138842972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_2
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1651
+        width: 59
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52f349073aa3e2240800000000000000
+      internalID: 4768813529074777893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_3
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 1651
+        width: 59
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cb9612d8788b3dc0800000000000000
+      internalID: -3658180219806245944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_4
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 1651
+        width: 58
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5239142dc78454e70800000000000000
+      internalID: 9098758323112612645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_5
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 1651
+        width: 58
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d68db37914b205b0800000000000000
+      internalID: -5403558581482191147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_6
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 1395
+        width: 57
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62119a999ee4a61e0800000000000000
+      internalID: -2203862302432095962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_7
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 1395
+        width: 57
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30807f4236b9770d0800000000000000
+      internalID: -3425098141467736061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_8
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 1395
+        width: 57
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d3ac2b1973308b50800000000000000
+      internalID: 6593326449710375891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_9
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 1395
+        width: 57
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a369ad8aa132506f0800000000000000
+      internalID: -719129968086706630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_10
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 1395
+        width: 58
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa042766548fa3b70800000000000000
+      internalID: 8879682592269549738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_11
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 1395
+        width: 59
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aecb3b0c2149828e0800000000000000
+      internalID: -1717960449578517270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_12
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 1139
+        width: 59
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdc86f63817e19200800000000000000
+      internalID: 185183150886259931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_13
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 1139
+        width: 60
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d12a472b771b5aa60800000000000000
+      internalID: 7684743466830832157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_14
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 1139
+        width: 60
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37869db73432cbd80800000000000000
+      internalID: -8233667245992482701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_15
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 1139
+        width: 60
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 441707ec1cbde9f10800000000000000
+      internalID: 2278500086934696260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_16
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 1139
+        width: 60
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 238f57cb752585e20800000000000000
+      internalID: 3339509660472703026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_17
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 1139
+        width: 59
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98e20cb6272a3dbd0800000000000000
+      internalID: -2606561146999656823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_18
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 883
+        width: 58
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af46034134dddc2f0800000000000000
+      internalID: -950860666134043398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_19
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 883
+        width: 58
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e746a7195b06fc40800000000000000
+      internalID: 5545632468430112740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_20
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 883
+        width: 57
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a80d5cf736fd744a0800000000000000
+      internalID: -6609068309704486774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_21
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 883
+        width: 57
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15e11788239e11f70800000000000000
+      internalID: 9156355920667680337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_22
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 883
+        width: 57
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f6d073551711b690800000000000000
+      internalID: -7588258516780919047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_23
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 883
+        width: 57
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fb793227648e9610800000000000000
+      internalID: 1629885693645388791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_24
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 627
+        width: 58
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f556b3db40eb6680800000000000000
+      internalID: -8760662033840056842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_25
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 627
+        width: 59
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48a9f4e6df57650c0800000000000000
+      internalID: -4587349439092385148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_26
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 627
+        width: 59
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd19403aa22823020800000000000000
+      internalID: 2320059877684449755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_27
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 627
+        width: 60
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ecc182e220483f90800000000000000
+      internalID: -6973753504409989919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_28
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 627
+        width: 60
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 305ff8f77045ba590800000000000000
+      internalID: -7661937949859121917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_29
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 627
+        width: 60
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a50459f23fa40b210800000000000000
+      internalID: 1346658696919597146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_30
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 371
+        width: 59
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc672e4e126a90d80800000000000000
+      internalID: -8283907375067138356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_31
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 371
+        width: 59
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2f101db094555050800000000000000
+      internalID: 5788625876678614831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_32
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 371
+        width: 58
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e77bfc3ed9d4be2f0800000000000000
+      internalID: -942574356476741762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_33
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 371
+        width: 58
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28161f65f335b6a40800000000000000
+      internalID: 5362471312821412226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_34
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 371
+        width: 57
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8bbeb827fddb9bb0800000000000000
+      internalID: -4928101313616626804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_35
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 371
+        width: 57
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60cd55764067cf070800000000000000
+      internalID: 8141511987664641030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Normal_Idle2_dir2_36
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 115
+        width: 58
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c63c8592df121e600800000000000000
+      internalID: 495714805191590764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

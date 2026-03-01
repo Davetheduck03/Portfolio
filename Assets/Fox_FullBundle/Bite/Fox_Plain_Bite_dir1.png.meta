@@ -1,0 +1,855 @@
+fileFormatVersion: 2
+guid: d7e5c62e698a8bf4aa80b6cbd1bcec03
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8565302578124904791
+    second: Fox_Plain_Bite_dir1_0
+  - first:
+      213: 6142528919199013892
+    second: Fox_Plain_Bite_dir1_1
+  - first:
+      213: 3274131689382133419
+    second: Fox_Plain_Bite_dir1_2
+  - first:
+      213: 5528495829579881527
+    second: Fox_Plain_Bite_dir1_3
+  - first:
+      213: -7068285928822438969
+    second: Fox_Plain_Bite_dir1_4
+  - first:
+      213: -5296416458497360960
+    second: Fox_Plain_Bite_dir1_5
+  - first:
+      213: 3846425757861665188
+    second: Fox_Plain_Bite_dir1_6
+  - first:
+      213: 5006607003618236178
+    second: Fox_Plain_Bite_dir1_7
+  - first:
+      213: 5210411875306132221
+    second: Fox_Plain_Bite_dir1_8
+  - first:
+      213: 2262842772154948253
+    second: Fox_Plain_Bite_dir1_9
+  - first:
+      213: 1645486807738923095
+    second: Fox_Plain_Bite_dir1_10
+  - first:
+      213: 4040388626581840536
+    second: Fox_Plain_Bite_dir1_11
+  - first:
+      213: 4106342273091915660
+    second: Fox_Plain_Bite_dir1_12
+  - first:
+      213: 8832792942266582015
+    second: Fox_Plain_Bite_dir1_13
+  - first:
+      213: 5737293125429570250
+    second: Fox_Plain_Bite_dir1_14
+  - first:
+      213: -8574643623690813446
+    second: Fox_Plain_Bite_dir1_15
+  - first:
+      213: -7533598800691578654
+    second: Fox_Plain_Bite_dir1_16
+  - first:
+      213: -5076028058229822367
+    second: Fox_Plain_Bite_dir1_17
+  - first:
+      213: 402491686809279419
+    second: Fox_Plain_Bite_dir1_18
+  - first:
+      213: -4271248436972808102
+    second: Fox_Plain_Bite_dir1_19
+  - first:
+      213: 6445852872541844374
+    second: Fox_Plain_Bite_dir1_20
+  - first:
+      213: -6887723991305975748
+    second: Fox_Plain_Bite_dir1_21
+  - first:
+      213: -1216954694359092564
+    second: Fox_Plain_Bite_dir1_22
+  - first:
+      213: -890550083954238735
+    second: Fox_Plain_Bite_dir1_23
+  - first:
+      213: -6504316581380450402
+    second: Fox_Plain_Bite_dir1_24
+  - first:
+      213: 4885184289318444866
+    second: Fox_Plain_Bite_dir1_25
+  - first:
+      213: -7298121231020377009
+    second: Fox_Plain_Bite_dir1_26
+  - first:
+      213: -4115804081942232103
+    second: Fox_Plain_Bite_dir1_27
+  - first:
+      213: 4042738239165726234
+    second: Fox_Plain_Bite_dir1_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_0
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 1138
+        width: 62
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a6a025afaee12980800000000000000
+      internalID: -8565302578124904791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_1
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1138
+        width: 66
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40cdb6be185ae3550800000000000000
+      internalID: 6142528919199013892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_2
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1138
+        width: 71
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baeb875ac6d007d20800000000000000
+      internalID: 3274131689382133419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_3
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 1138
+        width: 71
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73c56507aa929bc40800000000000000
+      internalID: 5528495829579881527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_4
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 1139
+        width: 84
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c385a9a56768ed90800000000000000
+      internalID: -7068285928822438969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_5
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 1140
+        width: 89
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cb7bb8ea495f76b0800000000000000
+      internalID: -5296416458497360960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_6
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 876
+        width: 87
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a9d148f8df316530800000000000000
+      internalID: 3846425757861665188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_7
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 876
+        width: 59
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 217d5ac2b8a0b7540800000000000000
+      internalID: 5006607003618236178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_8
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 876
+        width: 65
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df25911aef91f4840800000000000000
+      internalID: 5210411875306132221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_9
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 876
+        width: 76
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9a1bd0238b376f10800000000000000
+      internalID: 2262842772154948253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_10
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 876
+        width: 65
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 758bed19881f5d610800000000000000
+      internalID: 1645486807738923095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_11
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 876
+        width: 69
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89260f98c08521830800000000000000
+      internalID: 4040388626581840536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_12
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 620
+        width: 60
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8f40d18a88acf830800000000000000
+      internalID: 4106342273091915660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_13
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 620
+        width: 69
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff380620262649a70800000000000000
+      internalID: 8832792942266582015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_14
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 620
+        width: 66
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aca258933b5fe9f40800000000000000
+      internalID: 5737293125429570250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_15
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 620
+        width: 77
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aff375efd0fb00980800000000000000
+      internalID: -8574643623690813446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_16
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 620
+        width: 67
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e838743ec7437790800000000000000
+      internalID: -7533598800691578654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_17
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 620
+        width: 68
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16cab4fff535e89b0800000000000000
+      internalID: -5076028058229822367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_18
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 364
+        width: 67
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbb90518e00f59500800000000000000
+      internalID: 402491686809279419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_19
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 364
+        width: 67
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a581bc63d2a79b4c0800000000000000
+      internalID: -4271248436972808102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_20
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 364
+        width: 72
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 693b9463905447950800000000000000
+      internalID: 6445852872541844374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_21
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 364
+        width: 82
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c38854bc583e960a0800000000000000
+      internalID: -6887723991305975748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_22
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 365
+        width: 81
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca27bf637228c1fe0800000000000000
+      internalID: -1216954694359092564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_23
+      rect:
+        serializedVersion: 2
+        x: 1353
+        y: 368
+        width: 78
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fa963fba6124a3f0800000000000000
+      internalID: -890550083954238735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_24
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 113
+        width: 70
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e979224d7860cb5a0800000000000000
+      internalID: -6504316581380450402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_25
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 114
+        width: 63
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24f15237a39abc340800000000000000
+      internalID: 4885184289318444866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_26
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 114
+        width: 65
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4c3b41586dd7ba90800000000000000
+      internalID: -7298121231020377009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_27
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 114
+        width: 64
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d30bb27ef9b1e6c0800000000000000
+      internalID: -4115804081942232103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Plain_Bite_dir1_28
+      rect:
+        serializedVersion: 2
+        x: 1114
+        y: 114
+        width: 63
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1e7c595201ba1830800000000000000
+      internalID: 4042738239165726234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

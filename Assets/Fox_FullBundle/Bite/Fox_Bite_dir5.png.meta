@@ -1,0 +1,855 @@
+fileFormatVersion: 2
+guid: f03a04878ad9dd246b2d400bc8b4395a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2436513689564276106
+    second: Fox_Bite_dir5_0
+  - first:
+      213: -6810005276898172285
+    second: Fox_Bite_dir5_1
+  - first:
+      213: 4205156752440881072
+    second: Fox_Bite_dir5_2
+  - first:
+      213: -3511828793925775724
+    second: Fox_Bite_dir5_3
+  - first:
+      213: 8675706026184944621
+    second: Fox_Bite_dir5_4
+  - first:
+      213: 7555890784107855683
+    second: Fox_Bite_dir5_5
+  - first:
+      213: 2092187763962811953
+    second: Fox_Bite_dir5_6
+  - first:
+      213: -4604726474227474915
+    second: Fox_Bite_dir5_7
+  - first:
+      213: -855309697969292004
+    second: Fox_Bite_dir5_8
+  - first:
+      213: -2993958289561135603
+    second: Fox_Bite_dir5_9
+  - first:
+      213: 6334666892172338199
+    second: Fox_Bite_dir5_10
+  - first:
+      213: 1501971043455777719
+    second: Fox_Bite_dir5_11
+  - first:
+      213: -722133464224149198
+    second: Fox_Bite_dir5_12
+  - first:
+      213: -2534941500783837345
+    second: Fox_Bite_dir5_13
+  - first:
+      213: -6575853536172055432
+    second: Fox_Bite_dir5_14
+  - first:
+      213: -7029451458240976771
+    second: Fox_Bite_dir5_15
+  - first:
+      213: -7628712352913703970
+    second: Fox_Bite_dir5_16
+  - first:
+      213: 3394693760664760421
+    second: Fox_Bite_dir5_17
+  - first:
+      213: -971356815813726295
+    second: Fox_Bite_dir5_18
+  - first:
+      213: 3922293381236107495
+    second: Fox_Bite_dir5_19
+  - first:
+      213: 20767070854185085
+    second: Fox_Bite_dir5_20
+  - first:
+      213: -1666222129586916255
+    second: Fox_Bite_dir5_21
+  - first:
+      213: -7844107185575547140
+    second: Fox_Bite_dir5_22
+  - first:
+      213: -3130203941253452953
+    second: Fox_Bite_dir5_23
+  - first:
+      213: 8541278859005743231
+    second: Fox_Bite_dir5_24
+  - first:
+      213: 7733948621246193958
+    second: Fox_Bite_dir5_25
+  - first:
+      213: 2972947308303365553
+    second: Fox_Bite_dir5_26
+  - first:
+      213: 3001904686368871202
+    second: Fox_Bite_dir5_27
+  - first:
+      213: 4617745919984861567
+    second: Fox_Bite_dir5_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_0
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1139
+        width: 62
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a85eadc9a4c30d120800000000000000
+      internalID: 2436513689564276106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_1
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 1139
+        width: 66
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 382e2f718400e71a0800000000000000
+      internalID: -6810005276898172285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_2
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 1139
+        width: 71
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bfe21659c7bb5a30800000000000000
+      internalID: 4205156752440881072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_3
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 1139
+        width: 71
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49ec012815a734fc0800000000000000
+      internalID: -3511828793925775724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_4
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 1139
+        width: 85
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deb287a3aac466870800000000000000
+      internalID: 8675706026184944621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_5
+      rect:
+        serializedVersion: 2
+        x: 1363
+        y: 1139
+        width: 89
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34f7564a2aaebd860800000000000000
+      internalID: 7555890784107855683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_6
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 883
+        width: 87
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1361c6abfa1f80d10800000000000000
+      internalID: 2092187763962811953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_7
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 883
+        width: 59
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1e95d72ba9b810c0800000000000000
+      internalID: -4604726474227474915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_8
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 885
+        width: 65
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1df79f7c545124f0800000000000000
+      internalID: -855309697969292004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_9
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 885
+        width: 76
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d065f5e5cc25376d0800000000000000
+      internalID: -2993958289561135603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_10
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 886
+        width: 65
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7142c56d9f149e750800000000000000
+      internalID: 6334666892172338199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_11
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 890
+        width: 69
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bbba1cc4b218d410800000000000000
+      internalID: 1501971043455777719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_12
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 636
+        width: 60
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2315f78b0777af5f0800000000000000
+      internalID: -722133464224149198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_13
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 635
+        width: 69
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f326fb22412dcd0800000000000000
+      internalID: -2534941500783837345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_14
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 635
+        width: 66
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 874e7799c00edb4a0800000000000000
+      internalID: -6575853536172055432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_15
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 635
+        width: 77
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d78e1b1742f527e90800000000000000
+      internalID: -7029451458240976771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_16
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 635
+        width: 67
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edbb1fe988e512690800000000000000
+      internalID: -7628712352913703970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_17
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 635
+        width: 68
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56078ad4dff5c1f20800000000000000
+      internalID: 3394693760664760421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_18
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 379
+        width: 67
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9afa44b5f1c0582f0800000000000000
+      internalID: -971356815813726295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_19
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 379
+        width: 67
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e8a17d8c09ce6630800000000000000
+      internalID: 3922293381236107495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_20
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 379
+        width: 72
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d700a497a87c94000800000000000000
+      internalID: 20767070854185085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_21
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 379
+        width: 83
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 164b3191dc360e8e0800000000000000
+      internalID: -1666222129586916255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_22
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 378
+        width: 81
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfe2ea71312242390800000000000000
+      internalID: -7844107185575547140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_23
+      rect:
+        serializedVersion: 2
+        x: 1385
+        y: 377
+        width: 79
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76b6f0799184f84d0800000000000000
+      internalID: -3130203941253452953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_24
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 122
+        width: 70
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f70579e5ed7b88670800000000000000
+      internalID: 8541278859005743231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_25
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 123
+        width: 63
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62160887b41845b60800000000000000
+      internalID: 7733948621246193958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_26
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 121
+        width: 65
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b5306753d7024920800000000000000
+      internalID: 2972947308303365553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_27
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 116
+        width: 64
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 223d8905868e8a920800000000000000
+      internalID: 3001904686368871202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_Bite_dir5_28
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 115
+        width: 63
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7105b7c277851040800000000000000
+      internalID: 4617745919984861567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,630 @@
+fileFormatVersion: 2
+guid: b72306561a177024b81aca26524274b5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2150035610754588124
+    second: Fox_JumpAttack_dir7_0
+  - first:
+      213: 7752525940331559813
+    second: Fox_JumpAttack_dir7_1
+  - first:
+      213: -1187117299739866650
+    second: Fox_JumpAttack_dir7_2
+  - first:
+      213: -4358064809090542318
+    second: Fox_JumpAttack_dir7_3
+  - first:
+      213: 6127312630148164750
+    second: Fox_JumpAttack_dir7_4
+  - first:
+      213: -5666567171996469351
+    second: Fox_JumpAttack_dir7_5
+  - first:
+      213: 6305799096507863512
+    second: Fox_JumpAttack_dir7_6
+  - first:
+      213: -7749424081664957935
+    second: Fox_JumpAttack_dir7_7
+  - first:
+      213: 712999053006520768
+    second: Fox_JumpAttack_dir7_8
+  - first:
+      213: -8620111422251595993
+    second: Fox_JumpAttack_dir7_9
+  - first:
+      213: -4342406000491087279
+    second: Fox_JumpAttack_dir7_10
+  - first:
+      213: -5758121336035602212
+    second: Fox_JumpAttack_dir7_11
+  - first:
+      213: 7338924820743993898
+    second: Fox_JumpAttack_dir7_12
+  - first:
+      213: -35544605968309805
+    second: Fox_JumpAttack_dir7_13
+  - first:
+      213: 6304952404944569651
+    second: Fox_JumpAttack_dir7_14
+  - first:
+      213: 9047227974520977911
+    second: Fox_JumpAttack_dir7_15
+  - first:
+      213: -7865632734545952457
+    second: Fox_JumpAttack_dir7_16
+  - first:
+      213: -345245603146726561
+    second: Fox_JumpAttack_dir7_17
+  - first:
+      213: 8535114805041582816
+    second: Fox_JumpAttack_dir7_18
+  - first:
+      213: -5460722590928270785
+    second: Fox_JumpAttack_dir7_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_0
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 882
+        width: 76
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 422688ed00a8922e0800000000000000
+      internalID: -2150035610754588124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_1
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 882
+        width: 77
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58bb671a441869b60800000000000000
+      internalID: 7752525940331559813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_2
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 886
+        width: 91
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e9c8420b13868fe0800000000000000
+      internalID: -1187117299739866650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_3
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 888
+        width: 98
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 215170a652b0583c0800000000000000
+      internalID: -4358064809090542318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_4
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 887
+        width: 100
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8ceebb8f56980550800000000000000
+      internalID: 6127312630148164750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_5
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 883
+        width: 80
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 997b2490e2f4c51b0800000000000000
+      internalID: -5666567171996469351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_6
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 639
+        width: 63
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d194546ed2b28750800000000000000
+      internalID: 6305799096507863512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_7
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 642
+        width: 63
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 112a08e1bd3847490800000000000000
+      internalID: -7749424081664957935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_8
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 637
+        width: 62
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c1c4af6cd415e900800000000000000
+      internalID: 712999053006520768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_9
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 634
+        width: 64
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 727086035563f5880800000000000000
+      internalID: -8620111422251595993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_10
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 629
+        width: 67
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15a3436efbcacb3c0800000000000000
+      internalID: -4342406000491087279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_11
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 627
+        width: 66
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd01008172b0710b0800000000000000
+      internalID: -5758121336035602212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_12
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 376
+        width: 85
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a3ebdbd3919d560800000000000000
+      internalID: 7338924820743993898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_13
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 372
+        width: 89
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d1e3938e58b18ff0800000000000000
+      internalID: -35544605968309805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_14
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 368
+        width: 88
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3354776aec0bf7750800000000000000
+      internalID: 6304952404944569651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_15
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 367
+        width: 91
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f9bc4798e53e8d70800000000000000
+      internalID: 9047227974520977911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_16
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 369
+        width: 90
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73144bba3b8a7d290800000000000000
+      internalID: -7865632734545952457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_17
+      rect:
+        serializedVersion: 2
+        x: 1393
+        y: 375
+        width: 83
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f538c2004f0753bf0800000000000000
+      internalID: -345245603146726561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_18
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 123
+        width: 73
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e25ea7b1b1d27670800000000000000
+      internalID: 8535114805041582816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox_JumpAttack_dir7_19
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 122
+        width: 69
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3a05c65cbd9734b0800000000000000
+      internalID: -5460722590928270785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
