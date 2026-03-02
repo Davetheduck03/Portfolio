@@ -597,7 +597,26 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fox_Plain_DoubleSwipe_dir8_0: 5368093676218937248
+      Fox_Plain_DoubleSwipe_dir8_1: 6371229216131072517
+      Fox_Plain_DoubleSwipe_dir8_10: 4936180036243449973
+      Fox_Plain_DoubleSwipe_dir8_11: 5822903593593717130
+      Fox_Plain_DoubleSwipe_dir8_12: 1375664648114871225
+      Fox_Plain_DoubleSwipe_dir8_13: -5066426256359885077
+      Fox_Plain_DoubleSwipe_dir8_14: 4429918734581937262
+      Fox_Plain_DoubleSwipe_dir8_15: -3336896122027127313
+      Fox_Plain_DoubleSwipe_dir8_16: 6495324806688858044
+      Fox_Plain_DoubleSwipe_dir8_17: 294509285002917973
+      Fox_Plain_DoubleSwipe_dir8_18: 5741083593238718601
+      Fox_Plain_DoubleSwipe_dir8_2: -5807976927572903307
+      Fox_Plain_DoubleSwipe_dir8_3: -2074559495310998294
+      Fox_Plain_DoubleSwipe_dir8_4: -6385629902772781434
+      Fox_Plain_DoubleSwipe_dir8_5: -660502378723108522
+      Fox_Plain_DoubleSwipe_dir8_6: -5512933989487942690
+      Fox_Plain_DoubleSwipe_dir8_7: 4468654916621607883
+      Fox_Plain_DoubleSwipe_dir8_8: 72055620232885398
+      Fox_Plain_DoubleSwipe_dir8_9: 6163277154120657818
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

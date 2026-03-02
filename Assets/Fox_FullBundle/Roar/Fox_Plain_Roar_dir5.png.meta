@@ -597,7 +597,26 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fox_Plain_Roar_dir5_0: 4403631115389287132
+      Fox_Plain_Roar_dir5_1: -1294853533201384763
+      Fox_Plain_Roar_dir5_10: -8811755099549507735
+      Fox_Plain_Roar_dir5_11: 2178530156051344262
+      Fox_Plain_Roar_dir5_12: -1654821228215390132
+      Fox_Plain_Roar_dir5_13: 657543166698424316
+      Fox_Plain_Roar_dir5_14: 3198960474353089384
+      Fox_Plain_Roar_dir5_15: 6062434936554522693
+      Fox_Plain_Roar_dir5_16: -57845755298910336
+      Fox_Plain_Roar_dir5_17: -2038440144101895419
+      Fox_Plain_Roar_dir5_18: 2090947452518120820
+      Fox_Plain_Roar_dir5_2: -7949638873446323904
+      Fox_Plain_Roar_dir5_3: -8327642048310149920
+      Fox_Plain_Roar_dir5_4: 4207034114990655376
+      Fox_Plain_Roar_dir5_5: -4052201267488711150
+      Fox_Plain_Roar_dir5_6: 6289728028414482064
+      Fox_Plain_Roar_dir5_7: 1530919302756949923
+      Fox_Plain_Roar_dir5_8: 6800750082574644242
+      Fox_Plain_Roar_dir5_9: 5115191690257262418
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

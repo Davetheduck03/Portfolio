@@ -622,7 +622,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fox_JumpAttack_dir1_0: 5770733875564424478
+      Fox_JumpAttack_dir1_1: -6738685695534708104
+      Fox_JumpAttack_dir1_10: 2259607057852576577
+      Fox_JumpAttack_dir1_11: -3611611116676715908
+      Fox_JumpAttack_dir1_12: 7820869108832985883
+      Fox_JumpAttack_dir1_13: -8971370515292430060
+      Fox_JumpAttack_dir1_14: -6207741632912357675
+      Fox_JumpAttack_dir1_15: 3118679426760053973
+      Fox_JumpAttack_dir1_16: -4445751734913662277
+      Fox_JumpAttack_dir1_17: 2227161627702820302
+      Fox_JumpAttack_dir1_18: -5430321965474954841
+      Fox_JumpAttack_dir1_19: 8469464342155849603
+      Fox_JumpAttack_dir1_2: 2635467294802202251
+      Fox_JumpAttack_dir1_3: 194361394911526693
+      Fox_JumpAttack_dir1_4: 3459825524394969001
+      Fox_JumpAttack_dir1_5: 6494953929950274178
+      Fox_JumpAttack_dir1_6: -818690067612325088
+      Fox_JumpAttack_dir1_7: 7984381068582560090
+      Fox_JumpAttack_dir1_8: -8215959223287254408
+      Fox_JumpAttack_dir1_9: -8584987604588393576
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

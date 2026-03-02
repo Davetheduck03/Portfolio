@@ -372,7 +372,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fox_Plain_Angry_dir4_0: -2909774650665962892
+      Fox_Plain_Angry_dir4_1: -6527174305760324555
+      Fox_Plain_Angry_dir4_2: 716761740354578802
+      Fox_Plain_Angry_dir4_3: 731942167426596273
+      Fox_Plain_Angry_dir4_4: 4652554436520536860
+      Fox_Plain_Angry_dir4_5: -4729019793226719128
+      Fox_Plain_Angry_dir4_6: -8649492116459117151
+      Fox_Plain_Angry_dir4_7: 6697418077033036030
+      Fox_Plain_Angry_dir4_8: 7849558333619199986
+      Fox_Plain_Angry_dir4_9: -8169311489979445618
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

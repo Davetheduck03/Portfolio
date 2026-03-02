@@ -1047,7 +1047,44 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fox_Plain_Idle2_dir1_0: 8403674627041668119
+      Fox_Plain_Idle2_dir1_1: 2178099649515025767
+      Fox_Plain_Idle2_dir1_10: 4496046614620999981
+      Fox_Plain_Idle2_dir1_11: 9017445359220544904
+      Fox_Plain_Idle2_dir1_12: 68751571883769878
+      Fox_Plain_Idle2_dir1_13: 8195167229274464957
+      Fox_Plain_Idle2_dir1_14: -8960097904414722
+      Fox_Plain_Idle2_dir1_15: 5375573638780618455
+      Fox_Plain_Idle2_dir1_16: -8671561476620438132
+      Fox_Plain_Idle2_dir1_17: 9065368945536962772
+      Fox_Plain_Idle2_dir1_18: 7724181989414780685
+      Fox_Plain_Idle2_dir1_19: -8145260167688765231
+      Fox_Plain_Idle2_dir1_2: 4912207721455719835
+      Fox_Plain_Idle2_dir1_20: -2052058955535289068
+      Fox_Plain_Idle2_dir1_21: 3049713592424998069
+      Fox_Plain_Idle2_dir1_22: 1777660156507700667
+      Fox_Plain_Idle2_dir1_23: -8626094537117843040
+      Fox_Plain_Idle2_dir1_24: -121023518802901256
+      Fox_Plain_Idle2_dir1_25: 2967716168811134510
+      Fox_Plain_Idle2_dir1_26: -1168050376012736041
+      Fox_Plain_Idle2_dir1_27: -7801728942599303315
+      Fox_Plain_Idle2_dir1_28: -5835492392357207033
+      Fox_Plain_Idle2_dir1_29: -6465821974320790612
+      Fox_Plain_Idle2_dir1_3: 4951177466844764139
+      Fox_Plain_Idle2_dir1_30: -1794630550466202821
+      Fox_Plain_Idle2_dir1_31: -6846177243844572425
+      Fox_Plain_Idle2_dir1_32: -7723721860677495465
+      Fox_Plain_Idle2_dir1_33: 1667606355661924608
+      Fox_Plain_Idle2_dir1_34: 6481039316511351299
+      Fox_Plain_Idle2_dir1_35: 4006535408479450037
+      Fox_Plain_Idle2_dir1_36: 7639372847849624101
+      Fox_Plain_Idle2_dir1_4: -5595097421388986376
+      Fox_Plain_Idle2_dir1_5: 5631290184645289995
+      Fox_Plain_Idle2_dir1_6: -333514017902960655
+      Fox_Plain_Idle2_dir1_7: 9038998619541946837
+      Fox_Plain_Idle2_dir1_8: 4903081431459012973
+      Fox_Plain_Idle2_dir1_9: -3156559299757695216
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1047,7 +1047,44 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fox_Normal_Idle2_dir7_0: -8865531572070496096
+      Fox_Normal_Idle2_dir7_1: 8883519682641267548
+      Fox_Normal_Idle2_dir7_10: 4766619628632511242
+      Fox_Normal_Idle2_dir7_11: -6313736491238650668
+      Fox_Normal_Idle2_dir7_12: 2620412948219492276
+      Fox_Normal_Idle2_dir7_13: 5423255965342072717
+      Fox_Normal_Idle2_dir7_14: 8723599805281558612
+      Fox_Normal_Idle2_dir7_15: 1171777645420634390
+      Fox_Normal_Idle2_dir7_16: 8663306073473279428
+      Fox_Normal_Idle2_dir7_17: 917916486178934691
+      Fox_Normal_Idle2_dir7_18: 5231187886194846417
+      Fox_Normal_Idle2_dir7_19: -132095004472192925
+      Fox_Normal_Idle2_dir7_2: 6572023504747950657
+      Fox_Normal_Idle2_dir7_20: -885170898901435713
+      Fox_Normal_Idle2_dir7_21: -3771806791090562432
+      Fox_Normal_Idle2_dir7_22: -8568650468604594208
+      Fox_Normal_Idle2_dir7_23: 4864173215304222015
+      Fox_Normal_Idle2_dir7_24: -5733808698230092318
+      Fox_Normal_Idle2_dir7_25: -5155426481378930891
+      Fox_Normal_Idle2_dir7_26: 109795367041433971
+      Fox_Normal_Idle2_dir7_27: -4698811528456358579
+      Fox_Normal_Idle2_dir7_28: -7177625958700097918
+      Fox_Normal_Idle2_dir7_29: 201655965386531215
+      Fox_Normal_Idle2_dir7_3: 3446318507202671233
+      Fox_Normal_Idle2_dir7_30: -2757106430422924859
+      Fox_Normal_Idle2_dir7_31: 2063283233217667011
+      Fox_Normal_Idle2_dir7_32: 2427898156614531464
+      Fox_Normal_Idle2_dir7_33: -17504825687369552
+      Fox_Normal_Idle2_dir7_34: -6317733060674212745
+      Fox_Normal_Idle2_dir7_35: 5036628918716933177
+      Fox_Normal_Idle2_dir7_36: 7905301093381594880
+      Fox_Normal_Idle2_dir7_4: -5701538978080008374
+      Fox_Normal_Idle2_dir7_5: -2903377884699373295
+      Fox_Normal_Idle2_dir7_6: -9142563737326828012
+      Fox_Normal_Idle2_dir7_7: 6039597289483158184
+      Fox_Normal_Idle2_dir7_8: -6255914927233357171
+      Fox_Normal_Idle2_dir7_9: 7430570846176121375
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

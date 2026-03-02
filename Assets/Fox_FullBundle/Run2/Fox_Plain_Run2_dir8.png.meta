@@ -447,7 +447,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fox_Plain_Run2_dir8_0: -2911763205720024905
+      Fox_Plain_Run2_dir8_1: -8346586783159956054
+      Fox_Plain_Run2_dir8_10: -8876146766751641608
+      Fox_Plain_Run2_dir8_11: 6618330900783129161
+      Fox_Plain_Run2_dir8_12: 3244001199712010952
+      Fox_Plain_Run2_dir8_2: 1495762540255669846
+      Fox_Plain_Run2_dir8_3: 8567791547975215643
+      Fox_Plain_Run2_dir8_4: 3795203553963433857
+      Fox_Plain_Run2_dir8_5: -1309858025214311751
+      Fox_Plain_Run2_dir8_6: 5129502956667137719
+      Fox_Plain_Run2_dir8_7: 7229112937851969585
+      Fox_Plain_Run2_dir8_8: -5734882832517324095
+      Fox_Plain_Run2_dir8_9: 2141220123434742657
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

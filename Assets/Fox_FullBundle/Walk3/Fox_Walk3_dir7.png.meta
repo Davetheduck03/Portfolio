@@ -297,7 +297,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fox_Walk3_dir7_0: -35134373927237426
+      Fox_Walk3_dir7_1: 6159164983672185741
+      Fox_Walk3_dir7_2: 3276470025089350074
+      Fox_Walk3_dir7_3: -4213873244061625670
+      Fox_Walk3_dir7_4: -1623333083551408637
+      Fox_Walk3_dir7_5: 6872726332456370474
+      Fox_Walk3_dir7_6: -2827899548499497956
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

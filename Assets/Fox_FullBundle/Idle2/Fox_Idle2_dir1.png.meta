@@ -1047,7 +1047,44 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fox_Idle2_dir1_0: 4810700989210756041
+      Fox_Idle2_dir1_1: -3523691153873543798
+      Fox_Idle2_dir1_10: 6665095927894349252
+      Fox_Idle2_dir1_11: -2652999437492541309
+      Fox_Idle2_dir1_12: -5099506786906383633
+      Fox_Idle2_dir1_13: 3600342525071142633
+      Fox_Idle2_dir1_14: 1561801543610490600
+      Fox_Idle2_dir1_15: -5298424356308380543
+      Fox_Idle2_dir1_16: -6665014047897158411
+      Fox_Idle2_dir1_17: 7327568674798230720
+      Fox_Idle2_dir1_18: -7004648071296667576
+      Fox_Idle2_dir1_19: 1180453990169371853
+      Fox_Idle2_dir1_2: -1647862609244602446
+      Fox_Idle2_dir1_20: 5358475347509383881
+      Fox_Idle2_dir1_21: -7346650676752440448
+      Fox_Idle2_dir1_22: -835914401814288410
+      Fox_Idle2_dir1_23: -1916079423839164929
+      Fox_Idle2_dir1_24: 5626111127649570029
+      Fox_Idle2_dir1_25: -2091813885257100799
+      Fox_Idle2_dir1_26: 1834889397572154428
+      Fox_Idle2_dir1_27: 7476908204693658092
+      Fox_Idle2_dir1_28: 5921238531611618155
+      Fox_Idle2_dir1_29: 187916955887572286
+      Fox_Idle2_dir1_3: -8543747557888797404
+      Fox_Idle2_dir1_30: -6623788868195874285
+      Fox_Idle2_dir1_31: 101931321320925719
+      Fox_Idle2_dir1_32: -6926559163583208157
+      Fox_Idle2_dir1_33: 2404994519595515992
+      Fox_Idle2_dir1_34: 984493205359880251
+      Fox_Idle2_dir1_35: -1319444849251896572
+      Fox_Idle2_dir1_36: -2877655033844597533
+      Fox_Idle2_dir1_4: -975444250270108262
+      Fox_Idle2_dir1_5: 8279838117361734182
+      Fox_Idle2_dir1_6: 2164905419430889500
+      Fox_Idle2_dir1_7: 1264480085890376438
+      Fox_Idle2_dir1_8: -4105978023712314445
+      Fox_Idle2_dir1_9: -1645214324850993549
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

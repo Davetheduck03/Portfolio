@@ -847,7 +847,36 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fox_Normal_Bite_dir2_0: 6686372269631676964
+      Fox_Normal_Bite_dir2_1: -425372374580895281
+      Fox_Normal_Bite_dir2_10: 9025521780489767734
+      Fox_Normal_Bite_dir2_11: -7902925390066466148
+      Fox_Normal_Bite_dir2_12: 6523153940329808123
+      Fox_Normal_Bite_dir2_13: 8595977452596718926
+      Fox_Normal_Bite_dir2_14: -954405016915453025
+      Fox_Normal_Bite_dir2_15: -2103985977451929022
+      Fox_Normal_Bite_dir2_16: 8984160175966612709
+      Fox_Normal_Bite_dir2_17: 6191012475863123321
+      Fox_Normal_Bite_dir2_18: 3049650992873680507
+      Fox_Normal_Bite_dir2_19: 4499989968878182541
+      Fox_Normal_Bite_dir2_2: 7146598602531156002
+      Fox_Normal_Bite_dir2_20: 7412107459661658546
+      Fox_Normal_Bite_dir2_21: -1676455491575593190
+      Fox_Normal_Bite_dir2_22: -5205309182012889048
+      Fox_Normal_Bite_dir2_23: 6420560994563545432
+      Fox_Normal_Bite_dir2_24: 9092644805675604543
+      Fox_Normal_Bite_dir2_25: 260946397615544430
+      Fox_Normal_Bite_dir2_26: -2486910189351667806
+      Fox_Normal_Bite_dir2_27: 8544622456947210515
+      Fox_Normal_Bite_dir2_28: 7209688728202788341
+      Fox_Normal_Bite_dir2_3: -6649328445117554240
+      Fox_Normal_Bite_dir2_4: -29244720210258696
+      Fox_Normal_Bite_dir2_5: 3826582014833191178
+      Fox_Normal_Bite_dir2_6: -4598579084701989776
+      Fox_Normal_Bite_dir2_7: -8371240586794750867
+      Fox_Normal_Bite_dir2_8: -1835928137079906057
+      Fox_Normal_Bite_dir2_9: 6592931114816036663
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

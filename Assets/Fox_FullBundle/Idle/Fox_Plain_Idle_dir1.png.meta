@@ -622,7 +622,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fox_Plain_Idle_dir1_0: -7843895325832947332
+      Fox_Plain_Idle_dir1_1: 7970132628254048284
+      Fox_Plain_Idle_dir1_10: 6664248164058678210
+      Fox_Plain_Idle_dir1_11: 2030128823350330234
+      Fox_Plain_Idle_dir1_12: -1704851708904919766
+      Fox_Plain_Idle_dir1_13: -4181967611214246133
+      Fox_Plain_Idle_dir1_14: -4248747015269753547
+      Fox_Plain_Idle_dir1_15: -8674676678009442570
+      Fox_Plain_Idle_dir1_16: 2579884286116296827
+      Fox_Plain_Idle_dir1_17: 7389854174094702702
+      Fox_Plain_Idle_dir1_18: 4462088840328931680
+      Fox_Plain_Idle_dir1_19: -3743295994250299071
+      Fox_Plain_Idle_dir1_2: -8486113959682886511
+      Fox_Plain_Idle_dir1_3: -6867266990778285215
+      Fox_Plain_Idle_dir1_4: 8261949561753905827
+      Fox_Plain_Idle_dir1_5: 6845646708103988813
+      Fox_Plain_Idle_dir1_6: -672038874111642500
+      Fox_Plain_Idle_dir1_7: -2785259532201368027
+      Fox_Plain_Idle_dir1_8: -7288824798127022076
+      Fox_Plain_Idle_dir1_9: 6934856680386444556
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
