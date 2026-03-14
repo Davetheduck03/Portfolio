@@ -62,6 +62,48 @@ TextureImporter:
   - first:
       213: 7152739682645193201
     second: Fox_Idle_dir3_19
+  - first:
+      213: -4621449786505690736
+    second: Fox_Idle_dir3_00
+  - first:
+      213: 1854550662059039126
+    second: Fox_Idle_dir3_01
+  - first:
+      213: 2605557975025015691
+    second: Fox_Idle_dir3_02
+  - first:
+      213: 1513202651548688228
+    second: Fox_Idle_dir3_03
+  - first:
+      213: -8430009178170183337
+    second: Fox_Idle_dir3_04
+  - first:
+      213: 7996486943861248925
+    second: Fox_Idle_dir3_05
+  - first:
+      213: -445828273843268793
+    second: Fox_Idle_dir3_06
+  - first:
+      213: 1939500839646829643
+    second: Fox_Idle_dir3_07
+  - first:
+      213: 8415287376350099991
+    second: Fox_Idle_dir3_08
+  - first:
+      213: 7350504029521392780
+    second: Fox_Idle_dir3_09
+  - first:
+      213: -4728627411444786587
+    second: Fox_Idle_dir3_20
+  - first:
+      213: 8533236467571809435
+    second: Fox_Idle_dir3_21
+  - first:
+      213: 5507938374769989318
+    second: Fox_Idle_dir3_22
+  - first:
+      213: 6761744784009392244
+    second: Fox_Idle_dir3_23
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -94,7 +136,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -108,7 +150,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -132,7 +174,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -170,221 +212,221 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fox_Idle_dir3_0
+      name: Fox_Idle_dir3_00
       rect:
         serializedVersion: 2
-        x: 100
-        y: 888
-        width: 68
-        height: 108
+        x: 0
+        y: 768
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ce2865d500e496de0800000000000000
-      internalID: -1339453650693094676
+      spriteID: 091060897ef4ddfb0800000000000000
+      internalID: -4621449786505690736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Idle_dir3_1
+      name: Fox_Idle_dir3_01
       rect:
         serializedVersion: 2
-        x: 356
-        y: 888
-        width: 68
-        height: 108
+        x: 256
+        y: 768
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1fd30d9019bccc140800000000000000
-      internalID: 4741388331509628401
+      spriteID: 6999ef55000bcb910800000000000000
+      internalID: 1854550662059039126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Idle_dir3_2
+      name: Fox_Idle_dir3_02
       rect:
         serializedVersion: 2
-        x: 610
-        y: 888
-        width: 69
-        height: 110
+        x: 512
+        y: 768
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9cdebc03859692f60800000000000000
-      internalID: 8010049239751847369
+      spriteID: b8b5d076c2dc82420800000000000000
+      internalID: 2605557975025015691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Idle_dir3_3
+      name: Fox_Idle_dir3_03
       rect:
         serializedVersion: 2
-        x: 866
-        y: 888
-        width: 68
-        height: 110
+        x: 768
+        y: 768
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 55eb63d05cfc91840800000000000000
-      internalID: 5195412090385776213
+      spriteID: 46f1db65bc9fff410800000000000000
+      internalID: 1513202651548688228
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Idle_dir3_4
+      name: Fox_Idle_dir3_04
       rect:
         serializedVersion: 2
-        x: 1125
-        y: 888
-        width: 66
-        height: 110
+        x: 1024
+        y: 768
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3440673309a8afd0800000000000000
-      internalID: -2330426975885179844
+      spriteID: 75132e90157920b80800000000000000
+      internalID: -8430009178170183337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Idle_dir3_5
+      name: Fox_Idle_dir3_05
       rect:
         serializedVersion: 2
-        x: 1384
-        y: 888
-        width: 63
-        height: 111
+        x: 1280
+        y: 768
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3dd521e8ddc878070800000000000000
-      internalID: 8108604537303096787
+      spriteID: d9316eb128a39fe60800000000000000
+      internalID: 7996486943861248925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Idle_dir3_6
+      name: Fox_Idle_dir3_06
       rect:
         serializedVersion: 2
-        x: 105
-        y: 632
-        width: 62
-        height: 112
+        x: 0
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2c7dad61106624ae0800000000000000
-      internalID: -1566577565507070014
+      spriteID: 7431fba0c8910d9f0800000000000000
+      internalID: -445828273843268793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Idle_dir3_7
+      name: Fox_Idle_dir3_07
       rect:
         serializedVersion: 2
-        x: 358
-        y: 632
-        width: 67
-        height: 105
+        x: 256
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 963427592c04fd000800000000000000
-      internalID: 62840124281602921
+      spriteID: b4c98bcdcbd7aea10800000000000000
+      internalID: 1939500839646829643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Idle_dir3_8
+      name: Fox_Idle_dir3_08
       rect:
         serializedVersion: 2
-        x: 610
-        y: 632
-        width: 70
-        height: 102
+        x: 512
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 60035b31bbe4dfc00800000000000000
-      internalID: 935990862959423494
+      spriteID: 71a3d2e584b19c470800000000000000
+      internalID: 8415287376350099991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Idle_dir3_9
+      name: Fox_Idle_dir3_09
       rect:
         serializedVersion: 2
-        x: 864
-        y: 632
-        width: 70
-        height: 100
+        x: 768
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7608b405a4b4aada0800000000000000
-      internalID: -5932846776560418713
+      spriteID: c8433bf587c320660800000000000000
+      internalID: 7350504029521392780
       vertices: []
       indices: 
       edges: []
@@ -393,12 +435,12 @@ TextureImporter:
       name: Fox_Idle_dir3_10
       rect:
         serializedVersion: 2
-        x: 1118
-        y: 631
-        width: 69
-        height: 99
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -415,12 +457,12 @@ TextureImporter:
       name: Fox_Idle_dir3_11
       rect:
         serializedVersion: 2
-        x: 1371
-        y: 631
-        width: 67
-        height: 98
+        x: 1280
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -437,12 +479,12 @@ TextureImporter:
       name: Fox_Idle_dir3_12
       rect:
         serializedVersion: 2
-        x: 92
-        y: 375
-        width: 65
-        height: 99
+        x: 0
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -459,12 +501,12 @@ TextureImporter:
       name: Fox_Idle_dir3_13
       rect:
         serializedVersion: 2
-        x: 351
-        y: 375
-        width: 65
-        height: 105
+        x: 256
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -481,12 +523,12 @@ TextureImporter:
       name: Fox_Idle_dir3_14
       rect:
         serializedVersion: 2
-        x: 610
-        y: 375
-        width: 66
-        height: 109
+        x: 512
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -503,12 +545,12 @@ TextureImporter:
       name: Fox_Idle_dir3_15
       rect:
         serializedVersion: 2
-        x: 869
-        y: 375
-        width: 66
-        height: 111
+        x: 768
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -525,12 +567,12 @@ TextureImporter:
       name: Fox_Idle_dir3_16
       rect:
         serializedVersion: 2
-        x: 1127
-        y: 376
-        width: 66
-        height: 111
+        x: 1024
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -547,12 +589,12 @@ TextureImporter:
       name: Fox_Idle_dir3_17
       rect:
         serializedVersion: 2
-        x: 1384
-        y: 376
-        width: 67
-        height: 110
+        x: 1280
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -569,12 +611,12 @@ TextureImporter:
       name: Fox_Idle_dir3_18
       rect:
         serializedVersion: 2
-        x: 102
-        y: 120
-        width: 69
-        height: 108
+        x: 0
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -591,12 +633,12 @@ TextureImporter:
       name: Fox_Idle_dir3_19
       rect:
         serializedVersion: 2
-        x: 357
-        y: 120
-        width: 69
-        height: 108
+        x: 256
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -624,6 +666,16 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Fox_Idle_dir3_0: -1339453650693094676
+      Fox_Idle_dir3_00: -4621449786505690736
+      Fox_Idle_dir3_01: 1854550662059039126
+      Fox_Idle_dir3_02: 2605557975025015691
+      Fox_Idle_dir3_03: 1513202651548688228
+      Fox_Idle_dir3_04: -8430009178170183337
+      Fox_Idle_dir3_05: 7996486943861248925
+      Fox_Idle_dir3_06: -445828273843268793
+      Fox_Idle_dir3_07: 1939500839646829643
+      Fox_Idle_dir3_08: 8415287376350099991
+      Fox_Idle_dir3_09: 7350504029521392780
       Fox_Idle_dir3_1: 4741388331509628401
       Fox_Idle_dir3_10: 3278893492606684381
       Fox_Idle_dir3_11: 735737187752860080
@@ -636,6 +688,10 @@ TextureImporter:
       Fox_Idle_dir3_18: 1789371165191562709
       Fox_Idle_dir3_19: 7152739682645193201
       Fox_Idle_dir3_2: 8010049239751847369
+      Fox_Idle_dir3_20: -4728627411444786587
+      Fox_Idle_dir3_21: 8533236467571809435
+      Fox_Idle_dir3_22: 5507938374769989318
+      Fox_Idle_dir3_23: 6761744784009392244
       Fox_Idle_dir3_3: 5195412090385776213
       Fox_Idle_dir3_4: -2330426975885179844
       Fox_Idle_dir3_5: 8108604537303096787

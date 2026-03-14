@@ -29,6 +29,33 @@ TextureImporter:
   - first:
       213: 6640480456535378504
     second: chubby-duck-walk-sheet_8
+  - first:
+      213: -2959710233452951899
+    second: duck_walk_00
+  - first:
+      213: -1378342199453185699
+    second: duck_walk_01
+  - first:
+      213: -2471851442682175973
+    second: duck_walk_02
+  - first:
+      213: -8719144474127881466
+    second: duck_walk_03
+  - first:
+      213: -5764997797120897146
+    second: duck_walk_04
+  - first:
+      213: -4652538254723090714
+    second: duck_walk_05
+  - first:
+      213: 1712301989217054406
+    second: duck_walk_06
+  - first:
+      213: -8116930180737167643
+    second: duck_walk_07
+  - first:
+      213: 7571368398325581129
+    second: duck_walk_08
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -120,203 +147,216 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chubby-duck-walk-sheet_0
+      name: duck_walk_00
       rect:
         serializedVersion: 2
-        x: 9
-        y: 4
-        width: 32
-        height: 36
+        x: 0
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ded6af9fa094a3cb0800000000000000
-      internalID: -4883510534437442067
+      spriteID: 5a6c2f0593ffce6d0800000000000000
+      internalID: -2959710233452951899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-walk-sheet_1
+      name: duck_walk_01
       rect:
         serializedVersion: 2
-        x: 57
-        y: 4
-        width: 32
-        height: 37
+        x: 48
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98029e92fb14a1cf0800000000000000
-      internalID: -280839737459531639
+      spriteID: d5989a682152fdce0800000000000000
+      internalID: -1378342199453185699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-walk-sheet_2
+      name: duck_walk_02
       rect:
         serializedVersion: 2
-        x: 105
-        y: 4
-        width: 32
-        height: 38
+        x: 96
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d634381d379f24900800000000000000
-      internalID: 667369970635850605
+      spriteID: b1e5465953832bdd0800000000000000
+      internalID: -2471851442682175973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-walk-sheet_3
+      name: duck_walk_03
       rect:
         serializedVersion: 2
-        x: 153
-        y: 4
-        width: 32
-        height: 40
+        x: 144
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: be560ac3db6d64430800000000000000
-      internalID: 3766934246596306411
+      spriteID: 60b2c4afb406ff680800000000000000
+      internalID: -8719144474127881466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-walk-sheet_4
+      name: duck_walk_04
       rect:
         serializedVersion: 2
-        x: 201
-        y: 4
-        width: 32
-        height: 41
+        x: 192
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 13a0b776de2823590800000000000000
-      internalID: -7695944857067779535
+      spriteID: 68f03bb3c0d9effa0800000000000000
+      internalID: -5764997797120897146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-walk-sheet_5
+      name: duck_walk_05
       rect:
         serializedVersion: 2
-        x: 249
-        y: 4
-        width: 32
-        height: 42
+        x: 240
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8ddf781c22bde3a00800000000000000
-      internalID: 738268331257626072
+      spriteID: 6e670578b1dde6fb0800000000000000
+      internalID: -4652538254723090714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-walk-sheet_6
+      name: duck_walk_06
       rect:
         serializedVersion: 2
-        x: 296
-        y: 4
-        width: 33
-        height: 39
+        x: 288
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e47fe797b838137d0800000000000000
-      internalID: -2940424446634166450
+      spriteID: 6ce2a77469153c710800000000000000
+      internalID: 1712301989217054406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-walk-sheet_7
+      name: duck_walk_07
       rect:
         serializedVersion: 2
-        x: 343
-        y: 4
-        width: 34
-        height: 38
+        x: 336
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c06bbea0097d47230800000000000000
-      internalID: 3635767812853315084
+      spriteID: 5ee8386810fda5f80800000000000000
+      internalID: -8116930180737167643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-walk-sheet_8
+      name: duck_walk_08
       rect:
         serializedVersion: 2
-        x: 393
-        y: 4
-        width: 32
-        height: 36
+        x: 384
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 84a07bddac9b72c50800000000000000
-      internalID: 6640480456535378504
+      spriteID: 94580d58177e21960800000000000000
+      internalID: 7571368398325581129
       vertices: []
       indices: 
       edges: []
@@ -344,6 +384,15 @@ TextureImporter:
       chubby-duck-walk-sheet_6: -2940424446634166450
       chubby-duck-walk-sheet_7: 3635767812853315084
       chubby-duck-walk-sheet_8: 6640480456535378504
+      duck_walk_00: -2959710233452951899
+      duck_walk_01: -1378342199453185699
+      duck_walk_02: -2471851442682175973
+      duck_walk_03: -8719144474127881466
+      duck_walk_04: -5764997797120897146
+      duck_walk_05: -4652538254723090714
+      duck_walk_06: 1712301989217054406
+      duck_walk_07: -8116930180737167643
+      duck_walk_08: 7571368398325581129
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -38,6 +38,36 @@ TextureImporter:
   - first:
       213: -6450140060128223062
     second: Fox_Walk_dir2_11
+  - first:
+      213: -642516058548200252
+    second: Fox_Walk_dir2_00
+  - first:
+      213: -1044528793079730885
+    second: Fox_Walk_dir2_01
+  - first:
+      213: -1408896578875050035
+    second: Fox_Walk_dir2_02
+  - first:
+      213: -2807473208257282563
+    second: Fox_Walk_dir2_03
+  - first:
+      213: -4449390291249865836
+    second: Fox_Walk_dir2_04
+  - first:
+      213: -3477988013838738286
+    second: Fox_Walk_dir2_05
+  - first:
+      213: -3292025274745080322
+    second: Fox_Walk_dir2_06
+  - first:
+      213: 8382319463478872242
+    second: Fox_Walk_dir2_07
+  - first:
+      213: 1988226532096785916
+    second: Fox_Walk_dir2_08
+  - first:
+      213: -2213224759731035443
+    second: Fox_Walk_dir2_09
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -70,7 +100,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,7 +114,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +138,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -146,221 +176,221 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fox_Walk_dir2_0
+      name: Fox_Walk_dir2_00
       rect:
         serializedVersion: 2
-        x: 97
-        y: 375
-        width: 57
-        height: 121
+        x: 0
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 03b3e6c13b05d1ff0800000000000000
-      internalID: -63806089506964688
+      spriteID: 4cc10c78c035517f0800000000000000
+      internalID: -642516058548200252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Walk_dir2_1
+      name: Fox_Walk_dir2_01
       rect:
         serializedVersion: 2
-        x: 354
-        y: 375
-        width: 57
-        height: 121
+        x: 256
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 365bb70087dde9900800000000000000
-      internalID: 693234900135556451
+      spriteID: b3da0dac8961181f0800000000000000
+      internalID: -1044528793079730885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Walk_dir2_2
+      name: Fox_Walk_dir2_02
       rect:
         serializedVersion: 2
-        x: 612
-        y: 375
-        width: 57
-        height: 121
+        x: 512
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1322cb458910b3990800000000000000
-      internalID: -7405323408512376271
+      spriteID: dc7b3e2b608927ce0800000000000000
+      internalID: -1408896578875050035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Walk_dir2_3
+      name: Fox_Walk_dir2_03
       rect:
         serializedVersion: 2
-        x: 867
-        y: 376
-        width: 57
-        height: 122
+        x: 768
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a643a075d3635f520800000000000000
-      internalID: 2735151985778635882
+      spriteID: dfdf561edf9d909d0800000000000000
+      internalID: -2807473208257282563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Walk_dir2_4
+      name: Fox_Walk_dir2_04
       rect:
         serializedVersion: 2
-        x: 1121
-        y: 375
-        width: 58
-        height: 124
+        x: 1024
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a31e806dc9d48d5b0800000000000000
-      internalID: -5343435621873950406
+      spriteID: 49bdafe9a179042c0800000000000000
+      internalID: -4449390291249865836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Walk_dir2_5
+      name: Fox_Walk_dir2_05
       rect:
         serializedVersion: 2
-        x: 1376
-        y: 375
-        width: 57
-        height: 123
+        x: 1280
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5f37f6c1817949a70800000000000000
-      internalID: 8832850898992460789
+      spriteID: 29c531e1454bbbfc0800000000000000
+      internalID: -3477988013838738286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Walk_dir2_6
+      name: Fox_Walk_dir2_06
       rect:
         serializedVersion: 2
-        x: 96
-        y: 120
-        width: 57
-        height: 121
+        x: 0
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a56a5a67801e2e650800000000000000
-      internalID: 6260813858464966234
+      spriteID: ef5363b54706052d0800000000000000
+      internalID: -3292025274745080322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Walk_dir2_7
+      name: Fox_Walk_dir2_07
       rect:
         serializedVersion: 2
-        x: 353
-        y: 120
-        width: 59
-        height: 120
+        x: 256
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91052751da5a37cf0800000000000000
-      internalID: -255678591022247911
+      spriteID: 2b8408ef32bf35470800000000000000
+      internalID: 8382319463478872242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Walk_dir2_8
+      name: Fox_Walk_dir2_08
       rect:
         serializedVersion: 2
-        x: 611
-        y: 119
-        width: 59
-        height: 121
+        x: 512
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af5d316aab728ee20800000000000000
-      internalID: 3379995202945275386
+      spriteID: cfdb2a23f79979b10800000000000000
+      internalID: 1988226532096785916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fox_Walk_dir2_9
+      name: Fox_Walk_dir2_09
       rect:
         serializedVersion: 2
-        x: 867
-        y: 119
-        width: 56
-        height: 122
+        x: 768
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c520026d3d9155120800000000000000
-      internalID: 2401854373893243484
+      spriteID: dc2e124aecb0941e0800000000000000
+      internalID: -2213224759731035443
       vertices: []
       indices: 
       edges: []
@@ -369,12 +399,12 @@ TextureImporter:
       name: Fox_Walk_dir2_10
       rect:
         serializedVersion: 2
-        x: 1121
-        y: 119
-        width: 58
-        height: 123
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -391,12 +421,12 @@ TextureImporter:
       name: Fox_Walk_dir2_11
       rect:
         serializedVersion: 2
-        x: 1377
-        y: 119
-        width: 58
-        height: 123
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -424,6 +454,16 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Fox_Walk_dir2_0: -63806089506964688
+      Fox_Walk_dir2_00: -642516058548200252
+      Fox_Walk_dir2_01: -1044528793079730885
+      Fox_Walk_dir2_02: -1408896578875050035
+      Fox_Walk_dir2_03: -2807473208257282563
+      Fox_Walk_dir2_04: -4449390291249865836
+      Fox_Walk_dir2_05: -3477988013838738286
+      Fox_Walk_dir2_06: -3292025274745080322
+      Fox_Walk_dir2_07: 8382319463478872242
+      Fox_Walk_dir2_08: 1988226532096785916
+      Fox_Walk_dir2_09: -2213224759731035443
       Fox_Walk_dir2_1: 693234900135556451
       Fox_Walk_dir2_10: 7381796091226464580
       Fox_Walk_dir2_11: -6450140060128223062

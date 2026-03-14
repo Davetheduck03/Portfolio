@@ -26,6 +26,30 @@ TextureImporter:
   - first:
       213: -2995366582416880989
     second: chubby-duck-jump-sheet_7
+  - first:
+      213: 5845939141552011599
+    second: duck_jump_00
+  - first:
+      213: -6979112171468531342
+    second: duck_jump_01
+  - first:
+      213: 5828108383190576437
+    second: duck_jump_02
+  - first:
+      213: 1478870593378294686
+    second: duck_jump_03
+  - first:
+      213: -2643284440860840442
+    second: duck_jump_04
+  - first:
+      213: 931522431250544417
+    second: duck_jump_05
+  - first:
+      213: -3568874138423267887
+    second: duck_jump_06
+  - first:
+      213: 4291686268029703696
+    second: duck_jump_07
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -117,181 +141,194 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chubby-duck-jump-sheet_0
+      name: duck_jump_00
       rect:
         serializedVersion: 2
-        x: 9
-        y: 4
-        width: 32
-        height: 34
+        x: 0
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 807019e70e46d4cf0800000000000000
-      internalID: -266445887586105592
+      spriteID: f4972c61da2f02150800000000000000
+      internalID: 5845939141552011599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-jump-sheet_1
+      name: duck_jump_01
       rect:
         serializedVersion: 2
-        x: 55
-        y: 4
-        width: 34
-        height: 32
+        x: 48
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e183823cbb96f0120800000000000000
-      internalID: 2382238983056275486
+      spriteID: 279530cf476352f90800000000000000
+      internalID: -6979112171468531342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-jump-sheet_2
+      name: duck_jump_02
       rect:
         serializedVersion: 2
-        x: 102
-        y: 4
-        width: 35
-        height: 31
+        x: 96
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aac4efe28b132f2f0800000000000000
-      internalID: -940634705034851158
+      spriteID: 53dec8422b991e050800000000000000
+      internalID: 5828108383190576437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-jump-sheet_3
+      name: duck_jump_03
       rect:
         serializedVersion: 2
-        x: 152
-        y: 7
-        width: 33
-        height: 39
+        x: 144
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f36cc85d7780ac810800000000000000
-      internalID: 1786249512982726207
+      spriteID: e9b951328f0068410800000000000000
+      internalID: 1478870593378294686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-jump-sheet_4
+      name: duck_jump_04
       rect:
         serializedVersion: 2
-        x: 201
-        y: 8
-        width: 32
-        height: 39
+        x: 192
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 016e0e4a6b1127450800000000000000
-      internalID: 6084945522678883856
+      spriteID: 60e2c264eca215bd0800000000000000
+      internalID: -2643284440860840442
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-jump-sheet_5
+      name: duck_jump_05
       rect:
         serializedVersion: 2
-        x: 249
-        y: 7
-        width: 32
-        height: 39
+        x: 240
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 95cd83518ac4f7300800000000000000
-      internalID: 252004388950301785
+      spriteID: 1273ffe37be6dec00800000000000000
+      internalID: 931522431250544417
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-jump-sheet_6
+      name: duck_jump_06
       rect:
         serializedVersion: 2
-        x: 297
-        y: 5
-        width: 32
-        height: 40
+        x: 288
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 494bd05c58e34e9c0800000000000000
-      internalID: -3898922633138424684
+      spriteID: 1dde33b31efc87ec0800000000000000
+      internalID: -3568874138423267887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-jump-sheet_7
+      name: duck_jump_07
       rect:
         serializedVersion: 2
-        x: 345
-        y: 4
-        width: 32
-        height: 40
+        x: 336
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3aa47f2a6f15e66d0800000000000000
-      internalID: -2995366582416880989
+      spriteID: 01615552ce12f8b30800000000000000
+      internalID: 4291686268029703696
       vertices: []
       indices: 
       edges: []
@@ -318,6 +355,14 @@ TextureImporter:
       chubby-duck-jump-sheet_5: 252004388950301785
       chubby-duck-jump-sheet_6: -3898922633138424684
       chubby-duck-jump-sheet_7: -2995366582416880989
+      duck_jump_00: 5845939141552011599
+      duck_jump_01: -6979112171468531342
+      duck_jump_02: 5828108383190576437
+      duck_jump_03: 1478870593378294686
+      duck_jump_04: -2643284440860840442
+      duck_jump_05: 931522431250544417
+      duck_jump_06: -3568874138423267887
+      duck_jump_07: 4291686268029703696
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

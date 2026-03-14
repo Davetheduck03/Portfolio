@@ -174,6 +174,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -784,7 +797,34 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GirlSample_Death_Right_0: -4249563743891971860
+      GirlSample_Death_Right_1: 6908726451130943385
+      GirlSample_Death_Right_10: 2940873941000188480
+      GirlSample_Death_Right_11: -3195928719974263338
+      GirlSample_Death_Right_12: -5086021247815711824
+      GirlSample_Death_Right_13: 7318890340146300223
+      GirlSample_Death_Right_14: -4417435844622596631
+      GirlSample_Death_Right_15: -7148949335317013209
+      GirlSample_Death_Right_16: 5555615479037499497
+      GirlSample_Death_Right_17: 8259606892422629982
+      GirlSample_Death_Right_18: 1814302918270103169
+      GirlSample_Death_Right_19: -1912272957436104739
+      GirlSample_Death_Right_2: 7658543703240910498
+      GirlSample_Death_Right_20: -1388720143037779709
+      GirlSample_Death_Right_21: 7261937416320942769
+      GirlSample_Death_Right_22: -7776374607857588628
+      GirlSample_Death_Right_23: -6048638298941977054
+      GirlSample_Death_Right_24: 3937191850649443680
+      GirlSample_Death_Right_25: 144028590672288232
+      GirlSample_Death_Right_26: -2604709389602421617
+      GirlSample_Death_Right_3: 7521995687627908910
+      GirlSample_Death_Right_4: -7817456961833803479
+      GirlSample_Death_Right_5: -5664562337411795927
+      GirlSample_Death_Right_6: 3929820166766735966
+      GirlSample_Death_Right_7: 6511026954869972994
+      GirlSample_Death_Right_8: 8612746292371036340
+      GirlSample_Death_Right_9: -1243088988829419000
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

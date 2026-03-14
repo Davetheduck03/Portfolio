@@ -4112,7 +4112,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000c5c9bbab
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -8193,6 +8193,7 @@ GameObject:
   - component: {fileID: 1170406852}
   - component: {fileID: 1170406851}
   - component: {fileID: 1170406853}
+  - component: {fileID: 1170406854}
   m_Layer: 0
   m_Name: TooDee
   m_TagString: Untagged
@@ -8241,15 +8242,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 6640480456535378504, guid: 22d52b61769d82f42bdbf4fa20a1e072, type: 3}
+  m_SortingLayerID: -1413756475
+  m_SortingLayer: 1
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -5733554340414684143, guid: da2d86f307516fe4199acf0086da396b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -8317,7 +8318,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5625
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1170406853
 MonoBehaviour:
@@ -8342,6 +8343,30 @@ MonoBehaviour:
   groundCheckRadius: 0.1
   sphereCastRadius: 0.45
   sphereCastDistance: 0.2
+  animator: {fileID: 1170406854}
+  spriteRenderer: {fileID: 1170406849}
+--- !u!95 &1170406854
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170406847}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 962c5c787e036284b9ceb9db9836fcfa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1193053401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9118,9 +9143,9 @@ RectTransform:
   m_Father: {fileID: 1105489510}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 900, y: 650}
+  m_SizeDelta: {x: 2303.9998, y: 1295.9999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1324752977
 MonoBehaviour:
@@ -9185,7 +9210,7 @@ Transform:
   m_GameObject: {fileID: 1349993889}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12014,6 +12039,7 @@ GameObject:
   - component: {fileID: 1615539442}
   - component: {fileID: 1615539441}
   - component: {fileID: 1615539440}
+  - component: {fileID: 1615539444}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -12139,6 +12165,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1615539444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615539439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d7a5ceaf820a440aec316e918741cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1615539442}
+  orthoPosition: {x: 0, y: 0, z: -10}
+  orthoSize: 11
+  perspPosition: {x: 0, y: -17, z: -38}
+  perspFOV: 35
+  perspEuler: {x: -25, y: 0, z: 0}
+  transitionDuration: 1
 --- !u!1001 &1620254394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14235,6 +14280,7 @@ GameObject:
   - component: {fileID: 1805407365}
   - component: {fileID: 1805407366}
   - component: {fileID: 1805407367}
+  - component: {fileID: 1805407368}
   m_Layer: 0
   m_Name: TopDee
   m_TagString: Untagged
@@ -14283,9 +14329,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1413756475
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4679712394757373103, guid: 393c5bb6b110b854ca6ee042aca65beb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -14325,11 +14371,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  sphereCastRadius: 0.45
-  sphereCastDistance: 0.2
+  animator: {fileID: 1805407368}
+  animSmoothing: 10
 --- !u!135 &1805407366
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14349,8 +14392,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.585
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.9
+  m_Center: {x: 0, y: 0.85, z: 0}
 --- !u!54 &1805407367
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14373,11 +14416,33 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!95 &1805407368
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805407362}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d315e3da3180574fb96de36c54e4f46, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1810924927
 PrefabInstance:
   m_ObjectHideFlags: 0

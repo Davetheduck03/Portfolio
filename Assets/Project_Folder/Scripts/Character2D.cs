@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody), typeof(SphereCollider))]
 public class SidescrollerCharacter : BaseCharacter
@@ -17,6 +18,13 @@ public class SidescrollerCharacter : BaseCharacter
 	[SerializeField] private float groundCheckRadius = 0.1f;  // small, tight to contact point
 	[SerializeField] private float sphereCastRadius = 0.45f; // slightly under collider radius
 	[SerializeField] private float sphereCastDistance = 0.2f;
+
+	[Header("Animation")]
+	[SerializeField] private Animator animator;
+	[SerializeField] private SpriteRenderer spriteRenderer;
+
+	private static readonly int Speed      = Animator.StringToHash("Speed");
+	private static readonly int IsGrounded = Animator.StringToHash("IsGrounded");
 
 	private Rigidbody _rb;
 	private SphereCollider _col;
@@ -45,12 +53,12 @@ public class SidescrollerCharacter : BaseCharacter
 
 	public override void HandleInput()
 	{
-		_inputX = Input.GetAxisRaw("Horizontal");
+		_inputX = (Keyboard.current.dKey.isPressed ? 1f : 0f) - (Keyboard.current.aKey.isPressed ? 1f : 0f);
 
-		if (Input.GetButtonDown("Jump"))
+		if (Keyboard.current.spaceKey.wasPressedThisFrame)
 			_jumpRequested = true;
 
-		_jumpHeld = Input.GetButton("Jump");
+		_jumpHeld = Keyboard.current.spaceKey.isPressed;
 	}
 
 	public override void Tick()
@@ -67,6 +75,20 @@ public class SidescrollerCharacter : BaseCharacter
 			move = Vector3.ProjectOnPlane(move, _groundNormal);
 
 		_rb.linearVelocity = move;
+
+		UpdateAnimator();
+	}
+
+	private void UpdateAnimator()
+	{
+		if (animator == null) return;
+
+		animator.SetFloat(Speed,      Mathf.Abs(_inputX));
+		animator.SetBool (IsGrounded, _isGrounded);
+
+		// Flip sprite to face the direction of movement
+		if (spriteRenderer != null && _inputX != 0f)
+			spriteRenderer.flipX = _inputX < 0f;
 	}
 
 	// -------------------------------------------------------------------
@@ -147,6 +169,12 @@ public class SidescrollerCharacter : BaseCharacter
 		// Intentionally keep _velocityY — gravity still applies while inactive
 		// so the character doesn't float if switched mid-air
 		_rb.linearVelocity = new Vector3(0f, _velocityY, 0f);
+
+		if (animator != null)
+		{
+			animator.SetFloat(Speed, 0f);
+			animator.SetBool (IsGrounded, _isGrounded);
+		}
 	}
 
 	// -------------------------------------------------------------------

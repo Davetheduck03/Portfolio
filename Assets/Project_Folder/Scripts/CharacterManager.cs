@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CharacterManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class CharacterManager : MonoBehaviour
 	private int _activeIndex;
 
 	public BaseCharacter ActiveCharacter => characters[_activeIndex];
+
+	public event System.Action<BaseCharacter> OnCharacterSwitched;
 
 	void Awake()
 	{
@@ -29,7 +32,7 @@ public class CharacterManager : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Tab))
+		if (Keyboard.current.tabKey.wasPressedThisFrame)
 			SwitchCharacter();
 
 		ActiveCharacter.HandleInput();
@@ -45,5 +48,6 @@ public class CharacterManager : MonoBehaviour
 		characters[_activeIndex].OnDeactivated();
 		_activeIndex = (_activeIndex + 1) % characters.Length;
 		characters[_activeIndex].OnActivated();
+		OnCharacterSwitched?.Invoke(characters[_activeIndex]);
 	}
 }

@@ -20,6 +20,24 @@ TextureImporter:
   - first:
       213: -4578091262987474059
     second: chubby-duck-idle-sheet_5
+  - first:
+      213: -5733554340414684143
+    second: duck_idle_00
+  - first:
+      213: 4278673003801575380
+    second: duck_idle_01
+  - first:
+      213: -384580518616776671
+    second: duck_idle_02
+  - first:
+      213: -7724993709110581052
+    second: duck_idle_03
+  - first:
+      213: -7388963830874222597
+    second: duck_idle_04
+  - first:
+      213: 8512305495766805027
+    second: duck_idle_05
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -111,137 +129,150 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chubby-duck-idle-sheet_0
+      name: duck_idle_00
       rect:
         serializedVersion: 2
-        x: 9
-        y: 4
-        width: 32
-        height: 36
+        x: 0
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d664962be5157f530800000000000000
-      internalID: 3888666270419732077
+      spriteID: 1140f2f74b25e60b0800000000000000
+      internalID: -5733554340414684143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-idle-sheet_1
+      name: duck_idle_01
       rect:
         serializedVersion: 2
-        x: 56
-        y: 4
-        width: 33
-        height: 35
+        x: 48
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5478a2a215b5cae10800000000000000
-      internalID: 2210241921289979717
+      spriteID: 4df75a57d66e06b30800000000000000
+      internalID: 4278673003801575380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-idle-sheet_2
+      name: duck_idle_02
       rect:
         serializedVersion: 2
-        x: 105
-        y: 4
-        width: 32
-        height: 37
+        x: 96
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c154a0e57bf4c9a0800000000000000
-      internalID: -6213565102165831227
+      spriteID: 120cf405e02b9aaf0800000000000000
+      internalID: -384580518616776671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-idle-sheet_3
+      name: duck_idle_03
       rect:
         serializedVersion: 2
-        x: 152
-        y: 4
-        width: 33
-        height: 37
+        x: 144
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7bdab57ec0927cf90800000000000000
-      internalID: -6933527965915697737
+      spriteID: 4c8265c762f4bc490800000000000000
+      internalID: -7724993709110581052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-idle-sheet_4
+      name: duck_idle_04
       rect:
         serializedVersion: 2
-        x: 201
-        y: 4
-        width: 32
-        height: 37
+        x: 192
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5364a97be5760cef0800000000000000
-      internalID: -89958336042482123
+      spriteID: bff48825b80257990800000000000000
+      internalID: -7388963830874222597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chubby-duck-idle-sheet_5
+      name: duck_idle_05
       rect:
         serializedVersion: 2
-        x: 249
-        y: 4
-        width: 32
-        height: 37
+        x: 240
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57bef48804a5770c0800000000000000
-      internalID: -4578091262987474059
+      spriteID: 32a29ce8fb8c12670800000000000000
+      internalID: 8512305495766805027
       vertices: []
       indices: 
       edges: []
@@ -266,6 +297,12 @@ TextureImporter:
       chubby-duck-idle-sheet_3: -6933527965915697737
       chubby-duck-idle-sheet_4: -89958336042482123
       chubby-duck-idle-sheet_5: -4578091262987474059
+      duck_idle_00: -5733554340414684143
+      duck_idle_01: 4278673003801575380
+      duck_idle_02: -384580518616776671
+      duck_idle_03: -7724993709110581052
+      duck_idle_04: -7388963830874222597
+      duck_idle_05: 8512305495766805027
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
