@@ -14,7 +14,8 @@ public class SidescrollerCharacter : BaseCharacter
 
 	[Header("Ground Check")]
 	[SerializeField] private Transform groundCheck;
-	[SerializeField] private LayerMask groundLayer;
+	[Tooltip("All layers the character can stand on. Select multiple in the Inspector.")]
+	[SerializeField] private LayerMask groundLayers;
 	[SerializeField] private float groundCheckRadius = 0.1f;  // small, tight to contact point
 	[SerializeField] private float sphereCastRadius = 0.45f; // slightly under collider radius
 	[SerializeField] private float sphereCastDistance = 0.2f;
@@ -38,17 +39,19 @@ public class SidescrollerCharacter : BaseCharacter
 
 	void Awake()
 	{
-		_rb = GetComponent<Rigidbody>();
+		base.Awake();
+
+		_rb  = GetComponent<Rigidbody>();
 		_col = GetComponent<SphereCollider>();
 
-		_rb.useGravity = false;
+		_rb.useGravity     = false;
 		_rb.freezeRotation = true;
 
 		// Lock Z so the character stays on the 2D plane
 		_rb.constraints = RigidbodyConstraints.FreezePositionZ
-						| RigidbodyConstraints.FreezeRotationX
-						| RigidbodyConstraints.FreezeRotationY
-						| RigidbodyConstraints.FreezeRotationZ;
+		                | RigidbodyConstraints.FreezeRotationX
+		                | RigidbodyConstraints.FreezeRotationY
+		                | RigidbodyConstraints.FreezeRotationZ;
 	}
 
 	public override void HandleInput()
@@ -102,7 +105,7 @@ public class SidescrollerCharacter : BaseCharacter
 		_isGrounded = Physics.CheckSphere(
 			groundCheck.position,
 			groundCheckRadius,
-			groundLayer,
+			groundLayers,
 			QueryTriggerInteraction.Ignore);
 	}
 
@@ -114,7 +117,7 @@ public class SidescrollerCharacter : BaseCharacter
 				Vector3.down,
 				out RaycastHit hit,
 				sphereCastDistance,
-				groundLayer))
+				groundLayers))
 		{
 			// Only treat as valid ground if the surface faces mostly upward
 			_groundNormal = hit.normal.y > 0.7f ? hit.normal : Vector3.up;
@@ -161,20 +164,25 @@ public class SidescrollerCharacter : BaseCharacter
 	// Switch
 	// -------------------------------------------------------------------
 
+	public override void OnActivated()
+	{
+		base.OnActivated(); // re-enables Rigidbody, Collider, Animator; restores opacity
+
+		// Restore the sidescroller plane constraint (X/Y free, Z locked, no rotation).
+		_rb.constraints = RigidbodyConstraints.FreezePositionZ
+		                | RigidbodyConstraints.FreezeRotationX
+		                | RigidbodyConstraints.FreezeRotationY
+		                | RigidbodyConstraints.FreezeRotationZ;
+	}
+
 	public override void OnDeactivated()
 	{
-		base.OnDeactivated();
-		_inputX = 0f;
+		// Clear input and vertical momentum before base zeroes linearVelocity.
+		_inputX        = 0f;
 		_jumpRequested = false;
-		// Intentionally keep _velocityY — gravity still applies while inactive
-		// so the character doesn't float if switched mid-air
-		_rb.linearVelocity = new Vector3(0f, _velocityY, 0f);
+		_velocityY     = 0f;
 
-		if (animator != null)
-		{
-			animator.SetFloat(Speed, 0f);
-			animator.SetBool (IsGrounded, _isGrounded);
-		}
+		base.OnDeactivated(); // zeros velocity, isKinematic=true, disables Collider+Animator, dims sprite
 	}
 
 	// -------------------------------------------------------------------
