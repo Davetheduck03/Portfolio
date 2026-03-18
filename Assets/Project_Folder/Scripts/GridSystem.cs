@@ -1,115 +1,134 @@
 using UnityEngine;
 
 /// <summary>
-/// Simple world-space grid that snaps XY positions to cell centres.
-/// Add one instance to the scene (e.g. on an empty GameObject called "GridSystem").
+/// World-space grid that snaps XY positions to cell centres.
+/// Owns all grid layout data: cell size, origin, and dimensions.
+/// GridRenderer reads from this so everything stays in sync.
 /// </summary>
 public class GridSystem : MonoBehaviour
 {
-	// ---------------------------------------------------------------
-	//  Singleton
-	// ---------------------------------------------------------------
+    public static GridSystem Instance { get; private set; }
 
-	public static GridSystem Instance { get; private set; }
+    // ---------------------------------------------------------------
+    //  Inspector
+    // ---------------------------------------------------------------
 
-	// ---------------------------------------------------------------
-	//  Inspector
-	// ---------------------------------------------------------------
+    [Tooltip("Width and height of each grid cell in world units.")]
+    [SerializeField] public float cellSize = 1f;
 
-	[Tooltip("Width and height of each grid cell in world units. " +
-	         "Set this to match the size of your blocks (default 1).")]
-	[SerializeField] public float cellSize = 1f;
+    [Tooltip("World-space origin of the grid (bottom-left corner of cell 0,0).")]
+    [SerializeField] public Vector3 originOffset = Vector3.zero;
 
-	[Tooltip("World-space origin offset for the grid. " +
-	         "Use this if your blocks are centred on 0.5, 1.5, … instead of 0, 1, …")]
-	[SerializeField] public Vector3 originOffset = Vector3.zero;
+    [Tooltip("When true the origin is a cell CORNER — centres sit at " +
+             "origin + (n+0.5)*cellSize. When false the origin already " +
+             "marks a cell centre.")]
+    [SerializeField] public bool originIsCorner = true;
 
-	[Header("Debug")]
-	[Tooltip("Draw the grid in the Scene view.")]
-	[SerializeField] private bool showGizmos    = true;
-	[SerializeField] private int  gizmoExtent   = 20;    // half-size of the drawn grid
-	[SerializeField] private Color gizmoColor   = new Color(0.3f, 0.8f, 1f, 0.25f);
+    [Header("Grid Size")]
+    [Tooltip("How many cells wide the grid is.")]
+    [SerializeField] public int gridWidth = 20;
+    [Tooltip("How many cells tall the grid is.")]
+    [SerializeField] public int gridHeight = 12;
 
-	// ---------------------------------------------------------------
-	//  Unity messages
-	// ---------------------------------------------------------------
+    [Header("Debug")]
+    [SerializeField] private bool showGizmos = true;
+    [SerializeField] private int gizmoExtent = 20;
+    [SerializeField] private Color gizmoColor = new Color(0.3f, 0.8f, 1f, 0.25f);
 
-	void Awake()
-	{
-		if (Instance != null && Instance != this)
-		{
-			Debug.LogWarning("[GridSystem] Duplicate instance destroyed.", this);
-			Destroy(gameObject);
-			return;
-		}
-		Instance = this;
-	}
+    // ---------------------------------------------------------------
 
-	// ---------------------------------------------------------------
-	//  Public API
-	// ---------------------------------------------------------------
+    private float HalfCell => originIsCorner ? cellSize * 0.5f : 0f;
 
-	/// <summary>
-	/// Returns the world-space centre of the grid cell that contains <paramref name="worldPos"/>.
-	/// Z is preserved unchanged (the grid only operates in XY).
-	/// </summary>
-	public Vector3 SnapToGrid(Vector3 worldPos)
-	{
-		float x = Mathf.Round((worldPos.x - originOffset.x) / cellSize) * cellSize + originOffset.x;
-		float y = Mathf.Round((worldPos.y - originOffset.y) / cellSize) * cellSize + originOffset.y;
-		return new Vector3(x, y, worldPos.z);
-	}
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogWarning("[GridSystem] Duplicate instance destroyed.", this);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
-	/// <summary>
-	/// Converts a world position to integer grid coordinates (no origin offset applied).
-	/// </summary>
-	public Vector2Int WorldToCell(Vector3 worldPos)
-	{
-		int gx = Mathf.RoundToInt((worldPos.x - originOffset.x) / cellSize);
-		int gy = Mathf.RoundToInt((worldPos.y - originOffset.y) / cellSize);
-		return new Vector2Int(gx, gy);
-	}
+    // ---------------------------------------------------------------
+    //  Public API
+    // ---------------------------------------------------------------
 
-	/// <summary>
-	/// Converts integer grid coordinates back to a world-space centre position.
-	/// </summary>
-	public Vector3 CellToWorld(Vector2Int cell, float z = 0f)
-	{
-		return new Vector3(
-			cell.x * cellSize + originOffset.x,
-			cell.y * cellSize + originOffset.y,
-			z);
-	}
+    /// <summary>
+    /// Returns the world-space centre of the grid cell that contains
+    /// <paramref name="worldPos"/>. Z is preserved unchanged.
+    /// </summary>
+    public Vector3 SnapToGrid(Vector3 worldPos)
+    {
+        float half = HalfCell;
 
-	// ---------------------------------------------------------------
-	//  Gizmos
-	// ---------------------------------------------------------------
+        float x = Mathf.Floor((worldPos.x - originOffset.x - half) / cellSize + 0.5f)
+                  * cellSize + originOffset.x + half;
+        float y = Mathf.Floor((worldPos.y - originOffset.y - half) / cellSize + 0.5f)
+                  * cellSize + originOffset.y + half;
+
+        return new Vector3(x, y, worldPos.z);
+    }
+
+    public Vector2Int WorldToCell(Vector3 worldPos)
+    {
+        float half = HalfCell;
+        int gx = Mathf.FloorToInt((worldPos.x - originOffset.x - half) / cellSize + 0.5f);
+        int gy = Mathf.FloorToInt((worldPos.y - originOffset.y - half) / cellSize + 0.5f);
+        return new Vector2Int(gx, gy);
+    }
+
+    public Vector3 CellToWorld(Vector2Int cell, float z = 0f)
+    {
+        float half = HalfCell;
+        return new Vector3(
+            cell.x * cellSize + originOffset.x + half,
+            cell.y * cellSize + originOffset.y + half,
+            z);
+    }
+
+    // ---------------------------------------------------------------
+    //  Gizmos
+    // ---------------------------------------------------------------
 
 #if UNITY_EDITOR
-	void OnDrawGizmos()
-	{
-		if (!showGizmos) return;
+    void OnDrawGizmos()
+    {
+        if (!showGizmos) return;
 
-		Gizmos.color = gizmoColor;
+        Gizmos.color = gizmoColor;
 
-		float half  = gizmoExtent * cellSize;
-		Vector3 org = originOffset;
+        float ox = originOffset.x;
+        float oy = originOffset.y;
+        float oz = originOffset.z;
+        float w = gridWidth * cellSize;
+        float h = gridHeight * cellSize;
 
-		// Vertical lines
-		for (int i = -gizmoExtent; i <= gizmoExtent; i++)
-		{
-			float x = org.x + i * cellSize;
-			Gizmos.DrawLine(new Vector3(x, org.y - half, org.z),
-			                new Vector3(x, org.y + half, org.z));
-		}
+        // Cell-edge lines within the defined grid area
+        for (int i = 0; i <= gridWidth; i++)
+        {
+            float x = ox + i * cellSize;
+            Gizmos.DrawLine(new Vector3(x, oy, oz), new Vector3(x, oy + h, oz));
+        }
 
-		// Horizontal lines
-		for (int i = -gizmoExtent; i <= gizmoExtent; i++)
-		{
-			float y = org.y + i * cellSize;
-			Gizmos.DrawLine(new Vector3(org.x - half, y, org.z),
-			                new Vector3(org.x + half, y, org.z));
-		}
-	}
+        for (int i = 0; i <= gridHeight; i++)
+        {
+            float y = oy + i * cellSize;
+            Gizmos.DrawLine(new Vector3(ox, y, oz), new Vector3(ox + w, y, oz));
+        }
+
+        // Cell centre dots
+        Gizmos.color = new Color(gizmoColor.r, gizmoColor.g, gizmoColor.b, gizmoColor.a * 2f);
+        float hc = HalfCell;
+        for (int cx = 0; cx < gridWidth; cx++)
+            for (int cy = 0; cy < gridHeight; cy++)
+            {
+                Vector3 centre = new Vector3(
+                    ox + cx * cellSize + hc,
+                    oy + cy * cellSize + hc,
+                    oz);
+                Gizmos.DrawWireSphere(centre, cellSize * 0.08f);
+            }
+    }
 #endif
 }

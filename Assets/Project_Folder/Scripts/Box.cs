@@ -14,82 +14,93 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Box : MonoBehaviour
 {
-	// ---------------------------------------------------------------
-	//  State
-	// ---------------------------------------------------------------
+    public bool IsHeld { get; private set; }
 
-	/// <summary>True while the top-down character is carrying this box.</summary>
-	public bool IsHeld { get; private set; }
+    private Collider _col;
+    private Transform _carrier;
+    private Vector3 _holdOffset;
 
-	// ---------------------------------------------------------------
-	//  Private fields
-	// ---------------------------------------------------------------
+    // Placement overlap protection
+    private Collider _ignoredCollider;
+    private float _ignoreMinDist;   // distance at which we re-enable collision
 
-	private Collider  _col;
-	private Transform _carrier;
-	private Vector3   _holdOffset;   // world-space offset from carrier; updated every frame
+    void Awake()
+    {
+        _col = GetComponent<Collider>();
+    }
 
-	// ---------------------------------------------------------------
-	//  Unity messages
-	// ---------------------------------------------------------------
+    void LateUpdate()
+    {
+        if (IsHeld && _carrier != null)
+        {
+            transform.position = _carrier.position + _holdOffset;
+            return;
+        }
 
-	void Awake()
-	{
-		_col = GetComponent<Collider>();
-	}
+        // Once the carrier has walked far enough away, restore collision
+        if (_ignoredCollider != null)
+        {
+            float dist = Vector3.Distance(transform.position, _ignoredCollider.transform.position);
+            if (dist > _ignoreMinDist)
+            {
+                Physics.IgnoreCollision(_col, _ignoredCollider, false);
+                _ignoredCollider = null;
+            }
+        }
+    }
 
-	void LateUpdate()
-	{
-		if (!IsHeld || _carrier == null) return;
+    // ---------------------------------------------------------------
+    //  Public API
+    // ---------------------------------------------------------------
 
-		// Trail the carrier at the current hold offset (updated every frame by the carrier)
-		transform.position = _carrier.position + _holdOffset;
-	}
+    public void PickUp(Transform carrier, Vector3 initialOffset)
+    {
+        // Clear any lingering ignore from a previous placement
+        if (_ignoredCollider != null)
+        {
+            Physics.IgnoreCollision(_col, _ignoredCollider, false);
+            _ignoredCollider = null;
+        }
 
-	// ---------------------------------------------------------------
-	//  Public API — called by TopDownCharacter
-	// ---------------------------------------------------------------
+        IsHeld = true;
+        _carrier = carrier;
+        _holdOffset = initialOffset;
 
-	/// <summary>
-	/// Attach the box to a carrier. Disables the collider so it doesn't
-	/// block the carrier's physics movement while being held.
-	/// </summary>
-	public void PickUp(Transform carrier, Vector3 initialOffset)
-	{
-		IsHeld      = true;
-		_carrier    = carrier;
-		_holdOffset = initialOffset;
+        if (_col != null) _col.enabled = false;
+    }
 
-		// Prevent the box collider from pushing the carrier around mid-carry
-		if (_col != null) _col.enabled = false;
-	}
+    public void SetHoldOffset(Vector3 offset) => _holdOffset = offset;
 
-	/// <summary>
-	/// Update the offset each frame so the box stays in front of the
-	/// carrier even as they turn.
-	/// </summary>
-	public void SetHoldOffset(Vector3 offset) => _holdOffset = offset;
+    /// <summary>
+    /// Detach the box and place it at <paramref name="worldPosition"/>.
+    /// <paramref name="carrierCollider"/> is ignored until the carrier walks
+    /// away, preventing the physics solver from pushing the box off-grid.
+    /// </summary>
+    public void PutDown(Vector3 worldPosition, Collider carrierCollider = null)
+    {
+        IsHeld = false;
+        _carrier = null;
 
-	/// <summary>
-	/// Detach the box and place it at <paramref name="worldPosition"/> (grid-snapped by the caller).
-	/// Re-enables the collider so the 2D character can land on it again.
-	/// </summary>
-	public void PutDown(Vector3 worldPosition)
-	{
-		IsHeld   = false;
-		_carrier = null;
+        transform.position = worldPosition;
 
-		transform.position = worldPosition;
+        if (_col != null)
+        {
+            if (carrierCollider != null)
+            {
+                Physics.IgnoreCollision(_col, carrierCollider, true);
+                _ignoredCollider = carrierCollider;
 
-		if (_col != null)
-		{
-			_col.enabled = true;
-			Physics.SyncTransforms(); // register the static collider at its new world position
-		}
-	}
+                // Sum of both collider radii + a small margin — once the carrier
+                // is this far from the box centre, it's safe to collide again.
+                float boxRadius = _col.bounds.extents.magnitude;
+                float carrierRadius = carrierCollider.bounds.extents.magnitude;
+                _ignoreMinDist = boxRadius + carrierRadius + 0.1f;
+            }
 
-	/// <summary>
-	/// Detach the box at its current world position (no snap).
-	/// </summary>
-	public void PutDown() => PutDown(transform.position);
+            _col.enabled = true;
+            Physics.SyncTransforms();
+        }
+    }
+
+    public void PutDown() => PutDown(transform.position, null);
 }
