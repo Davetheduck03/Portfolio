@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2788411649604849842}
   - component: {fileID: 2302663273682570466}
   - component: {fileID: 1466840658410608247}
+  - component: {fileID: 2866243342001302653}
   m_Layer: 3
   m_Name: StoneBlock
   m_TagString: Wall
@@ -108,3 +109,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &2866243342001302653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830553250250561906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39ba2bb2ddd6fe46b5520433d143a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerName: World

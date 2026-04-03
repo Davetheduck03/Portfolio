@@ -20,13 +20,20 @@ public class TopDownCharacter : BaseCharacter
              "If left empty a default green ghost is created automatically.")]
     [SerializeField] private Material indicatorMaterial;
 
+    [Header("Box Pushing")]
+    [Tooltip("Speed multiplier applied while pushing a box (0–1). " +
+             "Both the character and box move at this fraction of moveSpeed " +
+             "so they stay in sync.")]
+    [SerializeField, Range(0.1f, 1f)] private float pushSpeedMultiplier = 0.6f;
+
     [Header("Animation")]
     [SerializeField] private Animator animator;
     [SerializeField] private float animSmoothing = 10f;
 
-    private static readonly int MoveX = Animator.StringToHash("MoveX");
-    private static readonly int MoveY = Animator.StringToHash("MoveY");
-    private static readonly int Speed = Animator.StringToHash("Speed");
+    private static readonly int MoveX     = Animator.StringToHash("MoveX");
+    private static readonly int MoveY     = Animator.StringToHash("MoveY");
+    private static readonly int Speed     = Animator.StringToHash("Speed");
+    private static readonly int IsPushing = Animator.StringToHash("IsPushing");
 
     private Rigidbody _rb;
     private SphereCollider _col;
@@ -34,6 +41,10 @@ public class TopDownCharacter : BaseCharacter
     private Vector2 _animDir;
     private Vector2 _lastFacingDir = new Vector2(0f, -1f);
     private Box _heldBox;
+
+    // Box pushing
+    private Box  _pushedBox;
+    private bool _isPushing;
 
     // Placement indicator
     private GameObject _indicatorGO;
@@ -80,6 +91,7 @@ public class TopDownCharacter : BaseCharacter
             animator.SetFloat(MoveX, _animDir.x);
             animator.SetFloat(MoveY, _animDir.y);
             animator.SetFloat(Speed, moving ? 1f : 0f);
+            animator.SetBool (IsPushing, _isPushing);
         }
 
         // ---- Box interaction ----
@@ -100,7 +112,10 @@ public class TopDownCharacter : BaseCharacter
 
     public override void Tick()
     {
-        Vector3 move = new Vector3(_inputDir.x * moveSpeed, _inputDir.y * moveSpeed, 0f);
+        TryPushBox();
+
+        float effectiveSpeed = _isPushing ? moveSpeed * pushSpeedMultiplier : moveSpeed;
+        Vector3 move = new Vector3(_inputDir.x * effectiveSpeed, _inputDir.y * effectiveSpeed, 0f);
         _rb.linearVelocity = move;
     }
 
@@ -120,6 +135,8 @@ public class TopDownCharacter : BaseCharacter
 
         _inputDir = Vector3.zero;
         _animDir = Vector2.zero;
+
+        ReleasePush();
 
         if (_indicatorGO != null) _indicatorGO.SetActive(false);
 
@@ -154,6 +171,85 @@ public class TopDownCharacter : BaseCharacter
 
         _indicatorGO.transform.position = GetSnappedPlacementPosition();
         _indicatorGO.transform.localScale = indicatorSize;
+    }
+
+    // ---------------------------------------------------------------
+    //  Box pushing
+    // ---------------------------------------------------------------
+
+    private void TryPushBox()
+    {
+        // Can't push while carrying a box or standing still
+        if (_heldBox != null || _inputDir.sqrMagnitude < 0.01f)
+        {
+            ReleasePush();
+            return;
+        }
+
+        // Only push along the 4 cardinal directions — diagonals are rejected
+        Vector3 cardinal = ToCardinal(_inputDir);
+        if (cardinal == Vector3.zero)
+        {
+            ReleasePush();
+            return;
+        }
+
+        // Probe just outside the sphere's edge in the cardinal direction
+        Vector3 colCenter = transform.position + (Vector3)_col.center;
+        Vector3 probeOrigin = colCenter + cardinal * (_col.radius + 0.05f);
+
+        Collider[] hits = Physics.OverlapSphere(probeOrigin, 0.25f,
+            Physics.AllLayers, QueryTriggerInteraction.Ignore);
+
+        Box found = null;
+        foreach (Collider hit in hits)
+        {
+            if (hit == _col) continue;
+            Box b = hit.GetComponent<Box>();
+            if (b != null && !b.IsHeld) { found = b; break; }
+        }
+
+        if (found != null)
+        {
+            _pushedBox = found;
+            _isPushing = true;
+
+            // Move the box first so it clears the way for the character this frame
+            Vector3 delta = cardinal * (moveSpeed * pushSpeedMultiplier * Time.fixedDeltaTime);
+            _pushedBox.transform.position += delta;
+            Physics.SyncTransforms();
+        }
+        else
+        {
+            ReleasePush();
+        }
+    }
+
+    /// <summary>
+    /// Returns the nearest cardinal direction (up/down/left/right) only when the
+    /// input is clearly aligned to one axis.  Returns Vector3.zero for diagonals.
+    /// </summary>
+    private static Vector3 ToCardinal(Vector3 dir)
+    {
+        float ax = Mathf.Abs(dir.x);
+        float ay = Mathf.Abs(dir.y);
+
+        // If both axes are significant the player is pressing a diagonal — reject it
+        if (ax > 0.1f && ay > 0.1f) return Vector3.zero;
+
+        if (ax >= ay)
+            return new Vector3(Mathf.Sign(dir.x), 0f, 0f);
+        else
+            return new Vector3(0f, Mathf.Sign(dir.y), 0f);
+    }
+
+    private void ReleasePush()
+    {
+        if (_isPushing && _pushedBox != null && GridSystem.Instance != null)
+            _pushedBox.transform.position = GridSystem.Instance.SnapToGrid(_pushedBox.transform.position);
+
+        _pushedBox = null;
+        _isPushing = false;
     }
 
     // ---------------------------------------------------------------

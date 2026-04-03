@@ -3,6 +3,7 @@ using UnityEngine;
 /// <summary>
 /// Draws a thin-line grid overlay using GL.Lines — no material asset required.
 /// Reads everything (cellSize, origin, width, height) from GridSystem.
+/// Automatically shows only while the top-down character is active.
 ///
 /// SETUP:
 ///   1. Attach to any GameObject (Main Camera works fine).
@@ -18,9 +19,36 @@ public class GridRenderer : MonoBehaviour
     [SerializeField] private float zDepth = 0f;
 
     private Material _glMat;
+    private bool _visible;
+
+    void Start()
+    {
+        // Match initial visibility to whichever character starts active
+        if (CharacterManager.Instance != null)
+        {
+            _visible = CharacterManager.Instance.ActiveCharacter is TopDownCharacter;
+            CharacterManager.Instance.OnCharacterSwitched += OnCharacterSwitched;
+        }
+        else
+        {
+            _visible = true; // fallback: always show if no manager present
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (CharacterManager.Instance != null)
+            CharacterManager.Instance.OnCharacterSwitched -= OnCharacterSwitched;
+    }
+
+    private void OnCharacterSwitched(BaseCharacter newCharacter)
+    {
+        _visible = newCharacter is TopDownCharacter;
+    }
 
     void OnRenderObject()
     {
+        if (!_visible) return;
         if (GridSystem.Instance == null) return;
         if (_glMat == null) CreateGLMaterial();
 

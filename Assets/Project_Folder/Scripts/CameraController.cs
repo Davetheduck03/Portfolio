@@ -63,6 +63,7 @@ public class CameraController : MonoBehaviour
 	private Vector3    _fromPosition;
 	private Quaternion _fromRotation;
 	private float      _fromFOV;            // starting FOV for the perspective leg of the transition
+	private float      _toFOV;             // ending FOV for the perspective leg of the transition
 	private bool       _goingToTopDown;     // direction of the in-progress transition
 
 	// ------------------------------------------------------------------
@@ -111,11 +112,17 @@ public class CameraController : MonoBehaviour
 			// half-height of the ortho view so the cut to perspective is barely visible.
 			float depth = Mathf.Max(Mathf.Abs(cam.transform.position.z), 0.1f);
 			_fromFOV = 2f * Mathf.Rad2Deg * Mathf.Atan(cam.orthographicSize / depth);
+			_toFOV   = perspFOV;
 		}
 		else
 		{
-			// TopDown → 2D (or interrupted mid-transition): start from the current FOV.
+			// TopDown → 2D: start from the current FOV, and compute what FOV perspective
+			// would need at the 2D position to match orthoSize. Lerping toward this keeps
+			// the apparent scene coverage constant so the camera doesn't zoom in as it
+			// approaches, and the snap to orthographic at orthoFlipPoint is imperceptible.
 			_fromFOV = cam.fieldOfView;
+			float depth2D = Mathf.Max(Mathf.Abs(orthoPosition.z), 0.1f);
+			_toFOV   = 2f * Mathf.Rad2Deg * Mathf.Atan(orthoSize / depth2D);
 		}
 
 		cam.orthographic = false;
@@ -166,14 +173,15 @@ public class CameraController : MonoBehaviour
 		{
 			// 2D → TopDown: narrow the FOV from the ortho-equivalent value down to
 			// perspFOV as the camera swoops into the top-down position.
-			cam.fieldOfView = Mathf.Lerp(_fromFOV, perspFOV, t);
+			cam.fieldOfView = Mathf.Lerp(_fromFOV, _toFOV, t);
 		}
 		else
 		{
-			// TopDown → 2D: hold the perspective FOV steady while the camera travels
-			// back to the 2D position and flattens its rotation.  Only flip to
-			// orthographic once the camera is close to its destination — the snap
-			// is then barely perceptible.
+			// TopDown → 2D: widen the FOV toward the ortho-equivalent value at the
+			// 2D position so scene coverage stays constant as the camera moves closer.
+			// Flip to orthographic near the end — the projection matrices match so
+			// the snap is imperceptible.
+			cam.fieldOfView = Mathf.Lerp(_fromFOV, _toFOV, t);
 			if (_transitionT >= orthoFlipPoint && !cam.orthographic)
 			{
 				cam.orthographic     = true;

@@ -5,15 +5,16 @@ TagManager:
   serializedVersion: 3
   tags:
   - Wall
+  - Gameplay
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Wall
+  - 
   - Water
   - UI
-  - BG
-  - Interactable
+  - World
+  - Characters
   - 
   - 
   - 
