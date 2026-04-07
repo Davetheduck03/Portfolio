@@ -187,7 +187,7 @@ public class TopDownCharacter : BaseCharacter
     }
 
     /// <summary>Returns true when <paramref name="pos"/> is inside the grid
-    /// bounds and not occupied by a solid wall.</summary>
+    /// bounds, not occupied by a solid wall, and not occupied by a character.</summary>
     private bool IsValidPlacement(Vector3 pos)
     {
         if (GridSystem.Instance != null)
@@ -198,7 +198,15 @@ public class TopDownCharacter : BaseCharacter
                 return false;
         }
 
-        return !SolidWallAt(pos);
+        if (SolidWallAt(pos)) return false;
+
+        // Prevent placing a box on top of any character (colliders may be disabled).
+        float checkRadius = GridSystem.Instance != null ? GridSystem.Instance.cellSize * 0.5f : 0.5f;
+        if (CharacterManager.Instance != null &&
+            CharacterManager.Instance.IsOccupiedByCharacter(pos, checkRadius))
+            return false;
+
+        return true;
     }
 
     // ---------------------------------------------------------------

@@ -13,13 +13,15 @@ public abstract class BaseCharacter : MonoBehaviour
 	private Collider       _baseCol;
 	private Animator       _baseAnim;
 	private SpriteRenderer _baseSprite;
+	private MeshRenderer[] _baseMeshRenderers;
 
 	protected virtual void Awake()
 	{
-		_baseRb     = GetComponent<Rigidbody>();
-		_baseCol    = GetComponent<Collider>();
-		_baseAnim   = GetComponent<Animator>();
-		_baseSprite = GetComponent<SpriteRenderer>();
+		_baseRb             = GetComponent<Rigidbody>();
+		_baseCol            = GetComponent<Collider>();
+		_baseAnim           = GetComponentInChildren<Animator>();
+		_baseSprite         = GetComponentInChildren<SpriteRenderer>();
+		_baseMeshRenderers  = GetComponentsInChildren<MeshRenderer>();
 	}
 
 	/// <summary>Called when this character becomes the active one.</summary>
@@ -57,10 +59,24 @@ public abstract class BaseCharacter : MonoBehaviour
 
 	private void SetSpriteAlpha(float alpha)
 	{
-		if (_baseSprite == null) return;
-		Color c = _baseSprite.color;
-		c.a = alpha;
-		_baseSprite.color = c;
+		// SpriteRenderer (duck)
+		if (_baseSprite != null)
+		{
+			Color c = _baseSprite.color;
+			c.a = alpha;
+			_baseSprite.color = c;
+		}
+
+		// MeshRenderer children (fox)
+		foreach (MeshRenderer mr in _baseMeshRenderers)
+		{
+			foreach (Material mat in mr.materials)
+			{
+				Color c = mat.color;
+				c.a = alpha;
+				mat.color = c;
+			}
+		}
 	}
 
 	public abstract void HandleInput();
