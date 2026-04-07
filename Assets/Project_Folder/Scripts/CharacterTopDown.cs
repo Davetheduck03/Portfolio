@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,8 +11,10 @@ public class TopDownCharacter : BaseCharacter
     [Header("Interaction")]
     [Tooltip("Radius in which the character can reach a box to pick it up.")]
     [SerializeField] private float pickupRange = 1.5f;
-    [Tooltip("How far in front of the character the box floats while carried.")]
+    [Tooltip("How far in front of the character to place the box when putting it down.")]
     [SerializeField] private float holdDistance = 1.2f;
+    [Tooltip("Offset of the box root relative to the character while it is being carried.")]
+    [SerializeField] private Vector3 carryOffset = Vector3.zero;
 
     [Header("Grid Placement")]
     [Tooltip("Size of the placement ghost cube — should match your box's scale.")]
@@ -43,7 +46,8 @@ public class TopDownCharacter : BaseCharacter
     private Box _heldBox;
 
     // Box pushing
-    private Box  _pushedBox;
+    private readonly List<Box> _pushedChain = new List<Box>();
+    private Vector3 _pushCardinal;
     private bool _isPushing;
 
     // Placement indicator
@@ -169,8 +173,32 @@ public class TopDownCharacter : BaseCharacter
 
         if (!holding) return;
 
-        _indicatorGO.transform.position = GetSnappedPlacementPosition();
+        Vector3 pos = GetSnappedPlacementPosition();
+        _indicatorGO.transform.position = new Vector3(pos.x, pos.y, -1f);
         _indicatorGO.transform.localScale = indicatorSize;
+
+        // Tint red when the cell is blocked, green when valid.
+        if (_indicatorMR != null)
+        {
+            _indicatorMR.material.color = IsValidPlacement(pos)
+                ? new Color(0.2f, 1f, 0.3f, 0.35f)
+                : new Color(1f, 0.15f, 0.15f, 0.35f);
+        }
+    }
+
+    /// <summary>Returns true when <paramref name="pos"/> is inside the grid
+    /// bounds and not occupied by a solid wall.</summary>
+    private bool IsValidPlacement(Vector3 pos)
+    {
+        if (GridSystem.Instance != null)
+        {
+            Vector2Int cell = GridSystem.Instance.WorldToCell(pos);
+            if (cell.x < 0 || cell.x >= GridSystem.Instance.gridWidth ||
+                cell.y < 0 || cell.y >= GridSystem.Instance.gridHeight)
+                return false;
+        }
+
+        return !SolidWallAt(pos);
     }
 
     // ---------------------------------------------------------------
@@ -194,35 +222,114 @@ public class TopDownCharacter : BaseCharacter
             return;
         }
 
-        // Probe just outside the sphere's edge in the cardinal direction
+        // ── 1. Find the first box directly in front of the character ──
         Vector3 colCenter = transform.position + (Vector3)_col.center;
         Vector3 probeOrigin = colCenter + cardinal * (_col.radius + 0.05f);
 
-        Collider[] hits = Physics.OverlapSphere(probeOrigin, 0.25f,
-            Physics.AllLayers, QueryTriggerInteraction.Ignore);
+        Box first = BoxAt(probeOrigin);
+        if (first == null)
+        {
+            ReleasePush();
+            return;
+        }
 
-        Box found = null;
+        // ── 2. Walk the chain: each box may have another box behind it ──
+        _pushedChain.Clear();
+        _pushedChain.Add(first);
+
+        float cellSize = GridSystem.Instance != null ? GridSystem.Instance.cellSize : 1f;
+
+        // Cap prevents infinite loops if boxes overlap or snap to the same cell.
+        const int maxChain = 64;
+        while (_pushedChain.Count < maxChain)
+        {
+            // Snap the last box's position before probing so mid-slide drift
+            // doesn't cause the probe to miss a stationary box one cell ahead.
+            Vector3 lastPos = _pushedChain[_pushedChain.Count - 1].transform.position;
+            Vector3 snappedChainLast = GridSystem.Instance != null
+                ? GridSystem.Instance.SnapToGrid(lastPos)
+                : lastPos;
+            Vector3 nextProbe = snappedChainLast + cardinal * cellSize;
+            Box next = BoxAt(nextProbe);
+            if (next == null || _pushedChain.Contains(next)) break;
+            _pushedChain.Add(next);
+        }
+
+        // ── 3. Check the cell in front of the last box ──
+        // Snap the last box's position first so the probe stays on the grid
+        // even while boxes are mid-slide between cells.
+        Box lastBox = _pushedChain[_pushedChain.Count - 1];
+        Vector3 snappedLast = GridSystem.Instance != null
+            ? GridSystem.Instance.SnapToGrid(lastBox.transform.position)
+            : lastBox.transform.position;
+        Vector3 frontTarget = snappedLast + cardinal * cellSize;
+
+        // Out-of-bounds check
+        if (GridSystem.Instance != null)
+        {
+            Vector2Int cell = GridSystem.Instance.WorldToCell(frontTarget);
+            if (cell.x < 0 || cell.x >= GridSystem.Instance.gridWidth ||
+                cell.y < 0 || cell.y >= GridSystem.Instance.gridHeight)
+            {
+                ReleasePush();
+                return;
+            }
+        }
+
+        // Wall check: solid non-box, non-hole collider at the front blocks the chain
+        if (SolidWallAt(frontTarget))
+        {
+            ReleasePush();
+            return;
+        }
+
+        // ── 4. Move every box in the chain by the same delta ──
+        _pushCardinal = cardinal;
+        _isPushing = true;
+        Vector3 delta = cardinal * (moveSpeed * pushSpeedMultiplier * Time.fixedDeltaTime);
+        foreach (Box b in _pushedChain)
+            b.transform.position += delta;
+
+        Physics.SyncTransforms();
+    }
+
+    /// <summary>Returns a free (not held, not slotted) Box near <paramref name="pos"/>,
+    /// or null if none found.</summary>
+    private Box BoxAt(Vector3 pos)
+    {
+        Collider[] hits = Physics.OverlapSphere(pos, 0.25f,
+            Physics.AllLayers, QueryTriggerInteraction.Ignore);
         foreach (Collider hit in hits)
         {
             if (hit == _col) continue;
             Box b = hit.GetComponent<Box>();
-            if (b != null && !b.IsHeld) { found = b; break; }
+            if (b != null && !b.IsHeld && !b.IsSlotted) return b;
         }
+        return null;
+    }
 
-        if (found != null)
-        {
-            _pushedBox = found;
-            _isPushing = true;
+    /// <summary>Returns true if there is a solid wall collider at <paramref name="pos"/>
+    /// that should block pushing or placement. Boxes and hole blockers are NOT treated as walls.</summary>
+    private bool SolidWallAt(Vector3 pos)
+    {
+        // OverlapBox with a large Z extent catches wall colliders at any depth,
+        // and XY half-extents just under half a cell avoid false hits on adjacent cells.
+        float half = GridSystem.Instance != null ? GridSystem.Instance.cellSize * 0.45f : 0.45f;
+        Collider[] hits = Physics.OverlapBox(
+            pos,
+            new Vector3(half, half, 5f),
+            Quaternion.identity,
+            Physics.AllLayers,
+            QueryTriggerInteraction.Ignore);
 
-            // Move the box first so it clears the way for the character this frame
-            Vector3 delta = cardinal * (moveSpeed * pushSpeedMultiplier * Time.fixedDeltaTime);
-            _pushedBox.transform.position += delta;
-            Physics.SyncTransforms();
-        }
-        else
+        foreach (Collider hit in hits)
         {
-            ReleasePush();
+            if (hit == _col) continue;
+            if (hit.GetComponent<Box>() != null) continue;          // it's a box — part of chain
+            if (hit.GetComponentInParent<Hole>() != null) continue; // it's a hole blocker — passable
+            return true;
         }
+        return false;
     }
 
     /// <summary>
@@ -245,10 +352,24 @@ public class TopDownCharacter : BaseCharacter
 
     private void ReleasePush()
     {
-        if (_isPushing && _pushedBox != null && GridSystem.Instance != null)
-            _pushedBox.transform.position = GridSystem.Instance.SnapToGrid(_pushedBox.transform.position);
+        if (_isPushing && _pushedChain.Count > 0 && GridSystem.Instance != null)
+        {
+            float cellSize = GridSystem.Instance.cellSize;
 
-        _pushedBox = null;
+            // Snap the frontmost box (last in chain) to its nearest cell, then
+            // place every box behind it exactly one cell back so they line up neatly.
+            int last = _pushedChain.Count - 1;
+            Vector3 frontSnapped = GridSystem.Instance.SnapToGrid(_pushedChain[last].transform.position);
+            _pushedChain[last].transform.position = frontSnapped;
+
+            for (int i = last - 1; i >= 0; i--)
+            {
+                int stepsBack = last - i;
+                _pushedChain[i].transform.position = frontSnapped - _pushCardinal * (stepsBack * cellSize);
+            }
+        }
+
+        _pushedChain.Clear();
         _isPushing = false;
     }
 
@@ -276,13 +397,15 @@ public class TopDownCharacter : BaseCharacter
 
         _heldBox = closest;
         Vector3 faceDir = new Vector3(_lastFacingDir.x, _lastFacingDir.y, 0f);
-        Vector3 initialOffset = faceDir * holdDistance;
-        _heldBox.PickUp(transform, initialOffset);
+        _heldBox.PickUp(transform, faceDir * holdDistance);
     }
 
     private void PlaceBox()
     {
-        _heldBox.PutDown(GetSnappedPlacementPosition(), _col);
+        Vector3 target = GetSnappedPlacementPosition();
+        if (!IsValidPlacement(target)) return;
+
+        _heldBox.PutDown(target, _col);
         _heldBox = null;
     }
 
