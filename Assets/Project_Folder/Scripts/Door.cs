@@ -1,127 +1,201 @@
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 /// <summary>
-/// A "door" made of one or more blocks that crumble away when a linked
-/// Key is collected.
+/// A "door" made of blocks that crumble away when a linked Key is collected.
+///
+/// Block sources (both can be used together):
+///   A) Tilemap — drag the Tilemap component in; every child GameObject
+///      under it (your Lock_Wall prefabs) is collected automatically.
+///   B) Blocks array — assign individual GameObjects directly, as before.
 ///
 /// Setup:
-///   1. Add this component to an empty parent GameObject.
-///   2. Assign all the block GameObjects you want to break in the Blocks array.
-///      These should be your StoneBlock prefab instances or any GameObject with
-///      a Collider you want disabled on open.
-///   3. In the Inspector, drag the Key into the Linked Key field � OR call
-///      Door.Open() directly from code / UnityEvent.
-///
-/// The blocks shrink via a coroutine, then are destroyed.
+///   1. Add this component to Lock_Door (or any empty parent).
+///   2. Drag the Tilemap into the Tilemap Field.
+///   3. Optionally assign extra blocks in the Blocks array.
+///   4. Drag your Key into Linked Key.
 /// </summary>
 public class Door : MonoBehaviour
 {
-    [Header("Linked Key")]
-    [Tooltip("Assign a Key in the scene. The door opens automatically when it is collected.")]
-    [SerializeField] private Key linkedKey;
+	[Header("Linked Key")]
+	[Tooltip("The key that unlocks this door.")]
+	[SerializeField] private Key linkedKey;
 
-    [Header("Blocks")]
-    [Tooltip("All GameObjects that make up this door. They will break apart when opened.")]
-    [SerializeField] private GameObject[] blocks;
+	[Header("Block Sources")]
+	[Tooltip("Drag your Tilemap here. Every child GameObject becomes a door block.")]
+	[SerializeField] private Tilemap tilemap;
 
-    [Header("Break Animation")]
-    [Tooltip("How long each block takes to shrink to nothing.")]
-    [SerializeField] private float breakDuration = 0.35f;
+	[Tooltip("Extra individual block GameObjects (used alongside or instead of the Tilemap).")]
+	[SerializeField] private GameObject[] blocks;
 
-    [Tooltip("Stagger between each block starting its break animation.")]
-    [SerializeField] private float staggerDelay = 0.06f;
+	[Header("Break Animation")]
+	[SerializeField] private float breakDuration = 0.35f;
+	[SerializeField] private float staggerDelay = 0.06f;
 
-    [Tooltip("Optional particle / audio prefab spawned at each block's position on break.")]
-    [SerializeField] private GameObject breakFXPrefab;
+	[Tooltip("Optional particle / audio prefab spawned at each block position.")]
+	[SerializeField] private GameObject breakFXPrefab;
 
-    private bool _opened;
+	// ---------------------------------------------------------------
+	//  Private state
+	// ---------------------------------------------------------------
 
-    private void Start()
-    {
-        if (linkedKey != null)
-            linkedKey.OnKeyCollected += _ => Open();
-    }
+	private bool _opened;
 
-    private void OnDestroy()
-    {
-        if (linkedKey != null)
-            linkedKey.OnKeyCollected -= _ => Open();
-    }
+	// The resolved, combined list built in Start
+	private readonly List<GameObject> _allBlocks = new List<GameObject>();
 
-    /// <summary>Call this from any source (UnityEvent, code, etc.) to break the door.</summary>
-    public void Open()
-    {
-        if (_opened) return;
-        _opened = true;
-        StartCoroutine(BreakSequence());
-    }
+	// ---------------------------------------------------------------
+	//  Unity messages
+	// ---------------------------------------------------------------
 
-    private IEnumerator BreakSequence()
-    {
-        for (int i = 0; i < blocks.Length; i++)
-        {
-            if (blocks[i] != null)
-                StartCoroutine(BreakBlock(blocks[i]));
+	private void Start()
+	{
+		BuildBlockList();
 
-            if (staggerDelay > 0f)
-                yield return new WaitForSeconds(staggerDelay);
-        }
-    }
+		if (linkedKey != null)
+			linkedKey.OnKeyCollected += _ => Open();
+	}
 
-    private IEnumerator BreakBlock(GameObject block)
-    {
-        // Disable the collider immediately so characters can walk through
-        Collider col = block.GetComponent<Collider>();
-        if (col != null) col.enabled = false;
+	private void OnDestroy()
+	{
+		if (linkedKey != null)
+			linkedKey.OnKeyCollected -= _ => Open();
+	}
 
-        // Spawn FX at the block's world position
-        if (breakFXPrefab != null)
-            Instantiate(breakFXPrefab, block.transform.position, Quaternion.identity);
+	// ---------------------------------------------------------------
+	//  Block list construction
+	// ---------------------------------------------------------------
 
-        // Shrink to zero over breakDuration
-        Vector3 startScale = block.transform.localScale;
-        float elapsed = 0f;
+	private void BuildBlockList()
+	{
+		_allBlocks.Clear();
 
-        while (elapsed < breakDuration)
-        {
-            elapsed += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsed / breakDuration);
+		// ── A: Tilemap children ──────────────────────────────────────
+		if (tilemap != null)
+		{
+			// Every direct child of the Tilemap transform is a Lock_Wall
+			foreach (Transform child in tilemap.transform)
+				_allBlocks.Add(child.gameObject);
 
-            // Ease in � blocks accelerate as they disappear
-            float eased = t * t;
-            block.transform.localScale = Vector3.Lerp(startScale, Vector3.zero, eased);
-            yield return null;
-        }
+			Debug.Log($"[Door] '{name}' collected {_allBlocks.Count} blocks from Tilemap '{tilemap.name}'.");
+		}
 
-        Destroy(block);
-    }
+		// ── B: Manually assigned blocks ──────────────────────────────
+		if (blocks != null)
+		{
+			foreach (GameObject b in blocks)
+			{
+				if (b != null && !_allBlocks.Contains(b))
+					_allBlocks.Add(b);
+			}
+		}
+
+		if (_allBlocks.Count == 0)
+			Debug.LogWarning($"[Door] '{name}' has no blocks assigned. " +
+							 "Drag a Tilemap or add entries to the Blocks array.");
+	}
+
+	// ---------------------------------------------------------------
+	//  Public API
+	// ---------------------------------------------------------------
+
+	public void Open()
+	{
+		if (_opened) return;
+		_opened = true;
+		StartCoroutine(BreakSequence());
+	}
+
+	// ---------------------------------------------------------------
+	//  Break routines
+	// ---------------------------------------------------------------
+
+	private IEnumerator BreakSequence()
+	{
+		foreach (GameObject block in _allBlocks)
+		{
+			if (block != null)
+				StartCoroutine(BreakBlock(block));
+
+			if (staggerDelay > 0f)
+				yield return new WaitForSeconds(staggerDelay);
+		}
+	}
+
+	private IEnumerator BreakBlock(GameObject block)
+	{
+		// Disable collider immediately so characters can pass through
+		Collider col = block.GetComponent<Collider>();
+		if (col != null) col.enabled = false;
+
+		if (breakFXPrefab != null)
+			Instantiate(breakFXPrefab, block.transform.position, Quaternion.identity);
+
+		Vector3 startScale = block.transform.localScale;
+		float elapsed = 0f;
+
+		while (elapsed < breakDuration)
+		{
+			elapsed += Time.deltaTime;
+			float eased = Mathf.Clamp01(elapsed / breakDuration);
+			eased *= eased; // ease-in
+			block.transform.localScale = Vector3.Lerp(startScale, Vector3.zero, eased);
+			yield return null;
+		}
+
+		Destroy(block);
+	}
+
+	// ---------------------------------------------------------------
+	//  Editor helpers
+	// ---------------------------------------------------------------
 
 #if UNITY_EDITOR
-    private void OnDrawGizmosSelected()
-    {
-        if (blocks == null) return;
+	/// <summary>
+	/// Preview button in the Inspector — populates _allBlocks so the
+	/// gizmo can draw without entering Play mode.
+	/// </summary>
+	[ContextMenu("Preview Block List")]
+	private void PreviewBlockList() => BuildBlockList();
 
-        Gizmos.color = _opened
-            ? new Color(0.2f, 0.9f, 0.2f, 0.4f)
-            : new Color(0.9f, 0.2f, 0.2f, 0.4f);
+	private void OnDrawGizmosSelected()
+	{
+		// In edit mode, read directly from the Tilemap children
+		IEnumerable<GameObject> source = Application.isPlaying
+			? (IEnumerable<GameObject>)_allBlocks
+			: TilemapChildrenEditMode();
 
-        foreach (GameObject b in blocks)
-        {
-            if (b == null) continue;
-            Collider col = b.GetComponent<Collider>();
-            if (col != null)
-                Gizmos.DrawCube(col.bounds.center, col.bounds.size);
-            else
-                Gizmos.DrawCube(b.transform.position, Vector3.one);
-        }
+		Gizmos.color = _opened
+			? new Color(0.2f, 0.9f, 0.2f, 0.4f)
+			: new Color(0.9f, 0.2f, 0.2f, 0.4f);
 
-        // Draw a line from this door to its key
-        if (linkedKey != null)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(transform.position, linkedKey.transform.position);
-        }
-    }
+		foreach (GameObject b in source)
+		{
+			if (b == null) continue;
+			Collider col = b.GetComponent<Collider>();
+			Gizmos.DrawCube(
+				col != null ? col.bounds.center : b.transform.position,
+				col != null ? col.bounds.size : Vector3.one);
+		}
+
+		if (linkedKey != null)
+		{
+			Gizmos.color = Color.yellow;
+			Gizmos.DrawLine(transform.position, linkedKey.transform.position);
+		}
+	}
+
+	private IEnumerable<GameObject> TilemapChildrenEditMode()
+	{
+		if (tilemap != null)
+			foreach (Transform child in tilemap.transform)
+				yield return child.gameObject;
+
+		if (blocks != null)
+			foreach (GameObject b in blocks)
+				if (b != null) yield return b;
+	}
 #endif
 }

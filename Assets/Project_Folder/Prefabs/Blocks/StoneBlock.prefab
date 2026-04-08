@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2302663273682570466}
   - component: {fileID: 1466840658410608247}
   - component: {fileID: 2866243342001302653}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: StoneBlock
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830553250250561906}
-  m_Mesh: {fileID: 4300000, guid: dd492a42466feb84fa56987a99fa0bab, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 46de8ceaade6a244ebedd97ff8862bca, type: 3}
 --- !u!23 &2302663273682570466
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 34dbb8ab8ca917e4fbf01ba9c02ca881, type: 2}
+  - {fileID: 2100000, guid: f24c547aa01ca1d448c7f409f6b750d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
