@@ -9,9 +9,12 @@ public class CharacterManager : MonoBehaviour
 
 	private int _activeIndex;
 
+
 	public BaseCharacter ActiveCharacter => characters[_activeIndex];
 
 	public event System.Action<BaseCharacter> OnCharacterSwitched;
+
+	public int CharacterCount => characters.Length;
 
 	void Awake()
 	{
