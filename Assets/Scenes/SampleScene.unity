@@ -1308,7 +1308,7 @@ GameObject:
   - component: {fileID: 224825416}
   - component: {fileID: 224825415}
   - component: {fileID: 224825417}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7695,7 +7695,7 @@ GameObject:
   - component: {fileID: 1427168302}
   - component: {fileID: 1427168303}
   - component: {fileID: 1427168304}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Level End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
