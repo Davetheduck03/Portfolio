@@ -54,6 +54,10 @@ public class TopDownCharacter : BaseCharacter
     private GameObject _indicatorGO;
     private MeshRenderer _indicatorMR;
 
+    // Depth sorting — behind slotted boxes
+    private SpriteDepthOffset _depthOffset;
+    private Box[]             _allBoxes;
+
     // ---------------------------------------------------------------
     //  Unity messages
     // ---------------------------------------------------------------
@@ -67,6 +71,9 @@ public class TopDownCharacter : BaseCharacter
         _rb.useGravity = false;
         _rb.freezeRotation = true;
         _rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+
+        _depthOffset = GetComponent<SpriteDepthOffset>();
+        _allBoxes    = FindObjectsOfType<Box>(includeInactive: true);
 
         BuildPlacementIndicator();
     }
@@ -117,10 +124,39 @@ public class TopDownCharacter : BaseCharacter
     public override void Tick()
     {
         TryPushBox();
+        UpdateBehindBoxDepth();
 
         float effectiveSpeed = _isPushing ? moveSpeed * pushSpeedMultiplier : moveSpeed;
         Vector3 move = new Vector3(_inputDir.x * effectiveSpeed, _inputDir.y * effectiveSpeed, 0f);
         _rb.linearVelocity = move;
+    }
+
+    /// <summary>
+    /// Checks whether the player is standing inside any slotted box's XY cell.
+    /// When true, SpriteDepthOffset is told to use <c>zBehindObject</c> so the
+    /// sprite renders behind the (semi-transparent) slotted box mesh.
+    /// </summary>
+    private void UpdateBehindBoxDepth()
+    {
+        if (_depthOffset == null) return;
+
+        float cellHalf = (GridSystem.Instance != null ? GridSystem.Instance.cellSize : 1f) * 0.5f;
+        Vector3 pos = transform.position;
+
+        bool behind = false;
+        foreach (Box box in _allBoxes)
+        {
+            if (!box.IsSlotted) continue;
+            Vector3 b = box.transform.position;
+            if (Mathf.Abs(pos.x - b.x) < cellHalf &&
+                Mathf.Abs(pos.y - b.y) < cellHalf)
+            {
+                behind = true;
+                break;
+            }
+        }
+
+        _depthOffset.SetBehindObject(behind);
     }
 
     public override void OnActivated()
@@ -141,6 +177,10 @@ public class TopDownCharacter : BaseCharacter
         _animDir = Vector2.zero;
 
         ReleasePush();
+
+        // Reset depth override so the sprite isn't stuck behind objects
+        // when the player switches back to 2D mode.
+        _depthOffset?.SetBehindObject(false);
 
         if (_indicatorGO != null) _indicatorGO.SetActive(false);
 
@@ -255,30 +295,16 @@ public class TopDownCharacter : BaseCharacter
             Box     chainLast    = _pushedChain[_pushedChain.Count - 1];
             Vector3 chainLastPos = chainLast.transform.position;
 
-            // Use the ACTUAL position (not snapped) to compute the probe point.
-            // The original code snapped here, which caused the probe to jump a
-            // full cell ahead when a box had drifted past the midpoint — making
-            // it miss the next box and eventually letting them overlap.
-            // Because all boxes in the chain always move by the same delta, the
-            // actual distance between adjacent boxes is always exactly cellSize,
-            // so probing from the actual position always lands on the next box.
             Box next = BoxAt(chainLastPos + cardinal * cellSize);
             if (next == null || _pushedChain.Contains(next)) break;
 
-            // Close any gap immediately: snap the newly-joined box so it sits
-            // exactly cellSize behind the current chain tail.  Without this the
-            // boxes would maintain whatever fractional gap existed at the moment
-            // of detection (up to the BoxAt radius) for the rest of the push.
             next.transform.position = chainLastPos + cardinal * cellSize;
             _pushedChain.Add(next);
         }
 
-        // Flush position changes for any newly-added boxes so the physics
-        // engine sees their updated transforms this frame.
         if (_pushedChain.Count > chainCountBefore)
             Physics.SyncTransforms();
 
-        // ── 3. Check the cell in front of the last box ──
         Box     leadBox     = _pushedChain[_pushedChain.Count - 1];
         Vector3 snappedLead = GridSystem.Instance != null
             ? GridSystem.Instance.SnapToGrid(leadBox.transform.position)

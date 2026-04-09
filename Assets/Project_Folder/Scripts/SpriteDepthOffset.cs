@@ -52,6 +52,11 @@ public class SpriteDepthOffset : MonoBehaviour
              "zAtBottom=-0.6 → sprite reaches -1.5 at the top of the map.")]
     [SerializeField] private float yZSlope = 0.09f;
 
+    [Tooltip("Local Z used when the character is inside a slotted box cell.\n" +
+             "A positive value pushes the sprite further from the perspective camera\n" +
+             "so it renders behind the box mesh (which sits at Z = 0).")]
+    [SerializeField] private float zBehindObject = -1f;
+
     [Header("Target")]
     [Tooltip("The child GameObject whose local position will be adjusted.\n" +
              "Assign the sprite child directly. If left empty the script searches for\n" +
@@ -69,6 +74,18 @@ public class SpriteDepthOffset : MonoBehaviour
     private Transform _spriteTf;
     private Camera    _cam;
     private float     _baseLocalX; // original local X of the sprite child (before any correction)
+    private bool      _forceBehind; // set by CharacterTopDown when inside a slotted-box cell
+
+    // ---------------------------------------------------------------
+    //  Public API
+    // ---------------------------------------------------------------
+
+    /// <summary>
+    /// Called each frame by CharacterTopDown when the player is overlapping
+    /// a slotted box cell.  Forces the sprite Z to <see cref="zBehindObject"/>
+    /// so the sprite renders behind the box mesh in perspective mode.
+    /// </summary>
+    public void SetBehindObject(bool value) => _forceBehind = value;
 
     // ---------------------------------------------------------------
     //  Unity messages
@@ -138,7 +155,9 @@ public class SpriteDepthOffset : MonoBehaviour
         {
             // ── Z: push closer to camera at higher Y positions ────────────────
             float worldY = transform.position.y;
-            float targetZ = zAtBottom - yZSlope * worldY;
+            float targetZ = _forceBehind
+                ? zBehindObject
+                : zAtBottom - yZSlope * worldY;
 
             // ── X: correct screen-space drift caused by the Z shift ───────────
             // Screen X = cameraSpaceX / cameraSpaceDepth.

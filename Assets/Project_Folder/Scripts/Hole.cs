@@ -107,7 +107,7 @@ public class Hole : MonoBehaviour
         box.transform.position = new Vector3(
             transform.position.x,
             transform.position.y,
-            0f);
+            -0.5f);
 
         // ── 2. Dim the 3D mesh so it reads as flush with the floor. ──
         var mr = box.GetComponent<MeshRenderer>();
