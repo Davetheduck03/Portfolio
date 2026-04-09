@@ -215,14 +215,14 @@ public class TopDownCharacter : BaseCharacter
 
     private void TryPushBox()
     {
-        // Can't push while carrying a box or standing still
+        // Can't push while carrying a box or standing still.
         if (_heldBox != null || _inputDir.sqrMagnitude < 0.01f)
         {
             ReleasePush();
             return;
         }
 
-        // Only push along the 4 cardinal directions — diagonals are rejected
+        // Only push along the 4 cardinal directions — diagonals are rejected.
         Vector3 cardinal = ToCardinal(_inputDir);
         if (cardinal == Vector3.zero)
         {
@@ -230,8 +230,10 @@ public class TopDownCharacter : BaseCharacter
             return;
         }
 
+        float cellSize = GridSystem.Instance != null ? GridSystem.Instance.cellSize : 1f;
+
         // ── 1. Find the first box directly in front of the character ──
-        Vector3 colCenter = transform.position + (Vector3)_col.center;
+        Vector3 colCenter   = transform.position + (Vector3)_col.center;
         Vector3 probeOrigin = colCenter + cardinal * (_col.radius + 0.05f);
 
         Box first = BoxAt(probeOrigin);
@@ -241,36 +243,47 @@ public class TopDownCharacter : BaseCharacter
             return;
         }
 
-        // ── 2. Walk the chain: each box may have another box behind it ──
+        // ── 2. Walk the chain ──
         _pushedChain.Clear();
         _pushedChain.Add(first);
 
-        float cellSize = GridSystem.Instance != null ? GridSystem.Instance.cellSize : 1f;
-
-        // Cap prevents infinite loops if boxes overlap or snap to the same cell.
+        // Cap prevents infinite loops if boxes snap to the same cell.
         const int maxChain = 64;
+        int chainCountBefore = _pushedChain.Count;
         while (_pushedChain.Count < maxChain)
         {
-            // Snap the last box's position before probing so mid-slide drift
-            // doesn't cause the probe to miss a stationary box one cell ahead.
-            Vector3 lastPos = _pushedChain[_pushedChain.Count - 1].transform.position;
-            Vector3 snappedChainLast = GridSystem.Instance != null
-                ? GridSystem.Instance.SnapToGrid(lastPos)
-                : lastPos;
-            Vector3 nextProbe = snappedChainLast + cardinal * cellSize;
-            Box next = BoxAt(nextProbe);
+            Box     chainLast    = _pushedChain[_pushedChain.Count - 1];
+            Vector3 chainLastPos = chainLast.transform.position;
+
+            // Use the ACTUAL position (not snapped) to compute the probe point.
+            // The original code snapped here, which caused the probe to jump a
+            // full cell ahead when a box had drifted past the midpoint — making
+            // it miss the next box and eventually letting them overlap.
+            // Because all boxes in the chain always move by the same delta, the
+            // actual distance between adjacent boxes is always exactly cellSize,
+            // so probing from the actual position always lands on the next box.
+            Box next = BoxAt(chainLastPos + cardinal * cellSize);
             if (next == null || _pushedChain.Contains(next)) break;
+
+            // Close any gap immediately: snap the newly-joined box so it sits
+            // exactly cellSize behind the current chain tail.  Without this the
+            // boxes would maintain whatever fractional gap existed at the moment
+            // of detection (up to the BoxAt radius) for the rest of the push.
+            next.transform.position = chainLastPos + cardinal * cellSize;
             _pushedChain.Add(next);
         }
 
+        // Flush position changes for any newly-added boxes so the physics
+        // engine sees their updated transforms this frame.
+        if (_pushedChain.Count > chainCountBefore)
+            Physics.SyncTransforms();
+
         // ── 3. Check the cell in front of the last box ──
-        // Snap the last box's position first so the probe stays on the grid
-        // even while boxes are mid-slide between cells.
-        Box lastBox = _pushedChain[_pushedChain.Count - 1];
-        Vector3 snappedLast = GridSystem.Instance != null
-            ? GridSystem.Instance.SnapToGrid(lastBox.transform.position)
-            : lastBox.transform.position;
-        Vector3 frontTarget = snappedLast + cardinal * cellSize;
+        Box     leadBox     = _pushedChain[_pushedChain.Count - 1];
+        Vector3 snappedLead = GridSystem.Instance != null
+            ? GridSystem.Instance.SnapToGrid(leadBox.transform.position)
+            : leadBox.transform.position;
+        Vector3 frontTarget = snappedLead + cardinal * cellSize;
 
         // Out-of-bounds check
         if (GridSystem.Instance != null)
@@ -284,7 +297,7 @@ public class TopDownCharacter : BaseCharacter
             }
         }
 
-        // Wall check: solid non-box, non-hole collider at the front blocks the chain
+        // Wall check
         if (SolidWallAt(frontTarget))
         {
             ReleasePush();
@@ -293,7 +306,7 @@ public class TopDownCharacter : BaseCharacter
 
         // ── 4. Move every box in the chain by the same delta ──
         _pushCardinal = cardinal;
-        _isPushing = true;
+        _isPushing    = true;
         Vector3 delta = cardinal * (moveSpeed * pushSpeedMultiplier * Time.fixedDeltaTime);
         foreach (Box b in _pushedChain)
             b.transform.position += delta;
@@ -360,25 +373,41 @@ public class TopDownCharacter : BaseCharacter
 
     private void ReleasePush()
     {
-        if (_isPushing && _pushedChain.Count > 0 && GridSystem.Instance != null)
+        if (_isPushing && _pushedChain.Count > 0)
         {
-            float cellSize = GridSystem.Instance.cellSize;
-
-            // Snap the frontmost box (last in chain) to its nearest cell, then
-            // place every box behind it exactly one cell back so they line up neatly.
-            int last = _pushedChain.Count - 1;
-            Vector3 frontSnapped = GridSystem.Instance.SnapToGrid(_pushedChain[last].transform.position);
-            _pushedChain[last].transform.position = frontSnapped;
-
-            for (int i = last - 1; i >= 0; i--)
-            {
-                int stepsBack = last - i;
-                _pushedChain[i].transform.position = frontSnapped - _pushCardinal * (stepsBack * cellSize);
-            }
+            float cellSize = GridSystem.Instance != null ? GridSystem.Instance.cellSize : 1f;
+            SnapChainToGrid(_pushCardinal, cellSize);
         }
 
         _pushedChain.Clear();
         _isPushing = false;
+    }
+
+    /// <summary>
+    /// Snaps every box in the pushed chain to the grid, working back from the
+    /// lead box so they land in a perfectly-spaced line.
+    /// </summary>
+    private void SnapChainToGrid(Vector3 cardinal, float cellSize)
+    {
+        if (_pushedChain.Count == 0) return;
+
+        int last = _pushedChain.Count - 1;
+
+        // Snap the lead (front-most) box first.
+        Vector3 frontSnapped = GridSystem.Instance != null
+            ? GridSystem.Instance.SnapToGrid(_pushedChain[last].transform.position)
+            : _pushedChain[last].transform.position;
+
+        _pushedChain[last].transform.position = frontSnapped;
+
+        // Place every box behind it exactly one cell-width back from the next.
+        for (int i = last - 1; i >= 0; i--)
+        {
+            int stepsBack = last - i;
+            _pushedChain[i].transform.position = frontSnapped - cardinal * (stepsBack * cellSize);
+        }
+
+        Physics.SyncTransforms();
     }
 
     // ---------------------------------------------------------------
