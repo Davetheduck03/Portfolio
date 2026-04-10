@@ -40,6 +40,10 @@ public class Enemy : MonoBehaviour
              "Wire to your respawn / game-over method here.")]
     [SerializeField] private UnityEvent onPlayerKilled;
 
+    [Tooltip("Fired once when this enemy is killed (e.g. by a spike).\n" +
+             "Optional — wire to a score counter, sound effect, etc.")]
+    [SerializeField] private UnityEvent onEnemyKilled;
+
     [Header("Visuals")]
     [Tooltip("Optional — used to flip the sprite toward the direction of travel.")]
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -65,6 +69,7 @@ public class Enemy : MonoBehaviour
     private float     _patrolDir    = 1f;   // +1 = right, -1 = left
     private Vector2   _lastFacing   = Vector2.down; // preserves facing when stopped
     private bool      _contactKillFired;    // prevents the kill event firing every frame
+    private bool      _dead;               // set on Die() so it only runs once
 
     // ----------------------------------------------------------------
     //  Unity messages
@@ -255,7 +260,7 @@ public class Enemy : MonoBehaviour
     }
 
     // ----------------------------------------------------------------
-    //  Kill
+    //  Kill / Death
     // ----------------------------------------------------------------
 
     private void TryKillPlayer(GameObject obj)
@@ -267,6 +272,19 @@ public class Enemy : MonoBehaviour
 
         _contactKillFired = true;
         onPlayerKilled.Invoke();
+    }
+
+    /// <summary>
+    /// Call this to kill the enemy (e.g. from a SpikeBlock).
+    /// Fires <see cref="onEnemyKilled"/> then destroys the GameObject.
+    /// </summary>
+    public void Die()
+    {
+        if (_dead) return;
+        _dead = true;
+
+        onEnemyKilled.Invoke();
+        Destroy(gameObject);
     }
 
     // ----------------------------------------------------------------

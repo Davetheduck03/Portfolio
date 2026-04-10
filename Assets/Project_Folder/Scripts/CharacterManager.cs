@@ -35,7 +35,7 @@ public class CharacterManager : MonoBehaviour
 
 	void Update()
 	{
-		if (Keyboard.current.tabKey.wasPressedThisFrame)
+		if (characters.Length > 1 && Keyboard.current.tabKey.wasPressedThisFrame)
 			SwitchCharacter();
 
 		ActiveCharacter.HandleInput();
@@ -53,6 +53,11 @@ public class CharacterManager : MonoBehaviour
 		characters[_activeIndex].OnActivated();
 		OnCharacterSwitched?.Invoke(characters[_activeIndex]);
 	}
+
+	/// <summary>
+	/// Returns the character at the given index (same order as the Inspector list).
+	/// </summary>
+	public BaseCharacter GetCharacter(int index) => characters[index];
 
 	/// <summary>
 	/// Returns true if any character's XY position is within <paramref name="radius"/>

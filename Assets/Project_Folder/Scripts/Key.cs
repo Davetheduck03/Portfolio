@@ -28,10 +28,13 @@ public class Key : MonoBehaviour
     {
         if (_collected) return;
 
-        // Only characters can collect keys
-        if (other.GetComponent<BaseCharacter>() == null &&
-            other.GetComponentInParent<BaseCharacter>() == null)
-            return;
+        // Characters and enemies can collect keys
+        bool isCharacter = other.GetComponent<BaseCharacter>() != null
+                        || other.GetComponentInParent<BaseCharacter>() != null;
+        bool isEnemy     = other.GetComponent<Enemy>() != null
+                        || other.GetComponentInParent<Enemy>() != null;
+
+        if (!isCharacter && !isEnemy) return;
 
         Collect();
     }
