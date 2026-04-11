@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5865182995029680307}
   - component: {fileID: 3031380436663708261}
   - component: {fileID: 4715487041973699742}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,10 +124,10 @@ MonoBehaviour:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: QuitToMenu
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 8028082989000317533}
   - component: {fileID: 8090718851852499083}
   - component: {fileID: 4801725950203652340}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 7898247119771004347}
   - component: {fileID: 7142558604926770526}
   - component: {fileID: 6786521673396777418}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 5910128964301068268}
   - component: {fileID: 6327734838185272536}
   - component: {fileID: 5432325010891789991}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 8262312699708391054}
   - component: {fileID: 1363650332849123733}
   - component: {fileID: 597390752596078960}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DeathScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 8087302786399586210}
   - component: {fileID: 6865442596808301784}
   - component: {fileID: 7382896590576941294}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ChooseLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,10 +620,10 @@ MonoBehaviour:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: GoToLevelSelect
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 52088605189395186}
   - component: {fileID: 1013239818596974992}
   - component: {fileID: 7764971918888949785}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -720,7 +720,7 @@ GameObject:
   - component: {fileID: 3205282441723470252}
   - component: {fileID: 1392031539222012206}
   - component: {fileID: 3774107191018058079}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,10 +832,10 @@ MonoBehaviour:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: RestartLevel
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -852,7 +852,7 @@ GameObject:
   - component: {fileID: 1887328861351884985}
   - component: {fileID: 7604065871211619933}
   - component: {fileID: 4396540078900916097}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -931,7 +931,7 @@ GameObject:
   - component: {fileID: 962770479814476134}
   - component: {fileID: 7396332056484922172}
   - component: {fileID: 953009035231652955}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}

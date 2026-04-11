@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 8f67b2eb34180674c92c2dfa31eca2aa
+guid: 14e8f6ecb6bb56840a3012ddca86e754
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1662754540642734837
-    second: devil-walk-up-left_0
-  - first:
-      213: 7787022567975858453
-    second: devil-walk-up-left_1
-  - first:
-      213: -5020814168814705565
-    second: devil-walk-up-left_2
-  - first:
-      213: 3763289504932409781
-    second: devil-walk-up-left_3
+      213: 6352119909865867321
+    second: Menu BG_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -122,89 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: devil-walk-up-left_0
+      name: Menu BG_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 18
-        height: 16
+        width: 4800
+        height: 2700
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5f29dafe17a431710800000000000000
-      internalID: 1662754540642734837
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: devil-walk-up-left_1
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 0
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 511b626a4cf011c60800000000000000
-      internalID: 7787022567975858453
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: devil-walk-up-left_2
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 0
-        width: 17
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3642d886d1c725ab0800000000000000
-      internalID: -5020814168814705565
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: devil-walk-up-left_3
-      rect:
-        serializedVersion: 2
-        x: 55
-        y: 0
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5b1b370bdd3e93430800000000000000
-      internalID: 3763289504932409781
+      spriteID: 938cd3e2763472850800000000000000
+      internalID: 6352119909865867321
       vertices: []
       indices: 
       edges: []
@@ -213,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ebdf107d2c703794e92c7081fcca9045
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -223,10 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      devil-walk-up-left_0: 1662754540642734837
-      devil-walk-up-left_1: 7787022567975858453
-      devil-walk-up-left_2: -5020814168814705565
-      devil-walk-up-left_3: 3763289504932409781
+      Menu BG_0: 6352119909865867321
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

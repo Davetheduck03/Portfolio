@@ -123,13 +123,11 @@ public static class LevelSelectSetup
         chScroll.inertia        = true;
         chScroll.decelerationRate = 0.135f;
 
-        // Viewport
+        // Viewport — RectMask2D clips by rect without needing a stencil write,
+        // which avoids the transparent-Image stencil-cull issue in Unity 6.
         GameObject chViewport = MakeUIObject("Viewport", chScrollGO.transform);
         Stretch(chViewport);
-        Image chViewportImg = chViewport.AddComponent<Image>();
-        chViewportImg.color = new Color(0, 0, 0, 0);
-        Mask chMask = chViewport.AddComponent<Mask>();
-        chMask.showMaskGraphic = false;
+        chViewport.AddComponent<RectMask2D>();
 
         // Content (chapter cards spawned here at runtime)
         GameObject chContent = MakeUIObject("Content", chViewport.transform);
@@ -233,9 +231,7 @@ public static class LevelSelectSetup
 
         GameObject lvViewport = MakeUIObject("Viewport", lvScrollGO.transform);
         Stretch(lvViewport);
-        lvViewport.AddComponent<Image>().color = new Color(0, 0, 0, 0);
-        Mask lvMask = lvViewport.AddComponent<Mask>();
-        lvMask.showMaskGraphic = false;
+        lvViewport.AddComponent<RectMask2D>();
 
         // Level grid content
         GameObject lvContent = MakeUIObject("Content", lvViewport.transform);

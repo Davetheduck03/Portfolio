@@ -139,6 +139,9 @@ public static class PauseMenuSetup
         WireButton(restartBtn, pauseMenu, nameof(PauseMenu.OnRestartPressed));
         WireButton(menuBtn,    pauseMenu, nameof(PauseMenu.OnMainMenuPressed));
 
+        // ── EventSystem ───────────────────────────────────────────────
+        EnsureEventSystem();
+
         // ── Finish ───────────────────────────────────────────────────
         Selection.activeGameObject = root;
         EditorGUIUtility.PingObject(root);
@@ -150,6 +153,26 @@ public static class PauseMenuSetup
     // ----------------------------------------------------------------
     //  UI factory helpers
     // ----------------------------------------------------------------
+
+    private static void EnsureEventSystem()
+    {
+        if (Object.FindFirstObjectByType<UnityEngine.EventSystems.EventSystem>() != null)
+            return;
+
+        GameObject esGO = new GameObject("EventSystem");
+        Undo.RegisterCreatedObjectUndo(esGO, "Create EventSystem");
+        esGO.AddComponent<UnityEngine.EventSystems.EventSystem>();
+
+        System.Type newInputModule = System.Type.GetType(
+            "UnityEngine.InputSystem.UI.InputSystemUIInputModule, Unity.InputSystem");
+
+        if (newInputModule != null)
+            esGO.AddComponent(newInputModule);
+        else
+            esGO.AddComponent<UnityEngine.EventSystems.StandaloneInputModule>();
+
+        Debug.Log("[PauseMenuSetup] Added EventSystem to the scene.");
+    }
 
     private static GameObject CreateUIObject(string name, Transform parent)
     {

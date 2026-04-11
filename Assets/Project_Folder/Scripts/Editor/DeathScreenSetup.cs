@@ -125,6 +125,9 @@ public static class DeathScreenSetup
             }
         }
 
+        // ── EventSystem ───────────────────────────────────────────────
+        EnsureEventSystem();
+
         Selection.activeGameObject = canvasGO;
         EditorGUIUtility.PingObject(canvasGO);
 
@@ -135,6 +138,28 @@ public static class DeathScreenSetup
     // ----------------------------------------------------------------
     //  Helpers
     // ----------------------------------------------------------------
+
+    private static void EnsureEventSystem()
+    {
+        if (Object.FindFirstObjectByType<UnityEngine.EventSystems.EventSystem>() != null)
+            return;
+
+        GameObject esGO = new GameObject("EventSystem");
+        Undo.RegisterCreatedObjectUndo(esGO, "Create EventSystem");
+        esGO.AddComponent<UnityEngine.EventSystems.EventSystem>();
+
+        // Prefer the new Input System module if the package is present;
+        // fall back to the legacy StandaloneInputModule otherwise.
+        System.Type newInputModule = System.Type.GetType(
+            "UnityEngine.InputSystem.UI.InputSystemUIInputModule, Unity.InputSystem");
+
+        if (newInputModule != null)
+            esGO.AddComponent(newInputModule);
+        else
+            esGO.AddComponent<UnityEngine.EventSystems.StandaloneInputModule>();
+
+        Debug.Log("[DeathScreenSetup] Added EventSystem to the scene.");
+    }
 
     private static GameObject CreateUIObject(string name, Transform parent)
     {

@@ -125,12 +125,12 @@ TextureImporter:
       name: devil-walk-down-left_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 2
         y: 0
-        width: 15
+        width: 13
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: devil-walk-down-left_1
       rect:
         serializedVersion: 2
-        x: 17
+        x: 18
         y: 0
-        width: 15
+        width: 14
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,10 +171,10 @@ TextureImporter:
         serializedVersion: 2
         x: 31
         y: 0
-        width: 17
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -191,12 +191,12 @@ TextureImporter:
       name: devil-walk-down-left_3
       rect:
         serializedVersion: 2
-        x: 49
+        x: 50
         y: 0
-        width: 15
+        width: 14
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 493fce666413c6a4abea4feb08166ba5
     internalID: 0
     vertices: []
     indices: 

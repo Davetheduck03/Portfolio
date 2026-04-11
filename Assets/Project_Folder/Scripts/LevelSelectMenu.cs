@@ -60,6 +60,12 @@ public class LevelSelectMenu : MonoBehaviour
     //  Inspector
     // ----------------------------------------------------------------
 
+    [Header("Style")]
+    [Tooltip("Assign your custom font here (e.g. PixelPurl). " +
+             "After assigning, right-click the component and choose " +
+             "'Apply Font To All Text' to update static elements too.")]
+    [SerializeField] private Font uiFont;
+
     [Header("Chapter Data")]
     [SerializeField] private ChapterData[] chapters;
 
@@ -147,8 +153,7 @@ public class LevelSelectMenu : MonoBehaviour
     private GameObject CreateChapterCard(ChapterData chapter, int index)
     {
         bool chapterUnlocked = IsChapterUnlocked(chapter);
-        Font font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        if (font == null) font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        Font font = GetFont();
 
         // ── Card root ────────────────────────────────────────────────
         GameObject card = new GameObject(chapter.chapterName);
@@ -234,7 +239,7 @@ public class LevelSelectMenu : MonoBehaviour
             : new Color(0.35f, 0.35f, 0.40f, 1f);
 
         CardTextChild("Number", card.transform, $"{index + 1:00}",
-                      font, 64, FontStyle.Bold, numColor,
+                      font, 64, FontStyle.Normal, numColor,
                       pad, pad, contentTop, 80f);
 
         // ── Chapter name ──────────────────────────────────────────────
@@ -243,7 +248,7 @@ public class LevelSelectMenu : MonoBehaviour
             : new Color(0.40f, 0.40f, 0.45f, 1f);
 
         CardTextChild("Name", card.transform, chapter.chapterName,
-                      font, 20, FontStyle.Bold, nameColor,
+                      font, 20, FontStyle.Normal, nameColor,
                       pad, pad, contentTop + 80f, 44f);
 
         // ── Progress / locked label ───────────────────────────────────
@@ -313,7 +318,7 @@ public class LevelSelectMenu : MonoBehaviour
 
         if (chapter.levels == null) return;
 
-        Font font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        Font font = GetFont();
 
         foreach (LevelEntry entry in chapter.levels)
         {
@@ -393,10 +398,10 @@ public class LevelSelectMenu : MonoBehaviour
         labelRT.offsetMin  = new Vector2(6f, 0f);
         labelRT.offsetMax  = new Vector2(-6f, 0f);
         Text label = labelGO.AddComponent<Text>();
-        label.text      = unlocked ? entry.displayName : "🔒";
+        label.text      = unlocked ? entry.displayName : "Locked";
         label.font      = font;
         label.fontSize  = 20;
-        label.fontStyle = FontStyle.Bold;
+        label.fontStyle = FontStyle.Normal;
         label.alignment = TextAnchor.MiddleCenter;
         label.color     = textCol;
 
@@ -475,6 +480,36 @@ public class LevelSelectMenu : MonoBehaviour
                 foreach (LevelEntry e in ch.levels)
                     indices.Add(e.sceneBuildIndex);
         return indices.ToArray();
+    }
+
+    // Returns the assigned custom font, falling back to Unity's built-in font.
+    private Font GetFont()
+    {
+        if (uiFont != null) return uiFont;
+        Font f = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        if (f == null) f = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        return f;
+    }
+
+    /// <summary>
+    /// Right-click the LevelSelectMenu component → Apply Font To All Text.
+    /// Pushes the assigned uiFont (and Normal style) to every Text component
+    /// under this GameObject, including the static elements the setup script built.
+    /// </summary>
+    [ContextMenu("Apply Font To All Text")]
+    public void ApplyFontToAllText()
+    {
+        Font font = GetFont();
+        foreach (Text t in GetComponentsInChildren<Text>(includeInactive: true))
+        {
+            t.font      = font;
+            t.fontStyle = FontStyle.Normal;
+        }
+#if UNITY_EDITOR
+        UnityEditor.EditorUtility.SetDirty(gameObject);
+#endif
+        Debug.Log($"[LevelSelectMenu] Applied font '{font?.name}' to " +
+                  $"{GetComponentsInChildren<Text>(true).Length} Text components.");
     }
 
     /// <summary>Refreshes whichever view is currently visible.</summary>

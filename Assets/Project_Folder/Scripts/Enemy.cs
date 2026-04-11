@@ -23,11 +23,22 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float detectionRange = 6f;
 
     [Header("Side-Scroller — Gravity")]
-    [Tooltip("Empty child transform placed at the base of the collider (same setup as the player).")]
-    [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayers;
-    [SerializeField] private float     groundCheckRadius = 0.15f;
-    [SerializeField] private float     fallMultiplier    = 2.5f;
+    [SerializeField] private float     fallMultiplier = 2.5f;
+
+    [Header("Side-Scroller — Ground Rays")]
+    [Tooltip("Number of rays spread across the base of the collider.")]
+    [SerializeField] private int   groundRayCount        = 3;
+    [Tooltip("How far below the origin point each ray travels.")]
+    [SerializeField] private float groundRayLength       = 0.12f;
+    [Tooltip("Half the horizontal spread of the rays. " +
+             "Set to roughly half your enemy collider's width.")]
+    [SerializeField] private float groundRayHalfWidth    = 0.3f;
+    [Tooltip("Pulls the outermost rays inward so walls beside the enemy " +
+             "don't count as ground.")]
+    [SerializeField] private float groundRayInset        = 0.05f;
+    [Tooltip("Lifts the ray origins up from the very bottom of the collider.")]
+    [SerializeField] private float groundRayOriginOffset = 0.1f;
 
     [Header("Top-Down")]
     [SerializeField] private float topDownSpeed = 3f;
@@ -143,10 +154,8 @@ public class Enemy : MonoBehaviour
 
         _rb.linearVelocity = new Vector3(moveX, _velocityY, 0f);
 
-        if (spriteRenderer != null && moveX != 0f)
-            spriteRenderer.flipX = moveX < 0f;
-
-        // Drive blend tree — side-scroller only moves horizontally
+        // Drive blend tree with the signed direction — the animator has
+        // separate left/right clips so flipX is not needed and would double-mirror.
         if (moveX != 0f)
             _lastFacing = new Vector2(Mathf.Sign(moveX), 0f);
 
@@ -196,13 +205,25 @@ public class Enemy : MonoBehaviour
 
     private void UpdateGroundCheck()
     {
-        if (groundCheck == null) return;
+        Vector3 bottom     = transform.position + Vector3.down * (groundRayHalfWidth - groundRayOriginOffset);
+        float   halfSpread = Mathf.Max(0f, groundRayHalfWidth - groundRayInset);
+        int     count      = Mathf.Max(1, groundRayCount);
 
-        _isGrounded = Physics.CheckSphere(
-            groundCheck.position,
-            groundCheckRadius,
-            groundLayers,
-            QueryTriggerInteraction.Ignore);
+        _isGrounded = false;
+
+        for (int i = 0; i < count; i++)
+        {
+            float   t      = count > 1 ? (float)i / (count - 1) : 0.5f;
+            float   xOff   = Mathf.Lerp(-halfSpread, halfSpread, t);
+            Vector3 origin = bottom + new Vector3(xOff, 0f, 0f);
+
+            if (Physics.Raycast(origin, Vector3.down, groundRayLength,
+                                groundLayers, QueryTriggerInteraction.Ignore))
+            {
+                _isGrounded = true;
+                break;
+            }
+        }
     }
 
     private void ApplyGravity()
@@ -303,11 +324,22 @@ public class Enemy : MonoBehaviour
         Gizmos.color = new Color(1f, 0.4f, 0f, 0.25f);
         Gizmos.DrawWireSphere(transform.position, detectionRange);
 
-        // Ground check
-        if (groundCheck != null)
+        // Ground rays
         {
-            Gizmos.color = _isGrounded ? Color.green : Color.red;
-            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+            Vector3 bottom     = transform.position + Vector3.down * (groundRayHalfWidth - groundRayOriginOffset);
+            float   halfSpread = Mathf.Max(0f, groundRayHalfWidth - groundRayInset);
+            int     count      = Mathf.Max(1, groundRayCount);
+
+            for (int i = 0; i < count; i++)
+            {
+                float   t      = count > 1 ? (float)i / (count - 1) : 0.5f;
+                float   xOff   = Mathf.Lerp(-halfSpread, halfSpread, t);
+                Vector3 origin = bottom + new Vector3(xOff, 0f, 0f);
+
+                Gizmos.color = _isGrounded ? Color.green : Color.red;
+                Gizmos.DrawLine(origin, origin + Vector3.down * groundRayLength);
+                Gizmos.DrawWireSphere(origin, 0.02f);
+            }
         }
     }
 #endif

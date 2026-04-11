@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3183405502784413910}
   - component: {fileID: -7289023429419737317}
   - component: {fileID: 7052646064474935302}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Moveable
   m_TagString: Gameplay
   m_Icon: {fileID: 0}
@@ -67,6 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfad1b5c5f4d904197d887cc06bf3fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRoot: {fileID: 0}
+  carryMeshOffset: {x: 0, y: -1, z: -3}
 --- !u!1 &9223372036854775807
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +82,7 @@ GameObject:
   - component: {fileID: 3456789012345678901}
   - component: {fileID: 5977445934794000509}
   - component: {fileID: 6789012345678901234}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,8 +167,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b39ba2bb2ddd6fe46b5520433d143a3c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   layerName: World
 --- !u!114 &6789012345678901234
 MonoBehaviour:
@@ -178,7 +180,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be72a9f126d8f8438a61fd1e29c2ff7, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   sortingPrecision: 100
   baseOffset: 0
