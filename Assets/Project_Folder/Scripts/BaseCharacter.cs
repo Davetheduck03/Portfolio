@@ -8,6 +8,15 @@ public abstract class BaseCharacter : MonoBehaviour
 	[Tooltip("Sprite opacity while this character is inactive.")]
 	[SerializeField, Range(0f, 1f)] private float inactiveAlpha = 0.75f;
 
+	// ── Audio ─────────────────────────────────────────────────────────────
+	[Header("Audio")]
+	[Tooltip("AudioSource used for all character sounds (walk loop, one-shots). " +
+	         "If left empty the component will try GetComponent at startup.")]
+	[SerializeField] protected AudioSource characterAudio;
+
+	[Tooltip("Looping footstep sound played while this character is moving on the ground.")]
+	[SerializeField] protected AudioClip walkSound;
+
 	// Cached so we never call GetComponent in hot paths
 	private Rigidbody      _baseRb;
 	private Collider       _baseCol;
@@ -22,6 +31,10 @@ public abstract class BaseCharacter : MonoBehaviour
 		_baseAnim           = GetComponentInChildren<Animator>();
 		_baseSprite         = GetComponentInChildren<SpriteRenderer>();
 		_baseMeshRenderers  = GetComponentsInChildren<MeshRenderer>();
+
+		// Auto-find AudioSource if not wired in the Inspector
+		if (characterAudio == null)
+			characterAudio = GetComponent<AudioSource>();
 	}
 
 	/// <summary>Called when this character becomes the active one.</summary>
@@ -55,6 +68,48 @@ public abstract class BaseCharacter : MonoBehaviour
 
 		// Dim the sprite so it reads as inactive
 		SetSpriteAlpha(inactiveAlpha);
+
+		// Always silence looping audio when this character goes inactive
+		StopWalkSound();
+	}
+
+	// ── Audio helpers (called by subclasses) ──────────────────────────
+
+	/// <summary>Starts the looping walk sound if it isn't already playing.</summary>
+	protected void StartWalkSound()
+	{
+		if (characterAudio == null || walkSound == null) return;
+		if (characterAudio.isPlaying && characterAudio.clip == walkSound) return;
+
+		characterAudio.clip = walkSound;
+		characterAudio.loop = true;
+		characterAudio.Play();
+	}
+
+	/// <summary>Stops the walk sound (only if it is currently the active clip).</summary>
+	protected void StopWalkSound()
+	{
+		if (characterAudio == null) return;
+		if (characterAudio.isPlaying && characterAudio.clip == walkSound)
+			characterAudio.Stop();
+	}
+
+	/// <summary>Plays a non-looping one-shot over the character AudioSource.</summary>
+	protected void PlayOneShot(AudioClip clip)
+	{
+		if (characterAudio != null && clip != null)
+			characterAudio.PlayOneShot(clip);
+	}
+
+	/// <summary>
+	/// Immediately stops all audio on this character.
+	/// Called by LevelManager when the death screen is shown (TimeScale = 0
+	/// freezes Update/FixedUpdate so the walk loop would otherwise keep playing).
+	/// </summary>
+	public void StopAllAudio()
+	{
+		if (characterAudio != null)
+			characterAudio.Stop();
 	}
 
 	private void SetSpriteAlpha(float alpha)

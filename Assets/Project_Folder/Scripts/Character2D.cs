@@ -45,6 +45,10 @@ public class SidescrollerCharacter : BaseCharacter
 	[SerializeField] private Animator animator;
 	[SerializeField] private SpriteRenderer spriteRenderer;
 
+	[Header("Audio")]
+	[Tooltip("One-shot sound played the moment the character leaves the ground on a jump.")]
+	[SerializeField] private AudioClip jumpSound;
+
 	private static readonly int Speed      = Animator.StringToHash("Speed");
 	private static readonly int IsGrounded = Animator.StringToHash("IsGrounded");
 
@@ -114,6 +118,12 @@ public class SidescrollerCharacter : BaseCharacter
 		// Flip sprite to face the direction of movement
 		if (spriteRenderer != null && _inputX != 0f)
 			spriteRenderer.flipX = _inputX < 0f;
+
+		// Walk sound — only while grounded and actually moving
+		if (_isGrounded && Mathf.Abs(_inputX) > 0.01f)
+			StartWalkSound();
+		else
+			StopWalkSound();
 	}
 
 	// -------------------------------------------------------------------
@@ -199,6 +209,7 @@ public class SidescrollerCharacter : BaseCharacter
 		{
 			_velocityY     = jumpForce;
 			_jumpHoldTimer = 0f;          // reset hold window on each new jump
+			PlayOneShot(jumpSound);       // ← play jump sound the moment we leave the ground
 		}
 
 		_jumpRequested = false;

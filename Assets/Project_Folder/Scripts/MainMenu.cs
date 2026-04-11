@@ -95,23 +95,46 @@ public class MainMenu : MonoBehaviour
 
     public void OnStartPressed()
     {
-        SceneManager.LoadScene(firstLevelIndex);
+        LoadWithTransition(firstLevelIndex);
     }
 
     public void OnContinuePressed()
     {
-        SceneManager.LoadScene(GetLatestUnlockedLevel());
+        LoadWithTransition(GetLatestUnlockedLevel());
     }
 
     public void OnLevelSelectPressed()
     {
-        SceneManager.LoadScene(levelSelectSceneIndex);
+        LoadWithTransition(levelSelectSceneIndex);
+    }
+
+    private void LoadWithTransition(int buildIndex)
+    {
+        if (SceneTransition.Instance != null)
+            SceneTransition.Instance.LoadScene(buildIndex);
+        else
+            SceneManager.LoadScene(buildIndex);
     }
 
     public void OnSettingsPressed()
     {
-        if (settingsPanel != null) settingsPanel.SetActive(true);
-        if (creditsPanel  != null) creditsPanel.SetActive(false);
+        if (settingsPanel != null)
+        {
+            settingsPanel.SetActive(true);
+
+            // Force layout immediately — OnEnable fires before the layout pass,
+            // leaving Handle Slide Area with zero width.
+            UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(
+                settingsPanel.GetComponent<RectTransform>());
+
+            // Ensure handleRect is wired (can become null after domain reloads)
+            RepairSlider(masterSlider);
+            RepairSlider(musicSlider);
+
+            SyncSlider(masterSlider, masterVolumeParam);
+            SyncSlider(musicSlider,  musicVolumeParam);
+        }
+        if (creditsPanel != null) creditsPanel.SetActive(false);
     }
 
     public void OnSettingsClose()
@@ -167,15 +190,27 @@ public class MainMenu : MonoBehaviour
     private bool HasAnyProgress()
     {
         if (LevelProgressManager.Instance == null) return false;
-        if (allLevelIndices == null || allLevelIndices.Length == 0) return false;
 
-        foreach (int idx in allLevelIndices)
+        // Use the manually configured list if provided
+        if (allLevelIndices != null && allLevelIndices.Length > 0)
         {
-            if (LevelProgressManager.Instance.IsCompleted(idx)) return true;
+            foreach (int idx in allLevelIndices)
+            {
+                if (LevelProgressManager.Instance.IsCompleted(idx)) return true;
 
-            // Any level after the first being unlocked = progress was made
-            if (idx != allLevelIndices[0] &&
-                LevelProgressManager.Instance.IsUnlocked(idx)) return true;
+                // Any level after the first being unlocked = progress was made
+                if (idx != allLevelIndices[0] &&
+                    LevelProgressManager.Instance.IsUnlocked(idx)) return true;
+            }
+            return false;
+        }
+
+        // Fallback: scan every scene in build settings
+        int sceneCount = UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
+        for (int i = 0; i < sceneCount; i++)
+        {
+            if (LevelProgressManager.Instance.IsCompleted(i)) return true;
+            if (i != firstLevelIndex && LevelProgressManager.Instance.IsUnlocked(i)) return true;
         }
 
         return false;
@@ -184,39 +219,101 @@ public class MainMenu : MonoBehaviour
     /// Returns the build index of the last level the player has unlocked.
     private int GetLatestUnlockedLevel()
     {
-        if (LevelProgressManager.Instance == null ||
-            allLevelIndices == null ||
-            allLevelIndices.Length == 0)
-            return firstLevelIndex;
+        if (LevelProgressManager.Instance == null) return firstLevelIndex;
 
-        int latest = allLevelIndices[0];
-        foreach (int idx in allLevelIndices)
+        // Use the manually configured list if provided
+        if (allLevelIndices != null && allLevelIndices.Length > 0)
         {
-            if (LevelProgressManager.Instance.IsUnlocked(idx))
-                latest = idx;
+            int latest = allLevelIndices[0];
+            foreach (int idx in allLevelIndices)
+            {
+                if (LevelProgressManager.Instance.IsUnlocked(idx))
+                    latest = idx;
+            }
+            return latest;
         }
 
-        return latest;
+        // Fallback: scan every scene in build settings from firstLevelIndex upward
+        int sceneCount = UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
+        int latestScene = firstLevelIndex;
+        for (int i = firstLevelIndex; i < sceneCount; i++)
+        {
+            if (LevelProgressManager.Instance.IsUnlocked(i))
+                latestScene = i;
+        }
+        return latestScene;
     }
 
+    /// <summary>
+    /// Converts a linear 0–1 value to decibels, sends it to the mixer,
+    /// and saves it to PlayerPrefs so the setting is shared with PauseMenu.
+    /// </summary>
     private void SetMixerVolume(string param, float linearValue)
     {
+        // Always save — even if the mixer isn't assigned
+        PlayerPrefs.SetFloat(param, linearValue);
+        PlayerPrefs.Save();
+
         if (audioMixer == null) return;
         float db = Mathf.Log10(Mathf.Max(linearValue, 0.001f)) * 20f;
         audioMixer.SetFloat(param, db);
     }
 
+    /// <summary>
+    /// Loads saved volumes from PlayerPrefs on startup.
+    /// Uses SetValueWithoutNotify so the sliders hold the right internal value
+    /// without firing OnValueChanged (panel may be inactive; layout not ready yet).
+    /// The AudioMixer is synced directly here instead.
+    /// </summary>
     private void InitAudioSliders()
     {
-        if (audioMixer == null) return;
-        if (masterSlider != null) masterSlider.value = GetLinearVolume(masterVolumeParam);
-        if (musicSlider  != null) musicSlider.value  = GetLinearVolume(musicVolumeParam);
+        float master = PlayerPrefs.GetFloat(masterVolumeParam, 1f);
+        float music  = PlayerPrefs.GetFloat(musicVolumeParam,  1f);
+
+        if (masterSlider != null) masterSlider.SetValueWithoutNotify(master);
+        if (musicSlider  != null) musicSlider.SetValueWithoutNotify(music);
+
+        // Apply to mixer directly since OnValueChanged won't fire
+        ApplyToMixer(masterVolumeParam, master);
+        ApplyToMixer(musicVolumeParam,  music);
     }
 
-    private float GetLinearVolume(string param)
+    /// <summary>
+    /// If handleRect became null (domain reload / missing reference), finds it
+    /// again by walking the slider's own hierarchy.  Without it, Unity silently
+    /// skips handle movement inside UpdateVisuals() even though the fill works fine.
+    /// </summary>
+    private static void RepairSlider(Slider slider)
     {
-        if (audioMixer.GetFloat(param, out float db))
-            return Mathf.Pow(10f, db / 20f);
-        return 1f;
+        if (slider == null || slider.handleRect != null) return;
+
+        Transform slideArea = slider.transform.Find("Handle Slide Area");
+        if (slideArea == null) return;
+
+        Transform handle = slideArea.Find("Handle");
+        if (handle != null)
+            slider.handleRect = handle.GetComponent<RectTransform>();
+    }
+
+    /// <summary>
+    /// Forces the slider to UpdateVisuals() with correct layout bounds.
+    /// Nudging to a slightly different value then back guarantees that
+    /// Slider.Set() sees a real change and repositions the handle.
+    /// </summary>
+    private void SyncSlider(Slider slider, string param)
+    {
+        if (slider == null) return;
+        float v = PlayerPrefs.GetFloat(param, 1f);
+        // Nudge away without notifying, then set the real value so
+        // UpdateVisuals fires now that layout bounds are ready.
+        slider.SetValueWithoutNotify(v < 1f ? v + 0.001f : v - 0.001f);
+        slider.value = v;   // → UpdateVisuals() + OnValueChanged → mixer + PlayerPrefs
+    }
+
+    private void ApplyToMixer(string param, float linearValue)
+    {
+        if (audioMixer == null) return;
+        float db = Mathf.Log10(Mathf.Max(linearValue, 0.001f)) * 20f;
+        audioMixer.SetFloat(param, db);
     }
 }

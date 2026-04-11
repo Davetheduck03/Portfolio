@@ -60,6 +60,10 @@ public class LevelSelectMenu : MonoBehaviour
     //  Inspector
     // ----------------------------------------------------------------
 
+    [Header("Scene Indices")]
+    [Tooltip("Build index of the Main Menu scene (used by the Back to Menu button).")]
+    [SerializeField] private int mainMenuSceneIndex = 0;
+
     [Header("Style")]
     [Tooltip("Assign your custom font here (e.g. PixelPurl). " +
              "After assigning, right-click the component and choose " +
@@ -70,12 +74,12 @@ public class LevelSelectMenu : MonoBehaviour
     [SerializeField] private ChapterData[] chapters;
 
     [Header("UI — Chapter View")]
-    [SerializeField] private GameObject    chapterView;
+    [SerializeField] private GameObject chapterView;
     [SerializeField] private RectTransform chapterContent;   // HorizontalLayoutGroup content
 
     [Header("UI — Level View")]
-    [SerializeField] private GameObject    levelView;
-    [SerializeField] private Text          levelViewTitle;
+    [SerializeField] private GameObject levelView;
+    [SerializeField] private Text levelViewTitle;
     [SerializeField] private RectTransform levelContent;     // GridLayoutGroup content
 
     // ----------------------------------------------------------------
@@ -109,14 +113,23 @@ public class LevelSelectMenu : MonoBehaviour
     private void ShowChapterView()
     {
         if (chapterView != null) chapterView.SetActive(true);
-        if (levelView   != null) levelView.SetActive(false);
+        if (levelView != null) levelView.SetActive(false);
         PopulateChapters();
     }
 
-    /// <summary>Called by the Back button in the level view.</summary>
+    /// <summary>Called by the Back button in the level view — returns to chapter list.</summary>
     public void OnBackPressed()
     {
         ShowChapterView();
+    }
+
+    /// <summary>Called by the Main Menu button in the chapter view header.</summary>
+    public void OnBackToMenuPressed()
+    {
+        if (SceneTransition.Instance != null)
+            SceneTransition.Instance.LoadScene(mainMenuSceneIndex);
+        else
+            SceneManager.LoadScene(mainMenuSceneIndex);
     }
 
     private void OpenChapter(int chapterIndex)
@@ -126,7 +139,7 @@ public class LevelSelectMenu : MonoBehaviour
         ChapterData chapter = chapters[chapterIndex];
 
         if (chapterView != null) chapterView.SetActive(false);
-        if (levelView   != null) levelView.SetActive(true);
+        if (levelView != null) levelView.SetActive(true);
 
         if (levelViewTitle != null)
             levelViewTitle.text = chapter.chapterName;
@@ -171,17 +184,17 @@ public class LevelSelectMenu : MonoBehaviour
 
         Button btn = card.AddComponent<Button>();
         btn.targetGraphic = bg;
-        btn.interactable  = chapterUnlocked;
+        btn.interactable = chapterUnlocked;
 
         // Keep highlight/press states but start from the already-set bg.color
-        ColorBlock cb  = btn.colors;
-        cb.normalColor      = Color.white;   // multiplied against bg.color → no change
+        ColorBlock cb = btn.colors;
+        cb.normalColor = Color.white;   // multiplied against bg.color → no change
         cb.highlightedColor = new Color(1.4f, 1.4f, 1.4f, 1f);
-        cb.pressedColor     = new Color(0.7f, 0.7f, 0.7f, 1f);
-        cb.disabledColor    = Color.white;
-        cb.colorMultiplier  = 1f;
-        cb.fadeDuration     = 0.12f;
-        btn.colors          = cb;
+        cb.pressedColor = new Color(0.7f, 0.7f, 0.7f, 1f);
+        cb.disabledColor = Color.white;
+        cb.colorMultiplier = 1f;
+        cb.fadeDuration = 0.12f;
+        btn.colors = cb;
 
         if (chapterUnlocked)
         {
@@ -205,14 +218,14 @@ public class LevelSelectMenu : MonoBehaviour
 
         // ── Thumbnail OR colour band ───────────────────────────────────
         float thumbHeight = 148f;
-        float thumbTop    = 8f;
+        float thumbTop = 8f;
         if (hasThumbnail)
         {
             GameObject thumbGO = CardChild("Thumbnail", card.transform);
             SetTopRect(thumbGO, 0f, 0f, thumbTop, thumbHeight);
             Image thumbImg = thumbGO.AddComponent<Image>();
-            thumbImg.sprite         = chapter.thumbnail;
-            thumbImg.type           = Image.Type.Simple;
+            thumbImg.sprite = chapter.thumbnail;
+            thumbImg.type = Image.Type.Simple;
             thumbImg.preserveAspect = false;
             if (!chapterUnlocked) thumbImg.color = new Color(1f, 1f, 1f, 0.25f);
         }
@@ -252,8 +265,8 @@ public class LevelSelectMenu : MonoBehaviour
                       pad, pad, contentTop + 80f, 44f);
 
         // ── Progress / locked label ───────────────────────────────────
-        string progressText  = chapterUnlocked ? BuildProgressText(chapter) : "LOCKED";
-        Color  progressColor = chapterUnlocked
+        string progressText = chapterUnlocked ? BuildProgressText(chapter) : "LOCKED";
+        Color progressColor = chapterUnlocked
             ? new Color(0.60f, 0.65f, 0.75f, 1f)
             : new Color(0.40f, 0.40f, 0.45f, 1f);
 
@@ -280,11 +293,11 @@ public class LevelSelectMenu : MonoBehaviour
                                    float yFromTop, float height)
     {
         RectTransform rt = go.GetComponent<RectTransform>();
-        rt.anchorMin  = new Vector2(0f, 1f);
-        rt.anchorMax  = new Vector2(1f, 1f);
-        rt.pivot      = new Vector2(0.5f, 1f);
-        rt.offsetMin  = new Vector2( xLeft,  -(yFromTop + height));
-        rt.offsetMax  = new Vector2(-xRight, -yFromTop);
+        rt.anchorMin = new Vector2(0f, 1f);
+        rt.anchorMax = new Vector2(1f, 1f);
+        rt.pivot = new Vector2(0.5f, 1f);
+        rt.offsetMin = new Vector2(xLeft, -(yFromTop + height));
+        rt.offsetMax = new Vector2(-xRight, -yFromTop);
     }
 
     // Creates a Text child with explicit top-anchored rect.
@@ -295,12 +308,12 @@ public class LevelSelectMenu : MonoBehaviour
         GameObject go = CardChild(name, parent);
         SetTopRect(go, xLeft, xRight, yFromTop, height);
         Text t = go.AddComponent<Text>();
-        t.text            = content;
+        t.text = content;
         if (font != null) t.font = font;
-        t.fontSize        = fontSize;
-        t.fontStyle       = style;
-        t.alignment       = TextAnchor.MiddleCenter;
-        t.color           = color;
+        t.fontSize = fontSize;
+        t.fontStyle = style;
+        t.alignment = TextAnchor.MiddleCenter;
+        t.color = color;
         t.resizeTextForBestFit = false;
         t.supportRichText = false;
     }
@@ -348,18 +361,18 @@ public class LevelSelectMenu : MonoBehaviour
 
         Button btn = go.AddComponent<Button>();
         btn.targetGraphic = bg;
-        btn.interactable  = unlocked;
+        btn.interactable = unlocked;
 
         // normalColor = white so it multiplies cleanly against bg.color.
         // Highlight brightens, press darkens.
         ColorBlock cb = btn.colors;
-        cb.normalColor      = Color.white;
+        cb.normalColor = Color.white;
         cb.highlightedColor = new Color(1.5f, 1.5f, 1.5f, 1f);
-        cb.pressedColor     = new Color(0.65f, 0.65f, 0.65f, 1f);
-        cb.disabledColor    = Color.white;
-        cb.colorMultiplier  = 1f;
-        cb.fadeDuration     = 0.1f;
-        btn.colors          = cb;
+        cb.pressedColor = new Color(0.65f, 0.65f, 0.65f, 1f);
+        cb.disabledColor = Color.white;
+        cb.colorMultiplier = 1f;
+        cb.fadeDuration = 0.1f;
+        btn.colors = cb;
 
         if (unlocked)
         {
@@ -378,10 +391,10 @@ public class LevelSelectMenu : MonoBehaviour
             thumbRT.offsetMin = Vector2.zero;
             thumbRT.offsetMax = Vector2.zero;
             Image thumbImg = thumbGO.AddComponent<Image>();
-            thumbImg.sprite         = entry.thumbnail;
-            thumbImg.type           = Image.Type.Simple;
+            thumbImg.sprite = entry.thumbnail;
+            thumbImg.type = Image.Type.Simple;
             thumbImg.preserveAspect = false;
-            thumbImg.raycastTarget  = false; // let clicks pass through to the button
+            thumbImg.raycastTarget = false; // let clicks pass through to the button
             if (!unlocked) thumbImg.color = new Color(1f, 1f, 1f, 0.20f); // dim when locked
         }
 
@@ -393,17 +406,17 @@ public class LevelSelectMenu : MonoBehaviour
         GameObject labelGO = new GameObject("Label");
         labelGO.transform.SetParent(go.transform, false);
         RectTransform labelRT = labelGO.AddComponent<RectTransform>();
-        labelRT.anchorMin  = new Vector2(0f, 0.3f);
-        labelRT.anchorMax  = new Vector2(1f, 1f);
-        labelRT.offsetMin  = new Vector2(6f, 0f);
-        labelRT.offsetMax  = new Vector2(-6f, 0f);
+        labelRT.anchorMin = new Vector2(0f, 0.3f);
+        labelRT.anchorMax = new Vector2(1f, 1f);
+        labelRT.offsetMin = new Vector2(6f, 0f);
+        labelRT.offsetMax = new Vector2(-6f, 0f);
         Text label = labelGO.AddComponent<Text>();
-        label.text      = unlocked ? entry.displayName : "Locked";
-        label.font      = font;
-        label.fontSize  = 20;
+        label.text = unlocked ? entry.displayName : "Locked";
+        label.font = font;
+        label.fontSize = 20;
         label.fontStyle = FontStyle.Normal;
         label.alignment = TextAnchor.MiddleCenter;
-        label.color     = textCol;
+        label.color = textCol;
 
         // Completion tick
         if (completed)
@@ -411,16 +424,16 @@ public class LevelSelectMenu : MonoBehaviour
             GameObject tickGO = new GameObject("Tick");
             tickGO.transform.SetParent(go.transform, false);
             RectTransform tickRT = tickGO.AddComponent<RectTransform>();
-            tickRT.anchorMin  = new Vector2(0f, 0f);
-            tickRT.anchorMax  = new Vector2(1f, 0.35f);
-            tickRT.offsetMin  = Vector2.zero;
-            tickRT.offsetMax  = Vector2.zero;
+            tickRT.anchorMin = new Vector2(0f, 0f);
+            tickRT.anchorMax = new Vector2(1f, 0.35f);
+            tickRT.offsetMin = Vector2.zero;
+            tickRT.offsetMax = Vector2.zero;
             Text tick = tickGO.AddComponent<Text>();
-            tick.text      = "✓";
-            tick.font      = font;
-            tick.fontSize  = 16;
+            tick.text = "✓";
+            tick.font = font;
+            tick.fontSize = 16;
             tick.alignment = TextAnchor.MiddleCenter;
-            tick.color     = new Color(
+            tick.color = new Color(
                 Mathf.Clamp01(accent.r + 0.4f),
                 Mathf.Clamp01(accent.g + 0.4f),
                 Mathf.Clamp01(accent.b + 0.4f), 1f);
@@ -463,7 +476,10 @@ public class LevelSelectMenu : MonoBehaviour
 
     private void LoadLevel(int buildIndex)
     {
-        SceneManager.LoadScene(buildIndex);
+        if (SceneTransition.Instance != null)
+            SceneTransition.Instance.LoadScene(buildIndex);
+        else
+            SceneManager.LoadScene(buildIndex);
     }
 
     // ----------------------------------------------------------------
@@ -502,7 +518,7 @@ public class LevelSelectMenu : MonoBehaviour
         Font font = GetFont();
         foreach (Text t in GetComponentsInChildren<Text>(includeInactive: true))
         {
-            t.font      = font;
+            t.font = font;
             t.fontStyle = FontStyle.Normal;
         }
 #if UNITY_EDITOR

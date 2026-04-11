@@ -254,21 +254,25 @@ public static class PauseMenuSetup
         fillRT.offsetMax = Vector2.zero;
         fillRT.sizeDelta = new Vector2(10f, 0f);
 
-        // Handle
+        // Handle Slide Area — inset by half the handle width so the knob
+        // stays fully on-screen at both ends (half of 12 = 6 → 8 px inset)
         GameObject handleAreaGO = CreateUIObject("Handle Slide Area", sliderGO.transform);
         RectTransform handleAreaRT = handleAreaGO.GetComponent<RectTransform>();
         handleAreaRT.anchorMin  = new Vector2(0f, 0f);
         handleAreaRT.anchorMax  = new Vector2(1f, 1f);
-        handleAreaRT.offsetMin  = new Vector2(10f, 0f);
-        handleAreaRT.offsetMax  = new Vector2(-10f, 0f);
+        handleAreaRT.offsetMin  = new Vector2(8f,  0f);
+        handleAreaRT.offsetMax  = new Vector2(-8f, 0f);
 
+        // Handle — small pill knob, point-anchored to the left-centre so the
+        // Slider component can slide it along the x-axis correctly
         GameObject handleGO = CreateUIObject("Handle", handleAreaGO.transform);
         Image handle = handleGO.AddComponent<Image>();
         handle.color = handleCol;
         RectTransform handleRT = handleGO.GetComponent<RectTransform>();
-        handleRT.sizeDelta        = new Vector2(24f, 32f);
-        handleRT.anchorMin        = new Vector2(0f, 0.5f);
+        handleRT.anchorMin        = new Vector2(0f, 0.5f);   // point anchor
         handleRT.anchorMax        = new Vector2(0f, 0.5f);
+        handleRT.pivot            = new Vector2(0.5f, 0.5f);
+        handleRT.sizeDelta        = new Vector2(12f, 16f);    // thin pill, shorter than track
         handleRT.anchoredPosition = Vector2.zero;
 
         // Wire slider references

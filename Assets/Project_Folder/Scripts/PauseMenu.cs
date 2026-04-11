@@ -56,7 +56,8 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
-        // Initialise slider positions from the mixer's current values
+        // Load saved settings from PlayerPrefs; setting the slider value
+        // triggers OnValueChanged which pushes the value into the AudioMixer too.
         InitSlider(audioSlider, masterVolumeParam);
         InitSlider(musicSlider, musicVolumeParam);
     }
@@ -123,27 +124,27 @@ public class PauseMenu : MonoBehaviour
     // ----------------------------------------------------------------
 
     /// <summary>
-    /// Reads the current dB value from the mixer and converts it back
-    /// to a 0–1 slider position so the UI reflects the actual volume.
+    /// Loads the saved linear volume from PlayerPrefs (default 1) and
+    /// applies it to the slider. The slider's OnValueChanged then fires
+    /// automatically and pushes the value into the AudioMixer.
     /// </summary>
     private void InitSlider(Slider slider, string param)
     {
-        if (slider == null || audioMixer == null) return;
-
-        if (audioMixer.GetFloat(param, out float db))
-            slider.value = Mathf.Pow(10f, db / 20f);   // dB → linear
-        else
-            slider.value = 1f;
+        if (slider == null) return;
+        slider.value = PlayerPrefs.GetFloat(param, 1f);
     }
 
     /// <summary>
-    /// Converts a linear 0–1 value to decibels and sends it to the mixer.
-    /// Clamps the minimum to 0.001 to avoid log(0) = -infinity.
+    /// Converts a linear 0–1 value to decibels, sends it to the mixer,
+    /// and saves it to PlayerPrefs so every scene starts with the same volume.
     /// </summary>
     private void SetMixerVolume(string param, float linearValue)
     {
-        if (audioMixer == null) return;
+        // Always save — even if the mixer isn't assigned yet
+        PlayerPrefs.SetFloat(param, linearValue);
+        PlayerPrefs.Save();
 
+        if (audioMixer == null) return;
         float db = Mathf.Log10(Mathf.Max(linearValue, 0.001f)) * 20f;
         audioMixer.SetFloat(param, db);
     }

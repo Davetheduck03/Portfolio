@@ -96,13 +96,30 @@ public static class LevelSelectSetup
         cvLayout.childForceExpandWidth = true;
         cvLayout.childForceExpandHeight = false;
 
-        // Title bar
+        // Title bar — HorizontalLayoutGroup so we can put a menu button on the left
         GameObject titleBarGO = MakeUIObject("TitleBar", chapterView.transform);
         titleBarGO.AddComponent<Image>().color = PanelColor;
         titleBarGO.GetComponent<RectTransform>().sizeDelta = new Vector2(0f, 120f);
 
+        HorizontalLayoutGroup tbLayout = titleBarGO.AddComponent<HorizontalLayoutGroup>();
+        tbLayout.childAlignment         = TextAnchor.MiddleLeft;
+        tbLayout.spacing                = 0f;
+        tbLayout.padding                = new RectOffset(24, 24, 0, 0);
+        tbLayout.childControlHeight     = true;
+        tbLayout.childControlWidth      = false;
+        tbLayout.childForceExpandHeight = true;
+        tbLayout.childForceExpandWidth  = false;
+
+        // ← MENU button (left side)
+        Button mainMenuBtn = CreateTextButton(titleBarGO.transform, "MainMenuButton",
+                                              "← MENU", font, 24,
+                                              BackBtnColor, BackBtnHover, BackTextColor,
+                                              new Vector2(150f, 0f));
+
+        // Title text (expands to fill the middle)
         GameObject titleTextGO = MakeUIObject("TitleText", titleBarGO.transform);
-        Stretch(titleTextGO, new Vector2(0f, 0f), new Vector2(0f, 0f));
+        LayoutElement titleLE = titleTextGO.AddComponent<LayoutElement>();
+        titleLE.flexibleWidth = 1f;
         Text titleText = titleTextGO.AddComponent<Text>();
         titleText.text      = "SELECT CHAPTER";
         titleText.font      = font;
@@ -110,6 +127,10 @@ public static class LevelSelectSetup
         titleText.fontStyle = FontStyle.Bold;
         titleText.alignment = TextAnchor.MiddleCenter;
         titleText.color     = TitleColor;
+
+        // Right spacer — mirrors the button width so the title stays centred
+        GameObject rightSpacer = MakeUIObject("RightSpacer", titleBarGO.transform);
+        rightSpacer.AddComponent<RectTransform>().sizeDelta = new Vector2(150f, 0f);
 
         // Horizontal scroll view for chapter cards
         GameObject chScrollGO = MakeUIObject("ChapterScrollView", chapterView.transform);
@@ -288,12 +309,20 @@ public static class LevelSelectSetup
         SetRef(so, "levelContent",   lvContentRT);
         so.ApplyModifiedProperties();
 
-        // Wire Back button → LevelSelectMenu.OnBackPressed
+        // Wire Back button (level view) → LevelSelectMenu.OnBackPressed
         UnityEditor.Events.UnityEventTools.AddPersistentListener(
             backBtn.onClick,
             System.Delegate.CreateDelegate(
                 typeof(UnityEngine.Events.UnityAction), menu,
                 nameof(LevelSelectMenu.OnBackPressed))
+            as UnityEngine.Events.UnityAction);
+
+        // Wire ← MENU button (chapter view) → LevelSelectMenu.OnBackToMenuPressed
+        UnityEditor.Events.UnityEventTools.AddPersistentListener(
+            mainMenuBtn.onClick,
+            System.Delegate.CreateDelegate(
+                typeof(UnityEngine.Events.UnityAction), menu,
+                nameof(LevelSelectMenu.OnBackToMenuPressed))
             as UnityEngine.Events.UnityAction);
 
         // ── EventSystem ───────────────────────────────────────────────

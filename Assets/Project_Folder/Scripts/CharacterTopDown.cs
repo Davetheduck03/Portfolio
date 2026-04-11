@@ -33,6 +33,12 @@ public class TopDownCharacter : BaseCharacter
     [SerializeField] private Animator animator;
     [SerializeField] private float animSmoothing = 10f;
 
+    [Header("Audio")]
+    [Tooltip("Sound played the moment a box is picked up.")]
+    [SerializeField] private AudioClip pickupSound;
+    [Tooltip("Sound played the moment a box is put down.")]
+    [SerializeField] private AudioClip putDownSound;
+
     private static readonly int MoveX     = Animator.StringToHash("MoveX");
     private static readonly int MoveY     = Animator.StringToHash("MoveY");
     private static readonly int Speed     = Animator.StringToHash("Speed");
@@ -119,6 +125,12 @@ public class TopDownCharacter : BaseCharacter
         }
 
         UpdatePlacementIndicator();
+
+        // Walk sound — drive it from input so it starts/stops instantly
+        if (_inputDir.sqrMagnitude > 0.01f)
+            StartWalkSound();
+        else
+            StopWalkSound();
     }
 
     public override void Tick()
@@ -461,6 +473,7 @@ public class TopDownCharacter : BaseCharacter
         _heldBox = closest;
         Vector3 faceDir = new Vector3(_lastFacingDir.x, _lastFacingDir.y, 0f);
         _heldBox.PickUp(transform, faceDir * holdDistance);
+        PlayOneShot(pickupSound);
     }
 
     private void PlaceBox()
@@ -470,6 +483,7 @@ public class TopDownCharacter : BaseCharacter
 
         _heldBox.PutDown(target, _col);
         _heldBox = null;
+        PlayOneShot(putDownSound);
     }
 
     // ---------------------------------------------------------------

@@ -894,11 +894,11 @@ PrefabInstance:
       objectReference: {fileID: 1687258398}
     - target: {fileID: 5724317910250752523, guid: 509112fea4bd50242bd693b0282c2e0a, type: 3}
       propertyPath: menuSceneIndex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5724317910250752523, guid: 509112fea4bd50242bd693b0282c2e0a, type: 3}
       propertyPath: nextSceneIndex
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5724317910250752523, guid: 509112fea4bd50242bd693b0282c2e0a, type: 3}
       propertyPath: deathScreenCanvas
@@ -906,7 +906,7 @@ PrefabInstance:
       objectReference: {fileID: 90752256}
     - target: {fileID: 5724317910250752523, guid: 509112fea4bd50242bd693b0282c2e0a, type: 3}
       propertyPath: levelSelectSceneIndex
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8871913537153040264, guid: 509112fea4bd50242bd693b0282c2e0a, type: 3}
       propertyPath: m_Name

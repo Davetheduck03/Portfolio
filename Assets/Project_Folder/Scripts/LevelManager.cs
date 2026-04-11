@@ -27,6 +27,13 @@ public class LevelManager : MonoBehaviour
              "Leave it inactive in the scene — LevelManager activates it on death.")]
     [SerializeField] private GameObject deathScreenCanvas;
 
+    [Header("Audio")]
+    [Tooltip("Sound played the moment the player dies (before the death screen appears). " +
+             "Uses PlayClipAtPoint so it fires even after TimeScale is set to 0.")]
+    [SerializeField] private AudioClip deathSound;
+    [Range(0f, 1f)]
+    [SerializeField] private float deathSoundVolume = 1f;
+
     [Header("Scene Progression")]
     [Tooltip("Build index of the scene to load when the level is completed.\n" +
              "Set to -1 to reload the current scene (handy during development).")]
@@ -71,6 +78,22 @@ public class LevelManager : MonoBehaviour
     {
         if (_loading) return;
 
+        // Stop any looping character audio before timeScale hits 0 —
+        // otherwise Update/FixedUpdate freeze and the walk loop keeps playing.
+        foreach (BaseCharacter c in
+                 FindObjectsByType<BaseCharacter>(FindObjectsSortMode.None))
+            c.StopAllAudio();
+
+        // Play the death sound BEFORE pausing time.
+        // AudioSource.PlayClipAtPoint is unaffected by TimeScale.
+        if (deathSound != null)
+        {
+            Vector3 camPos = Camera.main != null
+                ? Camera.main.transform.position
+                : Vector3.zero;
+            AudioSource.PlayClipAtPoint(deathSound, camPos, deathSoundVolume);
+        }
+
         Time.timeScale = 0f;
 
         if (deathScreenCanvas != null)
@@ -91,7 +114,7 @@ public class LevelManager : MonoBehaviour
         _loading = true;
 
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Transition(SceneManager.GetActiveScene().buildIndex);
     }
 
     /// <summary>
@@ -105,7 +128,7 @@ public class LevelManager : MonoBehaviour
         _loading = true;
 
         Time.timeScale = 1f;
-        SceneManager.LoadScene(menuSceneIndex);
+        Transition(menuSceneIndex);
     }
 
     /// <summary>
@@ -119,7 +142,7 @@ public class LevelManager : MonoBehaviour
         _loading = true;
 
         Time.timeScale = 1f;
-        SceneManager.LoadScene(levelSelectSceneIndex);
+        Transition(levelSelectSceneIndex);
     }
 
     /// <summary>
@@ -142,6 +165,20 @@ public class LevelManager : MonoBehaviour
         LevelProgressManager.Instance?.MarkCompleted(current);
         LevelProgressManager.Instance?.UnlockLevel(target);
 
-        SceneManager.LoadScene(target);
+        Transition(target);
+    }
+
+    // ----------------------------------------------------------------
+    //  Internal helpers
+    // ----------------------------------------------------------------
+
+    /// Plays the iris-wipe transition if SceneTransition exists in the scene;
+    /// falls back to a plain SceneManager.LoadScene if it doesn't.
+    private static void Transition(int buildIndex)
+    {
+        if (SceneTransition.Instance != null)
+            SceneTransition.Instance.LoadScene(buildIndex);
+        else
+            SceneManager.LoadScene(buildIndex);
     }
 }
