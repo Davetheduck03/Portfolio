@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
 
 /// <summary>
@@ -24,16 +23,6 @@ public class PauseMenu : MonoBehaviour
     [Tooltip("Root GameObject of the pause menu canvas.")]
     [SerializeField] private GameObject pauseCanvas;
 
-    [Header("Audio")]
-    [Tooltip("Your project's AudioMixer asset.")]
-    [SerializeField] private AudioMixer audioMixer;
-
-    [Tooltip("Exposed parameter name on the AudioMixer for master/SFX volume.")]
-    [SerializeField] private string masterVolumeParam = "MasterVolume";
-
-    [Tooltip("Exposed parameter name on the AudioMixer for music volume.")]
-    [SerializeField] private string musicVolumeParam = "MusicVolume";
-
     [Header("Sliders")]
     [SerializeField] private Slider audioSlider;
     [SerializeField] private Slider musicSlider;
@@ -56,10 +45,10 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
-        // Load saved settings from PlayerPrefs; setting the slider value
-        // triggers OnValueChanged which pushes the value into the AudioMixer too.
-        InitSlider(audioSlider, masterVolumeParam);
-        InitSlider(musicSlider, musicVolumeParam);
+        // Position sliders from saved PlayerPrefs.
+        // OnValueChanged fires → AudioManager applies the volume.
+        InitSlider(audioSlider, AudioManager.MasterKey);
+        InitSlider(musicSlider, AudioManager.MusicKey);
     }
 
     void Update()
@@ -93,18 +82,11 @@ public class PauseMenu : MonoBehaviour
     /// Slider value 0–1 is converted to decibels (-80 to 0 dB).
     /// </summary>
     public void OnAudioSliderChanged(float value)
-    {
-        SetMixerVolume(masterVolumeParam, value);
-    }
+        => AudioManager.Instance?.SetMasterVolume(value);
 
-    /// <summary>
-    /// Called by the Music slider's OnValueChanged event.
-    /// Slider value 0–1 is converted to decibels (-80 to 0 dB).
-    /// </summary>
+    /// <summary>Called by the Music slider's OnValueChanged event.</summary>
     public void OnMusicSliderChanged(float value)
-    {
-        SetMixerVolume(musicVolumeParam, value);
-    }
+        => AudioManager.Instance?.SetMusicVolume(value);
 
     // ----------------------------------------------------------------
     //  Pause logic
@@ -128,24 +110,10 @@ public class PauseMenu : MonoBehaviour
     /// applies it to the slider. The slider's OnValueChanged then fires
     /// automatically and pushes the value into the AudioMixer.
     /// </summary>
-    private void InitSlider(Slider slider, string param)
+    private void InitSlider(Slider slider, string prefsKey)
     {
         if (slider == null) return;
-        slider.value = PlayerPrefs.GetFloat(param, 1f);
-    }
-
-    /// <summary>
-    /// Converts a linear 0–1 value to decibels, sends it to the mixer,
-    /// and saves it to PlayerPrefs so every scene starts with the same volume.
-    /// </summary>
-    private void SetMixerVolume(string param, float linearValue)
-    {
-        // Always save — even if the mixer isn't assigned yet
-        PlayerPrefs.SetFloat(param, linearValue);
-        PlayerPrefs.Save();
-
-        if (audioMixer == null) return;
-        float db = Mathf.Log10(Mathf.Max(linearValue, 0.001f)) * 20f;
-        audioMixer.SetFloat(param, db);
+        // Setting .value fires OnValueChanged → AudioManager applies the volume.
+        slider.value = PlayerPrefs.GetFloat(prefsKey, 1f);
     }
 }

@@ -126,11 +126,6 @@ public class TopDownCharacter : BaseCharacter
 
         UpdatePlacementIndicator();
 
-        // Walk sound — drive it from input so it starts/stops instantly
-        if (_inputDir.sqrMagnitude > 0.01f)
-            StartWalkSound();
-        else
-            StopWalkSound();
     }
 
     public override void Tick()

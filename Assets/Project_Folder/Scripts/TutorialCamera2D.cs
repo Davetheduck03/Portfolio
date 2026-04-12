@@ -26,6 +26,7 @@ public class TutorialCamera2D : MonoBehaviour
     [Header("Target")]
     [Tooltip("The player to follow. Leave empty to auto-find SidescrollerCharacter.")]
     [SerializeField] private Transform target;
+    [SerializeField] private bool isDead = false;
 
     [Header("Follow")]
     [Tooltip("How quickly the camera catches up horizontally. 6–8 feels snappy but smooth.")]
@@ -88,6 +89,7 @@ public class TutorialCamera2D : MonoBehaviour
 
         if (levelManager == null)
             levelManager = FindFirstObjectByType<LevelManager>();
+        isDead = false;
     }
 
     void LateUpdate()
@@ -95,8 +97,9 @@ public class TutorialCamera2D : MonoBehaviour
         if (target == null) return;
 
         // ── Kill depth ─────────────────────────────────────────────────
-        if (target.position.y < killDepth)
+        if (target.position.y < killDepth && !isDead)
         {
+            isDead = true;
             if (levelManager != null)
                 levelManager.ShowDeathScreen();
             else

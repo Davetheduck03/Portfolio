@@ -51,6 +51,9 @@ public class SceneTransition : MonoBehaviour
     [SerializeField] private AnimationCurve wipeOutCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
 
     [Header("Appearance")]
+    [Tooltip("Drag the CircularWipe shader here (Assets/Project_Folder/Shaders/CircularWipe.shader). " +
+             "This reference guarantees the shader is included in builds.")]
+    [SerializeField] private Shader wipeShader;
     [Tooltip("Colour of the wipe overlay (normally black).")]
     [SerializeField] private Color wipeColor    = Color.black;
     [Tooltip("Softness of the iris edge in screen-space units (0 = hard).")]
@@ -212,14 +215,19 @@ public class SceneTransition : MonoBehaviour
         rt.offsetMax = Vector2.zero;
 
         // ── Material ─────────────────────────────────────────────
-        Shader shader = Shader.Find("Custom/CircularWipe");
+        // Prefer the directly-serialized reference (guaranteed to be in the build).
+        // Fall back to Shader.Find only in the Editor where stripping isn't an issue.
+        Shader shader = wipeShader != null ? wipeShader : Shader.Find("Custom/CircularWipe");
 
         if (shader == null)
         {
             Debug.LogError(
                 "[SceneTransition] Shader 'Custom/CircularWipe' not found.\n" +
-                "Make sure  Assets/Project_Folder/Shaders/CircularWipe.shader  exists " +
-                "and has compiled without errors.");
+                "Assign the shader to the 'Wipe Shader' field on the SceneTransition " +
+                "component so it is included in the build.\n" +
+                "Asset path: Assets/Project_Folder/Shaders/CircularWipe.shader");
+            // Hide the blank overlay so at least the game is visible
+            if (_wipeImage != null) _wipeImage.enabled = false;
             return;
         }
 

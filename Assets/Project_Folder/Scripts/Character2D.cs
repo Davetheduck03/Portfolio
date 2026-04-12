@@ -119,11 +119,6 @@ public class SidescrollerCharacter : BaseCharacter
 		if (spriteRenderer != null && _inputX != 0f)
 			spriteRenderer.flipX = _inputX < 0f;
 
-		// Walk sound — only while grounded and actually moving
-		if (_isGrounded && Mathf.Abs(_inputX) > 0.01f)
-			StartWalkSound();
-		else
-			StopWalkSound();
 	}
 
 	// -------------------------------------------------------------------

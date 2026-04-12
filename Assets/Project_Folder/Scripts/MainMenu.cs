@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -59,9 +58,6 @@ public class MainMenu : MonoBehaviour
     // ----------------------------------------------------------------
 
     [Header("Settings — Audio")]
-    [SerializeField] private AudioMixer audioMixer;
-    [SerializeField] private string masterVolumeParam = "MasterVolume";
-    [SerializeField] private string musicVolumeParam  = "MusicVolume";
     [SerializeField] private Slider masterSlider;
     [SerializeField] private Slider musicSlider;
 
@@ -131,8 +127,8 @@ public class MainMenu : MonoBehaviour
             RepairSlider(masterSlider);
             RepairSlider(musicSlider);
 
-            SyncSlider(masterSlider, masterVolumeParam);
-            SyncSlider(musicSlider,  musicVolumeParam);
+            SyncSlider(masterSlider, AudioManager.MasterKey);
+            SyncSlider(musicSlider,  AudioManager.MusicKey);
         }
         if (creditsPanel != null) creditsPanel.SetActive(false);
     }
@@ -167,10 +163,10 @@ public class MainMenu : MonoBehaviour
     // ----------------------------------------------------------------
 
     public void OnMasterSliderChanged(float value)
-        => SetMixerVolume(masterVolumeParam, value);
+        => AudioManager.Instance?.SetMasterVolume(value);
 
     public void OnMusicSliderChanged(float value)
-        => SetMixerVolume(musicVolumeParam, value);
+        => AudioManager.Instance?.SetMusicVolume(value);
 
     // ----------------------------------------------------------------
     //  Helpers
@@ -245,21 +241,6 @@ public class MainMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// Converts a linear 0–1 value to decibels, sends it to the mixer,
-    /// and saves it to PlayerPrefs so the setting is shared with PauseMenu.
-    /// </summary>
-    private void SetMixerVolume(string param, float linearValue)
-    {
-        // Always save — even if the mixer isn't assigned
-        PlayerPrefs.SetFloat(param, linearValue);
-        PlayerPrefs.Save();
-
-        if (audioMixer == null) return;
-        float db = Mathf.Log10(Mathf.Max(linearValue, 0.001f)) * 20f;
-        audioMixer.SetFloat(param, db);
-    }
-
-    /// <summary>
     /// Loads saved volumes from PlayerPrefs on startup.
     /// Uses SetValueWithoutNotify so the sliders hold the right internal value
     /// without firing OnValueChanged (panel may be inactive; layout not ready yet).
@@ -267,15 +248,13 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     private void InitAudioSliders()
     {
-        float master = PlayerPrefs.GetFloat(masterVolumeParam, 1f);
-        float music  = PlayerPrefs.GetFloat(musicVolumeParam,  1f);
+        float master = PlayerPrefs.GetFloat(AudioManager.MasterKey, 1f);
+        float music  = PlayerPrefs.GetFloat(AudioManager.MusicKey,  1f);
 
+        // Position the handles without firing OnValueChanged — AudioManager
+        // has already applied the saved volumes in its own Awake / Start.
         if (masterSlider != null) masterSlider.SetValueWithoutNotify(master);
         if (musicSlider  != null) musicSlider.SetValueWithoutNotify(music);
-
-        // Apply to mixer directly since OnValueChanged won't fire
-        ApplyToMixer(masterVolumeParam, master);
-        ApplyToMixer(musicVolumeParam,  music);
     }
 
     /// <summary>
@@ -300,20 +279,14 @@ public class MainMenu : MonoBehaviour
     /// Nudging to a slightly different value then back guarantees that
     /// Slider.Set() sees a real change and repositions the handle.
     /// </summary>
-    private void SyncSlider(Slider slider, string param)
+    private void SyncSlider(Slider slider, string prefsKey)
     {
         if (slider == null) return;
-        float v = PlayerPrefs.GetFloat(param, 1f);
+        float v = PlayerPrefs.GetFloat(prefsKey, 1f);
         // Nudge away without notifying, then set the real value so
         // UpdateVisuals fires now that layout bounds are ready.
+        // Setting slider.value fires OnValueChanged → AudioManager.
         slider.SetValueWithoutNotify(v < 1f ? v + 0.001f : v - 0.001f);
-        slider.value = v;   // → UpdateVisuals() + OnValueChanged → mixer + PlayerPrefs
-    }
-
-    private void ApplyToMixer(string param, float linearValue)
-    {
-        if (audioMixer == null) return;
-        float db = Mathf.Log10(Mathf.Max(linearValue, 0.001f)) * 20f;
-        audioMixer.SetFloat(param, db);
+        slider.value = v;
     }
 }

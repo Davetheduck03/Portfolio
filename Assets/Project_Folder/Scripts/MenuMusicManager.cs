@@ -51,7 +51,8 @@ public class MenuMusicManager : MonoBehaviour
     // ----------------------------------------------------------------
 
     private AudioSource _source;
-    private const string MusicVolumeKey = "MusicVolume";   // matches PauseMenu / MainMenu param
+    private bool        _silenced;          // true while a level track is playing
+    private const string MusicVolumeKey = "MusicVolume";   // matches AudioManager key
 
     // ----------------------------------------------------------------
     //  Unity messages
@@ -98,9 +99,6 @@ public class MenuMusicManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Re-read saved volume each time we land in a scene so the
-        // AudioSource volume stays in sync with whatever the player set.
-        _source.volume = PlayerPrefs.GetFloat(MusicVolumeKey, defaultVolume);
         UpdatePlayback(scene.buildIndex);
     }
 
@@ -144,14 +142,35 @@ public class MenuMusicManager : MonoBehaviour
     // ----------------------------------------------------------------
 
     /// <summary>
-    /// Change volume at runtime (e.g. in response to the Music slider).
-    /// Saves to PlayerPrefs so it persists across sessions.
+    /// Applies the music volume to the AudioSource.
+    /// Called by AudioManager whenever the music slider changes.
+    /// Has no effect while a level track has silenced this manager.
     /// </summary>
-    public void SetVolume(float linearVolume)
+    public void ApplyMusicVolume(float linearVolume)
     {
-        linearVolume = Mathf.Clamp01(linearVolume);
-        if (_source != null) _source.volume = linearVolume;
-        PlayerPrefs.SetFloat(MusicVolumeKey, linearVolume);
-        PlayerPrefs.Save();
+        if (_silenced || _source == null) return;
+        _source.volume = Mathf.Clamp01(linearVolume);
+    }
+
+    /// <summary>
+    /// Temporarily silences the AudioSource without touching PlayerPrefs.
+    /// Called by LevelMusicManager when a level track takes over.
+    /// </summary>
+    internal void SilenceForLevel()
+    {
+        _silenced = true;
+        if (_source != null) _source.volume = 0f;
+    }
+
+    /// <summary>
+    /// Restores the AudioSource volume from the player's saved preference.
+    /// Called by LevelMusicManager when returning to a non-level scene.
+    /// </summary>
+    internal void RestoreVolume()
+    {
+        _silenced = false;
+        if (_source != null)
+            _source.volume = Mathf.Clamp01(
+                PlayerPrefs.GetFloat(MusicVolumeKey, defaultVolume));
     }
 }

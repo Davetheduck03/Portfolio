@@ -1030,6 +1030,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3616786157875288513, guid: 200fb00e6fa97f2409474ee493c4d1ac, type: 3}
   m_PrefabInstance: {fileID: 168178931}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &174241674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 174241676}
+  - component: {fileID: 174241675}
+  m_Layer: 0
+  m_Name: LevelMusicSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &174241675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174241674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c5b0026607a3f54d966c417f0df62d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: b58948a58eb273541be0d7993b3734d4, type: 3}
+  volume: 0.6
+  mixerGroup: {fileID: 0}
+--- !u!4 &174241676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174241674}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &178334014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1268,17 +1315,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3c7b159e22a1844bb123f6c4c9fb332, type: 3}
---- !u!114 &201271674 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8351285993642705501, guid: c3c7b159e22a1844bb123f6c4c9fb332, type: 3}
-  m_PrefabInstance: {fileID: 201271673}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fccdc0a52ffb49048a4416ac4bb51eac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &206988897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5385,29 +5421,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2613017933662425293, guid: 509112fea4bd50242bd693b0282c2e0a, type: 3}
+      propertyPath: characters.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2613017933662425293, guid: 509112fea4bd50242bd693b0282c2e0a, type: 3}
       propertyPath: 'characters.Array.data[0]'
       value: 
       objectReference: {fileID: 1055891027}
     - target: {fileID: 2613017933662425293, guid: 509112fea4bd50242bd693b0282c2e0a, type: 3}
       propertyPath: 'characters.Array.data[1]'
       value: 
-      objectReference: {fileID: 201271674}
-    - target: {fileID: 5724317910250752523, guid: 509112fea4bd50242bd693b0282c2e0a, type: 3}
-      propertyPath: menuSceneIndex
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5724317910250752523, guid: 509112fea4bd50242bd693b0282c2e0a, type: 3}
-      propertyPath: nextSceneIndex
-      value: 5
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1347447894}
     - target: {fileID: 5724317910250752523, guid: 509112fea4bd50242bd693b0282c2e0a, type: 3}
       propertyPath: deathScreenCanvas
       value: 
       objectReference: {fileID: 570214424}
-    - target: {fileID: 5724317910250752523, guid: 509112fea4bd50242bd693b0282c2e0a, type: 3}
-      propertyPath: levelSelectSceneIndex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8871913537153040264, guid: 509112fea4bd50242bd693b0282c2e0a, type: 3}
       propertyPath: m_Name
       value: ManagerContainer
@@ -6946,6 +6974,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2745838685695881799, guid: c1d2f0c4cd65828419813b349ebda879, type: 3}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 165a46381a8ebfd4cb69cbac6aecc988, type: 3}
     - target: {fileID: 4930309946231154793, guid: c1d2f0c4cd65828419813b349ebda879, type: 3}
       propertyPath: m_Name
       value: TooDee
@@ -9520,6 +9552,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3616786157875288513, guid: 86cb2b7b06fcb8c42bfa0dcf0fd32748, type: 3}
   m_PrefabInstance: {fileID: 1322794218}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1347447894 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8351285993642705501, guid: c3c7b159e22a1844bb123f6c4c9fb332, type: 3}
+  m_PrefabInstance: {fileID: 201271673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fccdc0a52ffb49048a4416ac4bb51eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1351245504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14182,3 +14225,4 @@ SceneRoots:
   - {fileID: 1285992194}
   - {fileID: 1677766875}
   - {fileID: 956285868}
+  - {fileID: 174241676}
