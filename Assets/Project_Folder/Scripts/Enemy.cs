@@ -9,13 +9,19 @@ public class Enemy : MonoBehaviour
     // ----------------------------------------------------------------
 
     [Header("Side-Scroller — Patrol")]
-    [SerializeField] private float patrolSpeed      = 2f;
-    [Tooltip("Length of the horizontal ray cast ahead to detect walls.\n" +
-             "Should be roughly half the enemy's width + a small margin.")]
+    [SerializeField] private float patrolSpeed = 2f;
+
+    [Tooltip("Length of the horizontal ray cast ahead to detect walls.")]
     [SerializeField] private float wallCheckDistance = 0.6f;
-    [Tooltip("Layers that count as a wall for the direction-flip check.\n" +
-             "Usually the same mask as the player's Ground Layers.")]
+    [Tooltip("Layers that count as a wall (usually the same as Ground Layers).")]
     [SerializeField] private LayerMask wallLayers;
+
+    [Tooltip("How far ahead of the enemy the ledge-probe ray is placed.\n" +
+             "Roughly half the enemy's width works well.")]
+    [SerializeField] private float ledgeCheckDistance = 0.5f;
+    [Tooltip("How far downward the ledge-probe ray travels.\n" +
+             "A bit longer than the ground-ray length avoids false positives on small steps.")]
+    [SerializeField] private float ledgeCheckDepth = 0.6f;
 
     [Header("Side-Scroller — Chase")]
     [SerializeField] private float chaseSpeed     = 4f;
@@ -45,6 +51,12 @@ public class Enemy : MonoBehaviour
     [Tooltip("Snap movement to the nearest of 8 angles (N/NE/E/SE/S/SW/W/NW).\n" +
              "Gives a retro grid-movement feel.  Leave off for smooth pursuit.")]
     [SerializeField] private bool snapTo8Directions = false;
+
+    [Header("Key Seeking")]
+    [Tooltip("Assign a Key for this enemy to seek when the player is out of range.\n" +
+             "The enemy walks toward it at patrol speed; collection happens automatically\n" +
+             "when the enemy's collider enters the key's trigger.")]
+    [SerializeField] private Key keyTarget;
 
     [Header("Kill")]
     [Tooltip("Fired once each time the enemy first touches the active player.\n" +
@@ -77,7 +89,9 @@ public class Enemy : MonoBehaviour
     private Mode      _mode;
     private float     _velocityY;
     private bool      _isGrounded;
-    private float     _patrolDir    = 1f;   // +1 = right, -1 = left
+    private float     _patrolDir        = 1f;   // +1 = right, -1 = left
+    private float     _patrolFlipCooldown;      // prevents rapid double-flip on narrow platforms
+    private Key       _activeKeyTarget;         // runtime ref, cleared when key is collected
     private Vector2   _lastFacing   = Vector2.down; // preserves facing when stopped
     private bool      _contactKillFired;    // prevents the kill event firing every frame
     private bool      _dead;               // set on Die() so it only runs once
@@ -97,17 +111,29 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        if (CharacterManager.Instance == null) return;
+        // Key seeking — subscribe to clear the reference when the key is collected
+        // by anyone (player, another enemy, etc.) so we stop targeting a dead object.
+        if (keyTarget != null)
+        {
+            _activeKeyTarget = keyTarget;
+            _activeKeyTarget.OnKeyCollected += OnKeyCollectedByAnyone;
+        }
 
+        if (CharacterManager.Instance == null) return;
         CharacterManager.Instance.OnCharacterSwitched += HandleCharacterSwitched;
         RefreshMode(CharacterManager.Instance.ActiveCharacter);
     }
 
     void OnDestroy()
     {
+        if (_activeKeyTarget != null)
+            _activeKeyTarget.OnKeyCollected -= OnKeyCollectedByAnyone;
+
         if (CharacterManager.Instance != null)
             CharacterManager.Instance.OnCharacterSwitched -= HandleCharacterSwitched;
     }
+
+    private void OnKeyCollectedByAnyone(Key _) => _activeKeyTarget = null;
 
     void FixedUpdate()
     {
@@ -166,7 +192,7 @@ public class Enemy : MonoBehaviour
     {
         BaseCharacter player = CharacterManager.Instance?.ActiveCharacter;
 
-        // ── Chase ──────────────────────────────────────────────────────
+        // ── 1. Chase player ────────────────────────────────────────────
         if (player != null)
         {
             float dx   = player.transform.position.x - transform.position.x;
@@ -174,32 +200,80 @@ public class Enemy : MonoBehaviour
             float dist = Mathf.Sqrt(dx * dx + dy * dy);
 
             if (dist <= detectionRange)
-                return Mathf.Sign(dx) * chaseSpeed;
+            {
+                float chaseDir = Mathf.Sign(dx);
+
+                // If a wall or ledge is blocking the direct path, stop here —
+                // this is already the closest accessible point to the player.
+                if (WallInDirection(chaseDir) || (_isGrounded && LedgeInDirection(chaseDir)))
+                    return 0f;
+
+                return chaseDir * chaseSpeed;
+            }
         }
 
-        // ── Patrol: wall-bounce ────────────────────────────────────────
-        if (WallAhead())
-            _patrolDir = -_patrolDir;
+        // ── 2. Seek key ────────────────────────────────────────────────
+        if (_activeKeyTarget != null)
+        {
+            float dx      = _activeKeyTarget.transform.position.x - transform.position.x;
+            float seekDir = Mathf.Sign(dx);
+
+            // Only advance if the path is clear; stop (and wait) if blocked.
+            if (Mathf.Abs(dx) > 0.05f
+                && !WallInDirection(seekDir)
+                && !(_isGrounded && LedgeInDirection(seekDir)))
+                return seekDir * patrolSpeed;
+
+            return 0f;
+        }
+
+        // ── 3. Patrol: flip on wall OR ledge ──────────────────────────
+        if (_patrolFlipCooldown > 0f)
+        {
+            _patrolFlipCooldown -= Time.fixedDeltaTime;
+        }
+        else if (WallAhead() || (_isGrounded && LedgeAhead()))
+        {
+            _patrolDir          = -_patrolDir;
+            _patrolFlipCooldown = 0.25f;
+        }
 
         return _patrolDir * patrolSpeed;
     }
 
-    /// <summary>
-    /// Casts a short horizontal ray in the current patrol direction.
-    /// Returns true when a wall is close enough to warrant reversing.
-    /// </summary>
-    private bool WallAhead()
-    {
-        Vector3 origin = transform.position;
-        Vector3 dir    = new Vector3(_patrolDir, 0f, 0f);
+    // ── Direction-aware obstacle checks ──────────────────────────────────
 
+    /// <summary>Returns true when a wall collider is within wallCheckDistance
+    /// in the given horizontal direction (+1 right, -1 left).</summary>
+    private bool WallInDirection(float dir)
+    {
         return Physics.Raycast(
-            origin,
-            dir,
+            transform.position,
+            new Vector3(dir, 0f, 0f),
             wallCheckDistance,
             wallLayers,
             QueryTriggerInteraction.Ignore);
     }
+
+    /// <summary>Returns true when there is no ground beneath the foot-level
+    /// probe point displaced in the given direction — i.e. a ledge is ahead.</summary>
+    private bool LedgeInDirection(float dir)
+    {
+        float   feetOffsetY = groundRayHalfWidth - groundRayOriginOffset;
+        Vector3 probeOrigin = transform.position
+                            + new Vector3(dir * ledgeCheckDistance, -feetOffsetY, 0f);
+
+        return !Physics.Raycast(
+            probeOrigin,
+            Vector3.down,
+            groundRayLength + ledgeCheckDepth,
+            groundLayers,
+            QueryTriggerInteraction.Ignore);
+    }
+
+    // Convenience wrappers used by patrol (always check in the current patrol direction).
+    private bool WallAhead()  => WallInDirection(_patrolDir);
+    private bool LedgeAhead() => LedgeInDirection(_patrolDir);
 
     // ── Ground check & gravity ────────────────────────────────────────
 
@@ -315,10 +389,19 @@ public class Enemy : MonoBehaviour
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()
     {
-        // Wall-check ray
+        float dir = Application.isPlaying ? _patrolDir : 1f;
+
+        // Wall-check ray (yellow, horizontal)
         Gizmos.color = Color.yellow;
-        Vector3 rayDir = new Vector3(_patrolDir, 0f, 0f);
-        Gizmos.DrawRay(transform.position, rayDir * wallCheckDistance);
+        Gizmos.DrawRay(transform.position, new Vector3(dir, 0f, 0f) * wallCheckDistance);
+
+        // Ledge-probe ray (cyan) — originates at foot level, same Y as ground rays
+        float   feetOffsetY = groundRayHalfWidth - groundRayOriginOffset;
+        Vector3 probeOrigin = transform.position
+                            + new Vector3(dir * ledgeCheckDistance, -feetOffsetY, 0f);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(probeOrigin, 0.05f);
+        Gizmos.DrawRay(probeOrigin, Vector3.down * (groundRayLength + ledgeCheckDepth));
 
         // Detection range
         Gizmos.color = new Color(1f, 0.4f, 0f, 0.25f);
