@@ -104,25 +104,32 @@ public class CameraController : MonoBehaviour
 		_fromPosition   = cam.transform.position;
 		_fromRotation   = cam.transform.rotation;
 
-		// Run the whole lerp in perspective so position and rotation animate without
-		// the camera popping between two fundamentally different projection matrices.
-		if (_goingToTopDown && cam.orthographic)
+		// Always run the lerp in perspective so position and rotation animate cleanly.
+		// FOV branches on the *direction* of travel, never on cam.orthographic —
+		// that flag may already be false when the player spams Tab mid-transition,
+		// which was causing _toFOV to be set to the wide ortho-equivalent (~95°)
+		// instead of perspFOV, making the scene appear zoomed-out after rapid switches.
+
+		if (_goingToTopDown)
 		{
-			// 2D → TopDown: compute a starting FOV that approximates the on-screen
-			// half-height of the ortho view so the cut to perspective is barely visible.
-			float depth = Mathf.Max(Mathf.Abs(cam.transform.position.z), 0.1f);
-			_fromFOV = 2f * Mathf.Rad2Deg * Mathf.Atan(cam.orthographicSize / depth);
-			_toFOV   = perspFOV;
+			// 2D → TopDown: choose a starting FOV that matches the on-screen coverage
+			// of the ortho view so the switch to perspective is seamless.
+			// If already in perspective (spam mid-flight) just use the current FOV.
+			_fromFOV = cam.orthographic
+				? 2f * Mathf.Rad2Deg * Mathf.Atan(
+					cam.orthographicSize / Mathf.Max(Mathf.Abs(cam.transform.position.z), 0.1f))
+				: cam.fieldOfView;
+
+			_toFOV = perspFOV;   // always converge to the correct perspective FOV
 		}
 		else
 		{
-			// TopDown → 2D: start from the current FOV, and compute what FOV perspective
-			// would need at the 2D position to match orthoSize. Lerping toward this keeps
-			// the apparent scene coverage constant so the camera doesn't zoom in as it
-			// approaches, and the snap to orthographic at orthoFlipPoint is imperceptible.
+			// TopDown → 2D: start from the current FOV and lerp toward the ortho-
+			// equivalent at the 2D position so coverage stays constant right up to
+			// the snap at orthoFlipPoint.
 			_fromFOV = cam.fieldOfView;
-			float depth2D = Mathf.Max(Mathf.Abs(orthoPosition.z), 0.1f);
-			_toFOV   = 2f * Mathf.Rad2Deg * Mathf.Atan(orthoSize / depth2D);
+			_toFOV   = 2f * Mathf.Rad2Deg * Mathf.Atan(
+						orthoSize / Mathf.Max(Mathf.Abs(orthoPosition.z), 0.1f));
 		}
 
 		cam.orthographic = false;
